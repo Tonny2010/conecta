@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conecta Trampo - App</title>
-    <!-- Font Awesome para ícones -->
+    <title>Conecta Trampo - Cadastro Completo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -15,71 +14,132 @@
         }
 
         body {
-            background: #f3f2ef;
+            background: #f0f4f8;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             padding: 20px;
         }
 
         .app-container {
-            max-width: 820px;
+            max-width: 920px;
             width: 100%;
             background: white;
             border-radius: 32px;
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
             padding: 24px 28px;
             transition: all 0.2s;
         }
 
-        /* cabeçalho */
+        /* ===== LOGO E CABEÇALHO ===== */
         .app-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid #e0e0e0;
+            gap: 16px;
+            border-bottom: 2px solid #e8edf3;
             padding-bottom: 16px;
             margin-bottom: 24px;
+            flex-wrap: wrap;
         }
 
-        .app-header .logo-icon {
-            width: 42px;
-            height: 42px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
             background: #0a66c2;
-            border-radius: 10px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: 700;
-            font-size: 20px;
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: -1px;
+            box-shadow: 0 2px 8px rgba(10, 102, 194, 0.3);
         }
 
-        .app-header h1 {
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text .conecta {
             font-size: 26px;
-            font-weight: 600;
+            font-weight: 700;
             color: #0a66c2;
             letter-spacing: -0.5px;
         }
 
-        .app-header h1 span {
+        .logo-text .trampo {
+            font-size: 26px;
             font-weight: 300;
-            color: #666;
+            color: #2c3e50;
+            letter-spacing: -0.5px;
         }
 
-        .app-header .header-badge {
+        .slogan {
+            font-size: 11px;
+            font-weight: 500;
+            color: #5a6b7c;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            border-top: 1px solid #e8edf3;
+            padding-top: 3px;
+        }
+
+        .header-badge {
             margin-left: auto;
             background: #e8f0fe;
             color: #0a66c2;
-            padding: 4px 14px;
+            padding: 4px 16px;
             border-radius: 40px;
             font-size: 12px;
             font-weight: 600;
         }
 
-        /* páginas iniciais: escolha de perfil */
+        /* ===== PALETA DE CORES ===== */
+        :root {
+            --primary: #0a66c2;
+            --primary-light: #e8f0fe;
+            --secondary: #2c3e50;
+            --accent: #00a86b;
+            --gray-light: #f0f4f8;
+            --gray-border: #e0e6ed;
+            --text-dark: #1a2632;
+            --text-gray: #5a6b7c;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #084a8f;
+        }
+        .btn-success {
+            background: var(--accent);
+        }
+        .btn-success:hover {
+            background: #008f5a;
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary-light);
+        }
+
+        /* ===== PÁGINAS INICIAIS ===== */
         .page-selector {
             display: flex;
             flex-direction: column;
@@ -88,8 +148,8 @@
         }
 
         .selector-card {
-            background: #faf9f8;
-            border: 2px solid #e0e0e0;
+            background: var(--gray-light);
+            border: 2px solid var(--gray-border);
             border-radius: 20px;
             padding: 24px 28px;
             display: flex;
@@ -101,15 +161,15 @@
         }
 
         .selector-card:hover {
-            background: #eef3f8;
-            border-color: #0a66c2;
+            background: var(--primary-light);
+            border-color: var(--primary);
             box-shadow: 0 4px 12px rgba(10, 102, 194, 0.1);
             transform: translateY(-2px);
         }
 
         .selector-card .card-icon {
             font-size: 36px;
-            color: #0a66c2;
+            color: var(--primary);
             width: 60px;
             height: 60px;
             background: white;
@@ -123,18 +183,18 @@
         .selector-card .info h3 {
             font-size: 20px;
             font-weight: 600;
-            color: #191919;
+            color: var(--text-dark);
         }
 
         .selector-card .info p {
-            color: #555;
+            color: var(--text-gray);
             font-size: 15px;
             margin-top: 4px;
         }
 
         .selector-card .arrow-btn {
             margin-left: auto;
-            background: #0a66c2;
+            background: var(--primary);
             color: white;
             width: 44px;
             height: 44px;
@@ -155,20 +215,19 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            background: #0a66c2;
+            background: var(--primary);
             color: white;
             font-size: 11px;
-            padding: 2px 12px;
+            padding: 2px 14px;
             border-radius: 40px;
             font-weight: 600;
-            letter-spacing: 0.3px;
         }
 
         .tag-empresa {
-            background: #6c757d;
+            background: var(--secondary);
         }
 
-        /* formulário / questionário */
+        /* ===== FORMULÁRIO ===== */
         .form-section {
             display: none;
             animation: fadeIn 0.25s ease;
@@ -186,7 +245,7 @@
         .form-title {
             font-size: 24px;
             font-weight: 600;
-            color: #191919;
+            color: var(--text-dark);
             margin-bottom: 4px;
             display: flex;
             align-items: center;
@@ -194,14 +253,14 @@
         }
 
         .form-title i {
-            color: #0a66c2;
+            color: var(--primary);
             font-size: 24px;
         }
 
         .form-sub {
-            color: #555;
+            color: var(--text-gray);
             margin-bottom: 24px;
-            border-left: 4px solid #0a66c2;
+            border-left: 4px solid var(--primary);
             padding-left: 14px;
             font-size: 14px;
         }
@@ -225,29 +284,34 @@
         .form-group label {
             font-size: 13px;
             font-weight: 600;
-            color: #333;
+            color: var(--text-dark);
             letter-spacing: 0.3px;
         }
 
         .form-group label i {
-            color: #0a66c2;
+            color: var(--primary);
             width: 18px;
             font-size: 13px;
             margin-right: 4px;
         }
 
-        .form-group input, .form-group select {
+        .form-group input, .form-group select, .form-group textarea {
             padding: 10px 14px;
-            border: 1px solid #ccd0d4;
+            border: 1px solid var(--gray-border);
             border-radius: 12px;
             font-size: 14px;
             background: white;
             transition: 0.15s;
         }
 
-        .form-group input:focus, .form-group select:focus {
-            border-color: #0a66c2;
-            outline: 2px solid #0a66c240;
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: 2px solid rgba(10, 102, 194, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 60px;
         }
 
         .form-group .radio-group {
@@ -255,6 +319,7 @@
             gap: 24px;
             padding: 6px 0;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .form-group .radio-group label {
@@ -266,27 +331,31 @@
             cursor: pointer;
         }
 
-        .form-group .radio-group input[type="radio"] {
+        .form-group .radio-group input[type="radio"],
+        .form-group .radio-group input[type="checkbox"] {
             width: 18px;
             height: 18px;
-            accent-color: #0a66c2;
+            accent-color: var(--primary);
             cursor: pointer;
         }
 
-        .inline-group {
+        .form-group .checkbox-group {
             display: flex;
-            gap: 12px;
+            gap: 16px;
             flex-wrap: wrap;
+            padding: 6px 0;
         }
 
-        .inline-group .form-group {
-            flex: 1;
-            min-width: 120px;
+        .form-group .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 400;
+            font-size: 14px;
+            cursor: pointer;
         }
 
         .btn {
-            background: #0a66c2;
-            color: white;
             border: none;
             padding: 12px 32px;
             border-radius: 40px;
@@ -300,29 +369,8 @@
         }
 
         .btn:hover {
-            background: #084a8f;
-            box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
             transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #0a66c2;
-            border: 2px solid #0a66c2;
-        }
-
-        .btn-outline:hover {
-            background: #e8f0fe;
-            box-shadow: none;
-            transform: none;
-        }
-
-        .btn-success {
-            background: #0a8f5c;
-        }
-
-        .btn-success:hover {
-            background: #087a4e;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .btn-group {
@@ -340,25 +388,21 @@
 
         .divider {
             height: 1px;
-            background: #e0e0e0;
-            margin: 20px 0;
+            background: var(--gray-border);
+            margin: 24px 0;
         }
 
         .sub-section {
-            background: #faf9f8;
+            background: var(--gray-light);
             border-radius: 16px;
             padding: 16px 18px;
             margin-top: 12px;
-            border: 1px solid #eee;
-        }
-
-        .sub-section .form-grid {
-            margin-top: 8px;
+            border: 1px solid var(--gray-border);
         }
 
         .sub-section .sub-title {
             font-weight: 600;
-            color: #0a66c2;
+            color: var(--primary);
             margin-bottom: 6px;
             font-size: 15px;
         }
@@ -366,7 +410,7 @@
         .section-title {
             font-weight: 600;
             margin: 24px 0 12px;
-            color: #0a66c2;
+            color: var(--primary);
             font-size: 18px;
             display: flex;
             align-items: center;
@@ -381,7 +425,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #0a66c2;
+            color: var(--primary);
             font-weight: 600;
             cursor: pointer;
             margin-bottom: 16px;
@@ -392,11 +436,11 @@
         }
 
         .back-link:hover {
-            background: #e8f0fe;
+            background: var(--primary-light);
         }
 
         .toast-message {
-            background: #1a1a1a;
+            background: var(--text-dark);
             color: white;
             padding: 14px 24px;
             border-radius: 40px;
@@ -410,12 +454,13 @@
 
         .toast-message i {
             font-size: 20px;
+            color: var(--accent);
         }
 
         .hidden { display: none; }
 
-        .add-course-btn {
-            color: #0a66c2;
+        .add-btn {
+            color: var(--primary);
             cursor: pointer;
             font-weight: 500;
             padding: 8px 0;
@@ -425,67 +470,191 @@
             transition: 0.15s;
         }
 
-        .add-course-btn:hover {
+        .add-btn:hover {
             color: #084a8f;
-            transform: scale(1.02);
         }
 
-        /* responsividade */
-        @media (max-width: 640px) {
-            .app-container { padding: 16px; }
-            .form-grid { grid-template-columns: 1fr; }
-            .selector-card { flex-wrap: wrap; }
-            .selector-card .arrow-btn { margin-left: 0; width: 100%; border-radius: 40px; }
-            .app-header h1 { font-size: 20px; }
+        .remove-btn {
+            color: #d32f2f;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 4px;
+            display: inline-block;
         }
 
-        /* Estilo empresa */
-        .empresa-placeholder {
-            background: linear-gradient(135deg, #f0f5fa 0%, #e8f0fe 100%);
-            padding: 40px 24px;
-            border-radius: 24px;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .empresa-placeholder i {
-            font-size: 56px;
-            color: #0a66c2;
-            margin-bottom: 16px;
-        }
-
-        .empresa-placeholder h3 {
-            font-size: 22px;
-            color: #191919;
-            margin-bottom: 8px;
-        }
-
-        .empresa-placeholder p {
-            color: #555;
-            max-width: 400px;
-            margin: 0 auto 20px;
+        .remove-btn:hover {
+            text-decoration: underline;
         }
 
         .required-star {
             color: #d32f2f;
             margin-left: 2px;
         }
+
+        /* LGPD */
+        .lgpd-box {
+            background: var(--gray-light);
+            border-radius: 16px;
+            padding: 18px 20px;
+            border: 1px solid var(--gray-border);
+        }
+
+        .lgpd-box .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lgpd-box .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 400;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .lgpd-box .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        /* Área Administrativa */
+        .admin-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .admin-card {
+            background: var(--gray-light);
+            border-radius: 16px;
+            padding: 18px;
+            border: 1px solid var(--gray-border);
+            text-align: center;
+        }
+
+        .admin-card .number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .admin-card .label {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 4px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+        .filter-group input, .filter-group select {
+            padding: 8px 14px;
+            border: 1px solid var(--gray-border);
+            border-radius: 40px;
+            font-size: 14px;
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.15s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1da851;
+            transform: scale(1.02);
+        }
+
+        .experiencia-item, .curso-comp-item {
+            border-bottom: 1px dashed var(--gray-border);
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+
+        .experiencia-item:last-child, .curso-comp-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Upload de arquivos */
+        .upload-area {
+            border: 2px dashed var(--gray-border);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            background: var(--gray-light);
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .upload-area i {
+            font-size: 32px;
+            color: var(--primary);
+        }
+
+        .upload-area p {
+            color: var(--text-gray);
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .app-container { padding: 16px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .selector-card { flex-wrap: wrap; }
+            .selector-card .arrow-btn { margin-left: 0; width: 100%; border-radius: 40px; }
+            .logo-text .conecta, .logo-text .trampo { font-size: 20px; }
+            .admin-dashboard { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
 <body>
 <div class="app-container" id="appContainer">
-    <!-- cabeçalho -->
+    <!-- ===== CABEÇALHO COM LOGO ===== -->
     <div class="app-header">
-        <div class="logo-icon">CT</div>
-        <h1>Conecta <span>Trampo</span></h1>
+        <div class="logo-container">
+            <div class="logo-icon">CT</div>
+            <div class="logo-text">
+                <div>
+                    <span class="conecta">CONECTA</span>
+                    <span class="trampo">TRAMPO</span>
+                </div>
+                <div class="slogan">CONECTANDO TALENTOS A OPORTUNIDADES</div>
+            </div>
+        </div>
         <span class="header-badge"><i class="fas fa-users"></i> +2.500</span>
     </div>
 
-    <!-- PÁGINA 1: ESCOLHA -->
+    <!-- ===== PÁGINA 1: ESCOLHA ===== -->
     <div id="pageChoice">
         <div style="margin-bottom: 20px;">
-            <h2 style="font-weight: 400; font-size: 22px; color: #191919;">Comece sua jornada</h2>
-            <p style="color: #666; margin-top: 4px;">Escolha abaixo o perfil que melhor representa você</p>
+            <h2 style="font-weight: 400; font-size: 22px; color: var(--text-dark);">Comece sua jornada</h2>
+            <p style="color: var(--text-gray); margin-top: 4px;">Escolha abaixo o perfil que melhor representa você</p>
         </div>
         <div class="page-selector">
             <div class="selector-card" onclick="showForm('candidato')">
@@ -507,16 +676,16 @@
                 <span class="tag tag-empresa">RH</span>
             </div>
         </div>
-        <div style="margin-top: 24px; font-size: 13px; color: #888; text-align: center; border-top: 1px solid #eee; padding-top: 16px;">
-            <i class="fas fa-shield-alt" style="margin-right: 6px; color: #0a66c2;"></i> 
+        <div style="margin-top: 24px; font-size: 13px; color: var(--text-gray); text-align: center; border-top: 1px solid var(--gray-border); padding-top: 16px;">
+            <i class="fas fa-shield-alt" style="margin-right: 6px; color: var(--primary);"></i> 
             Seus dados estão seguros e protegidos
         </div>
     </div>
 
-    <!-- PÁGINA 2: FORMULÁRIO CANDIDATO -->
+    <!-- ===== PÁGINA 2: FORMULÁRIO CANDIDATO COMPLETO ===== -->
     <div id="formCandidato" class="form-section">
         <div class="back-link" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar para início</div>
-        <div class="form-title"><i class="fas fa-clipboard-list"></i> Cadastro de Candidato</div>
+        <div class="form-title"><i class="fas fa-clipboard-list"></i> Cadastro Completo</div>
         <div class="form-sub">Preencha todos os campos para finalizar seu cadastro no Conecta Trampo</div>
 
         <form id="candidateForm" onsubmit="event.preventDefault(); submitCandidate();">
@@ -577,6 +746,7 @@
                 </div>
             </div>
 
+            <!-- Contato -->
             <div class="section-title"><i class="fas fa-phone-alt"></i> Contato</div>
             <div class="form-grid">
                 <div class="form-group">
@@ -597,34 +767,16 @@
                 </div>
             </div>
 
+            <!-- Endereço -->
             <div class="section-title"><i class="fas fa-map-pin"></i> Endereço</div>
             <div class="form-grid">
-                <div class="form-group">
-                    <label>CEP</label>
-                    <input type="text" placeholder="00000-000">
-                </div>
-                <div class="form-group">
-                    <label>Rua</label>
-                    <input type="text" placeholder="Rua exemplo">
-                </div>
-                <div class="form-group">
-                    <label>Número</label>
-                    <input type="text" placeholder="123">
-                </div>
-                <div class="form-group">
-                    <label>Complemento</label>
-                    <input type="text" placeholder="Apto 101">
-                </div>
-                <div class="form-group">
-                    <label>Bairro</label>
-                    <input type="text" placeholder="Centro">
-                </div>
-                <div class="form-group">
-                    <label>Cidade</label>
-                    <input type="text" placeholder="São Paulo">
-                </div>
-                <div class="form-group">
-                    <label>Estado</label>
+                <div class="form-group"><label>CEP</label><input type="text" placeholder="00000-000"></div>
+                <div class="form-group"><label>Rua</label><input type="text" placeholder="Rua exemplo"></div>
+                <div class="form-group"><label>Número</label><input type="text" placeholder="123"></div>
+                <div class="form-group"><label>Complemento</label><input type="text" placeholder="Apto 101"></div>
+                <div class="form-group"><label>Bairro</label><input type="text" placeholder="Centro"></div>
+                <div class="form-group"><label>Cidade</label><input type="text" placeholder="São Paulo"></div>
+                <div class="form-group"><label>Estado</label>
                     <select>
                         <option value="">Selecione</option>
                         <option>SP</option><option>RJ</option><option>MG</option><option>PR</option>
@@ -637,34 +789,17 @@
             <!-- 2. OBJETIVO PROFISSIONAL -->
             <div class="section-title"><i class="fas fa-bullseye"></i> 2. OBJETIVO PROFISSIONAL</div>
             <div class="form-grid">
-                <div class="form-group">
-                    <label>Cargo principal</label>
-                    <input type="text" placeholder="Ex: Analista de Marketing">
-                </div>
-                <div class="form-group">
-                    <label>Cargo secundário</label>
-                    <input type="text" placeholder="Ex: Assistente de Vendas">
-                </div>
-                <div class="form-group">
-                    <label>Área de interesse</label>
+                <div class="form-group"><label>Cargo principal</label><input type="text" placeholder="Ex: Analista de Marketing"></div>
+                <div class="form-group"><label>Cargo secundário</label><input type="text" placeholder="Ex: Assistente de Vendas"></div>
+                <div class="form-group"><label>Área de interesse</label>
                     <select>
                         <option value="">Selecione</option>
-                        <option>Administrativo</option>
-                        <option>Financeiro</option>
-                        <option>Marketing</option>
-                        <option>Vendas</option>
-                        <option>Produção</option>
-                        <option>Logística</option>
-                        <option>Recursos Humanos</option>
-                        <option>Tecnologia</option>
-                        <option>Saúde</option>
-                        <option>Educação</option>
+                        <option>Administrativo</option><option>Financeiro</option><option>Marketing</option>
+                        <option>Vendas</option><option>Produção</option><option>Logística</option>
+                        <option>Recursos Humanos</option><option>Tecnologia</option><option>Saúde</option><option>Educação</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>Faixa salarial desejada</label>
-                    <input type="text" placeholder="Ex: R$ 4.000 - R$ 6.000">
-                </div>
+                <div class="form-group"><label>Faixa salarial desejada</label><input type="text" placeholder="Ex: R$ 4.000 - R$ 6.000"></div>
                 <div class="form-group full-width">
                     <label>Aceita negociar?</label>
                     <div class="radio-group">
@@ -672,13 +807,9 @@
                         <label><input type="radio" name="negociar" value="nao" checked> Não, valor fixo</label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Disponibilidade para início</label>
+                <div class="form-group"><label>Disponibilidade para início</label>
                     <select>
-                        <option>Imediata</option>
-                        <option>15 dias</option>
-                        <option>30 dias</option>
-                        <option>Outro prazo</option>
+                        <option>Imediata</option><option>15 dias</option><option>30 dias</option><option>Outro prazo</option>
                     </select>
                 </div>
             </div>
@@ -689,180 +820,112 @@
                 <label>Escolaridade</label>
                 <select>
                     <option value="">Selecione</option>
-                    <option>Ensino Fundamental</option>
-                    <option>Ensino Médio</option>
-                    <option>Técnico</option>
-                    <option>Superior Incompleto</option>
-                    <option>Superior Completo</option>
-                    <option>Pós-graduação</option>
-                    <option>Mestrado</option>
-                    <option>Doutorado</option>
+                    <option>Ensino Fundamental</option><option>Ensino Médio</option><option>Técnico</option>
+                    <option>Superior Incompleto</option><option>Superior Completo</option>
+                    <option>Pós-graduação</option><option>Mestrado</option><option>Doutorado</option>
                 </select>
             </div>
             
             <div class="sub-section">
                 <div class="sub-title"><i class="fas fa-book-open"></i> Curso 1</div>
                 <div class="form-grid">
-                    <div class="form-group">
-                        <label>Nome do curso</label>
-                        <input type="text" placeholder="Ex: Administração">
-                    </div>
-                    <div class="form-group">
-                        <label>Instituição</label>
-                        <input type="text" placeholder="Ex: USP">
-                    </div>
-                    <div class="form-group">
-                        <label>Data de início</label>
-                        <input type="date">
-                    </div>
-                    <div class="form-group">
-                        <label>Data de conclusão</label>
-                        <input type="date">
-                    </div>
-                    <div class="form-group">
-                        <label>Situação</label>
-                        <select>
-                            <option>Em andamento</option>
-                            <option>Concluído</option>
-                            <option>Trancado</option>
-                        </select>
+                    <div class="form-group"><label>Nome do curso</label><input type="text" placeholder="Ex: Administração"></div>
+                    <div class="form-group"><label>Instituição</label><input type="text" placeholder="Ex: USP"></div>
+                    <div class="form-group"><label>Data de início</label><input type="date"></div>
+                    <div class="form-group"><label>Data de conclusão</label><input type="date"></div>
+                    <div class="form-group"><label>Situação</label>
+                        <select><option>Em andamento</option><option>Concluído</option><option>Trancado</option></select>
                     </div>
                 </div>
             </div>
-            
             <div class="sub-section curso-extra" id="cursoExtra" style="display:none;">
                 <div class="sub-title"><i class="fas fa-book-open"></i> Curso 2</div>
                 <div class="form-grid">
-                    <div class="form-group">
-                        <label>Nome do curso</label>
-                        <input type="text" placeholder="Ex: Marketing Digital">
-                    </div>
-                    <div class="form-group">
-                        <label>Instituição</label>
-                        <input type="text" placeholder="Ex: FGV">
-                    </div>
-                    <div class="form-group">
-                        <label>Data de início</label>
-                        <input type="date">
-                    </div>
-                    <div class="form-group">
-                        <label>Data de conclusão</label>
-                        <input type="date">
-                    </div>
-                    <div class="form-group">
-                        <label>Situação</label>
-                        <select>
-                            <option>Em andamento</option>
-                            <option>Concluído</option>
-                            <option>Trancado</option>
-                        </select>
+                    <div class="form-group"><label>Nome do curso</label><input type="text" placeholder="Ex: Marketing Digital"></div>
+                    <div class="form-group"><label>Instituição</label><input type="text" placeholder="Ex: FGV"></div>
+                    <div class="form-group"><label>Data de início</label><input type="date"></div>
+                    <div class="form-group"><label>Data de conclusão</label><input type="date"></div>
+                    <div class="form-group"><label>Situação</label>
+                        <select><option>Em andamento</option><option>Concluído</option><option>Trancado</option></select>
                     </div>
                 </div>
             </div>
-            
             <div style="margin: 8px 0 4px;">
-                <span class="add-course-btn" onclick="document.getElementById('cursoExtra').style.display='block'; this.style.display='none';">
+                <span class="add-btn" onclick="document.getElementById('cursoExtra').style.display='block'; this.style.display='none';">
                     <i class="fas fa-plus-circle"></i> Adicionar outro curso
                 </span>
             </div>
 
-            <div class="btn-group">
-                <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Enviar Cadastro</button>
-                <button type="button" class="btn btn-outline" onclick="goHome()"><i class="fas fa-times"></i> Cancelar</button>
+            <!-- 4. EXPERIÊNCIA PROFISSIONAL -->
+            <div class="section-title"><i class="fas fa-briefcase"></i> 4. EXPERIÊNCIA PROFISSIONAL</div>
+            <div id="experienciasContainer">
+                <div class="experiencia-item">
+                    <div class="form-grid">
+                        <div class="form-group"><label>Nome da empresa</label><input type="text" placeholder="Ex: Empresa X"></div>
+                        <div class="form-group"><label>Cargo</label><input type="text" placeholder="Ex: Analista"></div>
+                        <div class="form-group"><label>Data de admissão</label><input type="date"></div>
+                        <div class="form-group"><label>Data de saída</label><input type="date"></div>
+                        <div class="form-group"><label>Último salário</label><input type="text" placeholder="R$ 0,00"></div>
+                        <div class="form-group"><label>Motivo da saída</label><input type="text" placeholder="Ex: Busca de novos desafios"></div>
+                        <div class="form-group full-width">
+                            <label>Atividades desenvolvidas</label>
+                            <textarea placeholder="Descreva suas principais atividades..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Atualmente trabalhando?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="trabalhando_atual" value="sim"> Sim</label>
+                                <label><input type="radio" name="trabalhando_atual" value="nao" checked> Não</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="formFeedback" style="margin-top: 16px;"></div>
-        </form>
-    </div>
-
-    <!-- PÁGINA EMPRESA -->
-    <div id="formEmpresa" class="form-section">
-        <div class="back-link" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar para início</div>
-        <div class="form-title"><i class="fas fa-building"></i> Área da Empresa</div>
-        <div class="form-sub">Gerencie suas vagas e encontre os melhores talentos</div>
-        
-        <div class="empresa-placeholder">
-            <i class="fas fa-briefcase"></i>
-            <h3>Publicação de Vagas</h3>
-            <p>Em breve você poderá criar e gerenciar vagas, visualizar candidatos e muito mais.</p>
-            <button class="btn" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar ao início</button>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;">
-            <div style="background: #faf9f8; padding: 16px; border-radius: 16px; border: 1px solid #eee; text-align: center;">
-                <i class="fas fa-file-alt" style="font-size: 28px; color:#0a66c2;"></i>
-                <div style="font-weight: 600; margin-top: 6px;">0 vagas publicadas</div>
+            <div style="margin: 8px 0 4px;">
+                <span class="add-btn" onclick="adicionarExperiencia()">
+                    <i class="fas fa-plus-circle"></i> Adicionar outra experiência
+                </span>
             </div>
-            <div style="background: #faf9f8; padding: 16px; border-radius: 16px; border: 1px solid #eee; text-align: center;">
-                <i class="fas fa-users" style="font-size: 28px; color:#0a66c2;"></i>
-                <div style="font-weight: 600; margin-top: 6px;">0 candidatos</div>
+
+            <!-- 5. CURSOS COMPLEMENTARES -->
+            <div class="section-title"><i class="fas fa-certificate"></i> 5. CURSOS COMPLEMENTARES</div>
+            <div id="cursosCompContainer">
+                <div class="curso-comp-item">
+                    <div class="form-grid">
+                        <div class="form-group"><label>Nome do curso</label><input type="text" placeholder="Ex: Excel Avançado"></div>
+                        <div class="form-group"><label>Instituição</label><input type="text" placeholder="Ex: SENAI"></div>
+                        <div class="form-group"><label>Carga horária</label><input type="text" placeholder="Ex: 40h"></div>
+                        <div class="form-group"><label>Ano de conclusão</label><input type="text" placeholder="Ex: 2023"></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    function showForm(type) {
-        document.getElementById('pageChoice').style.display = 'none';
-        if (type === 'candidato') {
-            document.getElementById('formCandidato').classList.add('active');
-            document.getElementById('formCandidato').style.display = 'block';
-            document.getElementById('formEmpresa').style.display = 'none';
-            document.getElementById('formEmpresa').classList.remove('active');
-        } else {
-            document.getElementById('formEmpresa').classList.add('active');
-            document.getElementById('formEmpresa').style.display = 'block';
-            document.getElementById('formCandidato').style.display = 'none';
-            document.getElementById('formCandidato').classList.remove('active');
-        }
-        // Scroll para o topo
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function goHome() {
-        document.getElementById('pageChoice').style.display = 'block';
-        document.getElementById('formCandidato').style.display = 'none';
-        document.getElementById('formCandidato').classList.remove('active');
-        document.getElementById('formEmpresa').style.display = 'none';
-        document.getElementById('formEmpresa').classList.remove('active');
-        document.getElementById('formFeedback').innerHTML = '';
-        // Mostrar novamente o botão de adicionar curso se estava escondido
-        document.querySelector('.add-course-btn').style.display = 'inline-flex';
-        document.getElementById('cursoExtra').style.display = 'none';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function submitCandidate() {
-        const feedback = document.getElementById('formFeedback');
-        feedback.innerHTML = `
-            <div class="toast-message">
-                <i class="fas fa-check-circle" style="color: #4caf50;"></i>
-                Cadastro enviado com sucesso! Em breve entraremos em contato.
+            <div style="margin: 8px 0 4px;">
+                <span class="add-btn" onclick="adicionarCursoComplementar()">
+                    <i class="fas fa-plus-circle"></i> Adicionar outro curso
+                </span>
             </div>
-        `;
-        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        // Reseta após 5 segundos (opcional)
-        setTimeout(() => {
-            // Mantém a mensagem
-        }, 5000);
-    }
 
-    // PCD comportamento
-    document.querySelectorAll('input[name="pcd"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-            const pcdDesc = document.getElementById('pcdDesc');
-            if (this.value === 'sim') {
-                pcdDesc.style.display = 'block';
-            } else {
-                pcdDesc.style.display = 'none';
-            }
-        });
-    });
-
-    // Iniciar com página choice visível
-    document.addEventListener('DOMContentLoaded', function() {
-        goHome();
-    });
-</script>
-</body>
-</html>
+            <!-- 6. HABILIDADES -->
+            <div class="section-title"><i class="fas fa-cogs"></i> 6. HABILIDADES</div>
+            <div class="form-group">
+                <label>Informática - Nível</label>
+                <select>
+                    <option>Básico</option><option>Intermediário</option><option>Avançado</option>
+                </select>
+            </div>
+            <div class="form-group full-width">
+                <label>Itens de Informática</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> Pacote Office</label>
+                    <label><input type="checkbox"> Excel</label>
+                    <label><input type="checkbox"> Word</label>
+                    <label><input type="checkbox"> PowerPoint</label>
+                    <label><input type="checkbox"> Canva</label>
+                    <label><input type="checkbox"> Sistemas ERP</label>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label>Idiomas</label>
+                <div class="form-grid">
+                    <div class="form-group"><label>Idioma</label><input type="text" placeholder="Ex: Inglês"></div>
+                    <div class
