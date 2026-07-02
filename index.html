@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conecta Trampo - Cadastro Completo</title>
+    <title>Conecta Trampo - Sistema de Match</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -101,6 +101,9 @@
             --text-dark: #1a2632;
             --text-gray: #5a6b7c;
             --accent: #00a86b;
+            --match-high: #00a86b;
+            --match-medium: #f9a825;
+            --match-low: #e53935;
         }
 
         /* PÁGINA DE ESCOLHA */
@@ -349,6 +352,14 @@
             background: #008f5a;
         }
 
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #084a8f;
+        }
+
         .btn-outline {
             background: transparent;
             color: var(--primary);
@@ -456,6 +467,13 @@
             color: var(--accent);
         }
 
+        .toast-error {
+            background: #d32f2f !important;
+        }
+        .toast-error i {
+            color: white !important;
+        }
+
         .experiencia-item,
         .curso-comp-item {
             border-bottom: 1px dashed var(--gray-border);
@@ -480,33 +498,6 @@
 
         .remove-btn:hover {
             text-decoration: underline;
-        }
-
-        /* Área Empresa */
-        .empresa-placeholder {
-            background: linear-gradient(135deg, #f0f5fa, #e8f0fe);
-            padding: 40px 24px;
-            border-radius: 24px;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .empresa-placeholder i {
-            font-size: 56px;
-            color: var(--primary);
-            margin-bottom: 16px;
-        }
-
-        .empresa-placeholder h3 {
-            font-size: 22px;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-        }
-
-        .empresa-placeholder p {
-            color: var(--text-gray);
-            max-width: 400px;
-            margin: 0 auto 20px;
         }
 
         /* LGPD */
@@ -565,68 +556,157 @@
             font-size: 14px;
         }
 
-        /* Admin */
-        .admin-dashboard {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 16px;
-            margin: 16px 0;
-        }
-
-        .admin-card {
+        /* RESULTADOS DA BUSCA */
+        .resultado-card {
             background: var(--gray-light);
             border-radius: 16px;
-            padding: 18px;
+            padding: 20px;
             border: 1px solid var(--gray-border);
-            text-align: center;
-        }
-
-        .admin-card .number {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .admin-card .label {
-            font-size: 13px;
-            color: var(--text-gray);
-            margin-top: 4px;
-        }
-
-        .filter-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 12px 0;
-        }
-
-        .filter-group input,
-        .filter-group select {
-            padding: 8px 14px;
-            border: 1px solid var(--gray-border);
-            border-radius: 40px;
-            font-size: 14px;
-            flex: 1;
-            min-width: 140px;
-        }
-
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            margin-bottom: 16px;
             transition: 0.15s;
         }
 
-        .whatsapp-btn:hover {
+        .resultado-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .resultado-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .resultado-header .nome {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .resultado-header .match {
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+        }
+
+        .match-alta {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .match-media {
+            background: #fff8e1;
+            color: #f57f17;
+        }
+
+        .match-baixa {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .resultado-detalhes {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--gray-border);
+        }
+
+        .resultado-detalhes .info-item {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .resultado-detalhes .info-item strong {
+            color: var(--text-dark);
+            display: block;
+            font-size: 14px;
+        }
+
+        .resultado-actions {
+            margin-top: 12px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-small {
+            padding: 6px 16px;
+            font-size: 13px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.15s;
+        }
+
+        .btn-small-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-small-whatsapp:hover {
             background: #1da851;
+        }
+
+        .btn-small-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-small-outline:hover {
+            background: var(--primary-light);
+        }
+
+        .sem-resultados {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-gray);
+        }
+
+        .sem-resultados i {
+            font-size: 48px;
+            opacity: 0.3;
+            margin-bottom: 16px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 40px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .progress-bar .progress-fill {
+            height: 100%;
+            border-radius: 40px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-fill.alta {
+            background: var(--match-high);
+        }
+        .progress-fill.media {
+            background: var(--match-medium);
+        }
+        .progress-fill.baixa {
+            background: var(--match-low);
+        }
+
+        /* Esconder etapas da empresa */
+        .etapa-empresa {
+            display: none;
+        }
+
+        .etapa-empresa.ativa {
+            display: block;
         }
 
         @media (max-width: 640px) {
@@ -648,6 +728,9 @@
             .logo-text .trampo {
                 font-size: 20px;
             }
+            .resultado-detalhes {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
@@ -665,7 +748,7 @@
                     <div class="slogan">CONECTANDO TALENTOS A OPORTUNIDADES</div>
                 </div>
             </div>
-            <span class="header-badge"><i class="fas fa-users"></i> +2.500</span>
+            <span class="header-badge"><i class="fas fa-users"></i> <span id="totalCandidatos">0</span> candidatos</span>
         </div>
 
         <!-- PÁGINA 1: ESCOLHA -->
@@ -688,7 +771,7 @@
                     <div class="card-icon"><i class="fas fa-building"></i></div>
                     <div class="info">
                         <h3>Sou Empresa</h3>
-                        <p>Quero publicar vagas e encontrar talentos</p>
+                        <p>Quero encontrar candidatos ideais</p>
                     </div>
                     <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
                     <span class="tag tag-empresa">RH</span>
@@ -703,53 +786,34 @@
         <!-- PÁGINA 2: FORMULÁRIO CANDIDATO -->
         <div id="formCandidato" class="form-section">
             <div class="back-link" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar para início</div>
-            <div class="form-title"><i class="fas fa-clipboard-list"></i> Cadastro Completo</div>
-            <div class="form-sub">Preencha todos os campos para finalizar seu cadastro no Conecta Trampo</div>
+            <div class="form-title"><i class="fas fa-clipboard-list"></i> Cadastro de Candidato</div>
+            <div class="form-sub">Preencha todos os campos para entrar no banco de talentos</div>
 
             <form id="candidateForm" onsubmit="event.preventDefault(); submitCandidate();">
                 <!-- 1. DADOS PESSOAIS -->
-                <div class="section-title"><i class="fas fa-address-card"></i> 1. DADOS PESSOAIS</div>
+                <div class="section-title"><i class="fas fa-address-card"></i> DADOS PESSOAIS</div>
                 <div class="form-grid">
                     <div class="form-group full-width">
                         <label><i class="fas fa-user"></i> Nome completo <span class="required-star">*</span></label>
-                        <input type="text" placeholder="Ex: Ana Carolina Silva" required>
+                        <input type="text" id="candNome" placeholder="Ex: Ana Carolina Silva" required>
                     </div>
                     <div class="form-group">
                         <label><i class="fas fa-id-card"></i> CPF</label>
-                        <input type="text" placeholder="000.000.000-00">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-id-card"></i> RG</label>
-                        <input type="text" placeholder="RG">
+                        <input type="text" id="candCpf" placeholder="000.000.000-00">
                     </div>
                     <div class="form-group">
                         <label><i class="fas fa-calendar-alt"></i> Data de nascimento</label>
-                        <input type="date">
+                        <input type="date" id="candNascimento">
                     </div>
                     <div class="form-group">
                         <label><i class="fas fa-venus-mars"></i> Sexo</label>
-                        <select>
+                        <select id="candSexo">
                             <option value="">Selecione</option>
                             <option>Feminino</option>
                             <option>Masculino</option>
                             <option>Outro</option>
                             <option>Prefiro não dizer</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-heart"></i> Estado civil</label>
-                        <select>
-                            <option value="">Selecione</option>
-                            <option>Solteiro(a)</option>
-                            <option>Casado(a)</option>
-                            <option>Divorciado(a)</option>
-                            <option>Viúvo(a)</option>
-                            <option>União estável</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-globe"></i> Nacionalidade</label>
-                        <input type="text" placeholder="Brasileira">
                     </div>
                     <div class="form-group full-width">
                         <label><i class="fas fa-wheelchair"></i> Possui deficiência (PCD)?</label>
@@ -760,7 +824,7 @@
                     </div>
                     <div class="form-group full-width" id="pcdDesc" style="display:none;">
                         <label>Se sim, qual deficiência?</label>
-                        <input type="text" placeholder="Ex: visual, motora, auditiva...">
+                        <input type="text" id="candPcd" placeholder="Ex: visual, motora, auditiva...">
                     </div>
                 </div>
 
@@ -769,33 +833,20 @@
                 <div class="form-grid">
                     <div class="form-group">
                         <label><i class="fas fa-envelope"></i> E-mail <span class="required-star">*</span></label>
-                        <input type="email" placeholder="email@exemplo.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-phone"></i> Telefone celular</label>
-                        <input type="text" placeholder="(11) 99999-9999">
+                        <input type="email" id="candEmail" placeholder="email@exemplo.com" required>
                     </div>
                     <div class="form-group">
                         <label><i class="fab fa-whatsapp"></i> WhatsApp</label>
-                        <input type="text" placeholder="(11) 98888-8888">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-phone"></i> Telefone alternativo</label>
-                        <input type="text" placeholder="(11) 3333-3333">
+                        <input type="text" id="candWhatsapp" placeholder="(11) 98888-8888">
                     </div>
                 </div>
 
                 <!-- Endereço -->
                 <div class="section-title"><i class="fas fa-map-pin"></i> Endereço</div>
                 <div class="form-grid">
-                    <div class="form-group"><label>CEP</label><input type="text" placeholder="00000-000"></div>
-                    <div class="form-group"><label>Rua</label><input type="text" placeholder="Rua exemplo"></div>
-                    <div class="form-group"><label>Número</label><input type="text" placeholder="123"></div>
-                    <div class="form-group"><label>Complemento</label><input type="text" placeholder="Apto 101"></div>
-                    <div class="form-group"><label>Bairro</label><input type="text" placeholder="Centro"></div>
-                    <div class="form-group"><label>Cidade</label><input type="text" placeholder="São Paulo"></div>
+                    <div class="form-group"><label>Cidade</label><input type="text" id="candCidade" placeholder="São Paulo"></div>
                     <div class="form-group"><label>Estado</label>
-                        <select>
+                        <select id="candEstado">
                             <option value="">Selecione</option>
                             <option>SP</option><option>RJ</option><option>MG</option><option>PR</option>
                             <option>SC</option><option>RS</option><option>BA</option><option>PE</option>
@@ -805,38 +856,44 @@
                 </div>
 
                 <!-- 2. OBJETIVO PROFISSIONAL -->
-                <div class="section-title"><i class="fas fa-bullseye"></i> 2. OBJETIVO PROFISSIONAL</div>
+                <div class="section-title"><i class="fas fa-bullseye"></i> OBJETIVO PROFISSIONAL</div>
                 <div class="form-grid">
-                    <div class="form-group"><label>Cargo principal</label><input type="text" placeholder="Ex: Analista de Marketing"></div>
-                    <div class="form-group"><label>Cargo secundário</label><input type="text" placeholder="Ex: Assistente de Vendas"></div>
+                    <div class="form-group"><label>Cargo desejado</label><input type="text" id="candCargo" placeholder="Ex: Analista de Marketing"></div>
                     <div class="form-group"><label>Área de interesse</label>
-                        <select>
+                        <select id="candArea">
                             <option value="">Selecione</option>
                             <option>Administrativo</option><option>Financeiro</option><option>Marketing</option>
                             <option>Vendas</option><option>Produção</option><option>Logística</option>
                             <option>Recursos Humanos</option><option>Tecnologia</option><option>Saúde</option><option>Educação</option>
                         </select>
                     </div>
-                    <div class="form-group"><label>Faixa salarial desejada</label><input type="text" placeholder="Ex: R$ 4.000 - R$ 6.000"></div>
-                    <div class="form-group full-width">
-                        <label>Aceita negociar?</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="negociar" value="sim"> Sim, aceito negociar</label>
-                            <label><input type="radio" name="negociar" value="nao" checked> Não, valor fixo</label>
-                        </div>
-                    </div>
+                    <div class="form-group"><label>Faixa salarial desejada</label><input type="text" id="candSalario" placeholder="Ex: R$ 4.000 - R$ 6.000"></div>
                     <div class="form-group"><label>Disponibilidade para início</label>
-                        <select>
+                        <select id="candDisponibilidade">
                             <option>Imediata</option><option>15 dias</option><option>30 dias</option><option>Outro prazo</option>
                         </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Está disponível para viagens?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="candViagens" value="sim"> Sim</label>
+                            <label><input type="radio" name="candViagens" value="nao" checked> Não</label>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Aceita mudança de cidade?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="candMudanca" value="sim"> Sim</label>
+                            <label><input type="radio" name="candMudanca" value="nao" checked> Não</label>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 3. FORMAÇÃO ACADÊMICA -->
-                <div class="section-title"><i class="fas fa-graduation-cap"></i> 3. FORMAÇÃO ACADÊMICA</div>
+                <div class="section-title"><i class="fas fa-graduation-cap"></i> FORMAÇÃO ACADÊMICA</div>
                 <div class="form-group">
                     <label>Escolaridade</label>
-                    <select>
+                    <select id="candEscolaridade">
                         <option value="">Selecione</option>
                         <option>Ensino Fundamental</option><option>Ensino Médio</option><option>Técnico</option>
                         <option>Superior Incompleto</option><option>Superior Completo</option>
@@ -844,280 +901,69 @@
                     </select>
                 </div>
 
-                <div class="sub-section">
-                    <div class="sub-title"><i class="fas fa-book-open"></i> Curso 1</div>
-                    <div class="form-grid">
-                        <div class="form-group"><label>Nome do curso</label><input type="text" placeholder="Ex: Administração"></div>
-                        <div class="form-group"><label>Instituição</label><input type="text" placeholder="Ex: USP"></div>
-                        <div class="form-group"><label>Data de início</label><input type="date"></div>
-                        <div class="form-group"><label>Data de conclusão</label><input type="date"></div>
-                        <div class="form-group"><label>Situação</label>
-                            <select><option>Em andamento</option><option>Concluído</option><option>Trancado</option></select>
-                        </div>
-                    </div>
-                </div>
-                <div class="sub-section curso-extra" id="cursoExtra" style="display:none;">
-                    <div class="sub-title"><i class="fas fa-book-open"></i> Curso 2</div>
-                    <div class="form-grid">
-                        <div class="form-group"><label>Nome do curso</label><input type="text" placeholder="Ex: Marketing Digital"></div>
-                        <div class="form-group"><label>Instituição</label><input type="text" placeholder="Ex: FGV"></div>
-                        <div class="form-group"><label>Data de início</label><input type="date"></div>
-                        <div class="form-group"><label>Data de conclusão</label><input type="date"></div>
-                        <div class="form-group"><label>Situação</label>
-                            <select><option>Em andamento</option><option>Concluído</option><option>Trancado</option></select>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin: 8px 0 4px;">
-                    <span class="add-btn" onclick="document.getElementById('cursoExtra').style.display='block'; this.style.display='none';">
-                        <i class="fas fa-plus-circle"></i> Adicionar outro curso
-                    </span>
-                </div>
-
-                <!-- 4. EXPERIÊNCIA PROFISSIONAL -->
-                <div class="section-title"><i class="fas fa-briefcase"></i> 4. EXPERIÊNCIA PROFISSIONAL</div>
-                <div id="experienciasContainer">
-                    <div class="experiencia-item">
-                        <div class="form-grid">
-                            <div class="form-group"><label>Nome da empresa</label><input type="text" placeholder="Ex: Empresa X"></div>
-                            <div class="form-group"><label>Cargo</label><input type="text" placeholder="Ex: Analista"></div>
-                            <div class="form-group"><label>Data de admissão</label><input type="date"></div>
-                            <div class="form-group"><label>Data de saída</label><input type="date"></div>
-                            <div class="form-group"><label>Último salário</label><input type="text" placeholder="R$ 0,00"></div>
-                            <div class="form-group"><label>Motivo da saída</label><input type="text" placeholder="Ex: Busca de novos desafios"></div>
-                            <div class="form-group full-width">
-                                <label>Atividades desenvolvidas</label>
-                                <textarea placeholder="Descreva suas principais atividades..."></textarea>
-                            </div>
-                            <div class="form-group full-width">
-                                <label>Atualmente trabalhando?</label>
-                                <div class="radio-group">
-                                    <label><input type="radio" name="trabalhando_atual" value="sim"> Sim</label>
-                                    <label><input type="radio" name="trabalhando_atual" value="nao" checked> Não</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin: 8px 0 4px;">
-                    <span class="add-btn" onclick="adicionarExperiencia()">
-                        <i class="fas fa-plus-circle"></i> Adicionar outra experiência
-                    </span>
-                </div>
-
-                <!-- 5. CURSOS COMPLEMENTARES -->
-                <div class="section-title"><i class="fas fa-certificate"></i> 5. CURSOS COMPLEMENTARES</div>
-                <div id="cursosCompContainer">
-                    <div class="curso-comp-item">
-                        <div class="form-grid">
-                            <div class="form-group"><label>Nome do curso</label><input type="text" placeholder="Ex: Excel Avançado"></div>
-                            <div class="form-group"><label>Instituição</label><input type="text" placeholder="Ex: SENAI"></div>
-                            <div class="form-group"><label>Carga horária</label><input type="text" placeholder="Ex: 40h"></div>
-                            <div class="form-group"><label>Ano de conclusão</label><input type="text" placeholder="Ex: 2023"></div>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin: 8px 0 4px;">
-                    <span class="add-btn" onclick="adicionarCursoComplementar()">
-                        <i class="fas fa-plus-circle"></i> Adicionar outro curso
-                    </span>
-                </div>
-
-                <!-- 6. HABILIDADES -->
-                <div class="section-title"><i class="fas fa-cogs"></i> 6. HABILIDADES</div>
+                <!-- 4. EXPERIÊNCIA -->
+                <div class="section-title"><i class="fas fa-briefcase"></i> EXPERIÊNCIA PROFISSIONAL</div>
                 <div class="form-group">
-                    <label>Informática - Nível</label>
-                    <select>
+                    <label>Tempo de experiência (anos)</label>
+                    <select id="candExperiencia">
+                        <option value="0">Menos de 1 ano</option>
+                        <option value="1">1 ano</option>
+                        <option value="2">2 anos</option>
+                        <option value="3">3 anos</option>
+                        <option value="4">4 anos</option>
+                        <option value="5">5 anos</option>
+                        <option value="6">6 anos ou mais</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label>Último cargo/empresa</label>
+                    <input type="text" id="candUltimoCargo" placeholder="Ex: Analista na Empresa X">
+                </div>
+
+                <!-- 5. HABILIDADES -->
+                <div class="section-title"><i class="fas fa-cogs"></i> HABILIDADES</div>
+                <div class="form-group">
+                    <label>Nível de Informática</label>
+                    <select id="candInfo">
                         <option>Básico</option><option>Intermediário</option><option>Avançado</option>
                     </select>
                 </div>
                 <div class="form-group full-width">
-                    <label>Itens de Informática</label>
+                    <label>Ferramentas que domina</label>
                     <div class="checkbox-group">
-                        <label><input type="checkbox"> Pacote Office</label>
-                        <label><input type="checkbox"> Excel</label>
-                        <label><input type="checkbox"> Word</label>
-                        <label><input type="checkbox"> PowerPoint</label>
-                        <label><input type="checkbox"> Canva</label>
-                        <label><input type="checkbox"> Sistemas ERP</label>
+                        <label><input type="checkbox" value="Pacote Office"> Pacote Office</label>
+                        <label><input type="checkbox" value="Excel"> Excel</label>
+                        <label><input type="checkbox" value="Word"> Word</label>
+                        <label><input type="checkbox" value="PowerPoint"> PowerPoint</label>
+                        <label><input type="checkbox" value="Canva"> Canva</label>
+                        <label><input type="checkbox" value="Sistemas ERP"> Sistemas ERP</label>
+                        <label><input type="checkbox" value="Photoshop"> Photoshop</label>
+                        <label><input type="checkbox" value="Illustrator"> Illustrator</label>
                     </div>
                 </div>
                 <div class="form-group full-width">
                     <label>Idiomas</label>
                     <div class="form-grid">
-                        <div class="form-group"><label>Idioma</label><input type="text" placeholder="Ex: Inglês"></div>
-                        <div class="form-group"><label>Nível de leitura</label>
-                            <select><option>Básico</option><option>Intermediário</option><option>Avançado</option><option>Fluente</option></select>
-                        </div>
-                        <div class="form-group"><label>Nível de escrita</label>
-                            <select><option>Básico</option><option>Intermediário</option><option>Avançado</option><option>Fluente</option></select>
-                        </div>
-                        <div class="form-group"><label>Nível de conversação</label>
-                            <select><option>Básico</option><option>Intermediário</option><option>Avançado</option><option>Fluente</option></select>
+                        <div class="form-group"><label>Idioma</label><input type="text" id="candIdioma" placeholder="Ex: Inglês"></div>
+                        <div class="form-group"><label>Nível</label>
+                            <select id="candIdiomaNivel">
+                                <option>Básico</option><option>Intermediário</option><option>Avançado</option><option>Fluente</option>
+                            </select>
                         </div>
                     </div>
                 </div>
 
-                <!-- 7. DISPONIBILIDADE -->
-                <div class="section-title"><i class="fas fa-clock"></i> 7. DISPONIBILIDADE</div>
-                <div class="form-grid">
-                    <div class="form-group full-width">
-                        <label>Horário</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox"> Comercial</label>
-                            <label><input type="checkbox"> Turno manhã</label>
-                            <label><input type="checkbox"> Turno tarde</label>
-                            <label><input type="checkbox"> Turno noite</label>
-                            <label><input type="checkbox"> Escala 12x36</label>
-                            <label><input type="checkbox"> Qualquer horário</label>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>Trabalho</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox"> Presencial</label>
-                            <label><input type="checkbox"> Híbrido</label>
-                            <label><input type="checkbox"> Home Office</label>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>Viagens</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="viagens" value="sim"> Sim</label>
-                            <label><input type="radio" name="viagens" value="nao" checked> Não</label>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>Mudança de Cidade</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="mudanca" value="sim"> Sim</label>
-                            <label><input type="radio" name="mudanca" value="nao" checked> Não</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 8. INFORMAÇÕES ADICIONAIS -->
-                <div class="section-title"><i class="fas fa-info-circle"></i> 8. INFORMAÇÕES ADICIONAIS</div>
-                <div class="form-grid">
-                    <div class="form-group full-width">
-                        <label>CNH</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="cnh" value="sim" onchange="document.getElementById('cnhCategoria').style.display='block'"> Possui</label>
-                            <label><input type="radio" name="cnh" value="nao" onchange="document.getElementById('cnhCategoria').style.display='none'" checked> Não possui</label>
-                        </div>
-                    </div>
-                    <div class="form-group full-width" id="cnhCategoria" style="display:none;">
-                        <label>Categoria:</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox"> A</label>
-                            <label><input type="checkbox"> B</label>
-                            <label><input type="checkbox"> C</label>
-                            <label><input type="checkbox"> D</label>
-                            <label><input type="checkbox"> E</label>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>Veículo Próprio</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="veiculo" value="sim"> Sim</label>
-                            <label><input type="radio" name="veiculo" value="nao" checked> Não</label>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>Redes Profissionais</label>
-                        <div class="form-grid">
-                            <div class="form-group"><label>LinkedIn</label><input type="text" placeholder="URL do LinkedIn"></div>
-                            <div class="form-group"><label>Portfólio</label><input type="text" placeholder="URL do portfólio"></div>
-                            <div class="form-group"><label>Site pessoal</label><input type="text" placeholder="URL do site"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 9. UPLOAD DE ARQUIVOS -->
-                <div class="section-title"><i class="fas fa-upload"></i> 9. UPLOAD DE ARQUIVOS</div>
-                <div class="form-grid">
-                    <div class="form-group full-width">
-                        <div class="upload-area">
-                            <i class="fas fa-file-pdf"></i>
-                            <p><strong>Currículo PDF</strong> (clique para fazer upload)</p>
-                            <input type="file" accept=".pdf" style="display:none;">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="upload-area">
-                            <i class="fas fa-camera"></i>
-                            <p><strong>Foto profissional</strong> (opcional)</p>
-                            <input type="file" accept="image/*" style="display:none;">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="upload-area">
-                            <i class="fas fa-certificate"></i>
-                            <p><strong>Certificados</strong></p>
-                            <input type="file" accept=".pdf,.jpg,.png" style="display:none;">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="upload-area">
-                            <i class="fas fa-id-card"></i>
-                            <p><strong>Carteira de habilitação</strong></p>
-                            <input type="file" accept=".pdf,.jpg,.png" style="display:none;">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="upload-area">
-                            <i class="fas fa-wheelchair"></i>
-                            <p><strong>Laudo PCD</strong> (opcional)</p>
-                            <input type="file" accept=".pdf,.jpg,.png" style="display:none;">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 10. QUESTIONÁRIO DE PERFIL -->
-                <div class="section-title"><i class="fas fa-question-circle"></i> 10. QUESTIONÁRIO DE PERFIL</div>
-                <div class="form-grid">
-                    <div class="form-group full-width">
-                        <label>1. Fale um pouco sobre você.</label>
-                        <textarea placeholder="Conte um pouco sobre sua trajetória..."></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>2. Quais são seus principais pontos fortes?</label>
-                        <textarea placeholder="Descreva seus pontos fortes..."></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>3. O que você busca em uma empresa?</label>
-                        <textarea placeholder="Descreva o que você valoriza em uma empresa..."></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>4. Qual sua maior conquista profissional?</label>
-                        <textarea placeholder="Compartilhe sua maior conquista..."></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>5. Como você lida com pressão?</label>
-                        <textarea placeholder="Descreva como você lida com situações de pressão..."></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>6. Está disponível para entrevistas presenciais?</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="entrevista" value="sim"> Sim</label>
-                            <label><input type="radio" name="entrevista" value="nao" checked> Não</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 11. LGPD e Termos -->
-                <div class="section-title"><i class="fas fa-shield-alt"></i> 11. LGPD e Termos</div>
+                <!-- 6. LGPD -->
+                <div class="section-title"><i class="fas fa-shield-alt"></i> LGPD e Termos</div>
                 <div class="lgpd-box">
                     <div class="checkbox-group">
-                        <label><input type="checkbox" required> <strong>Concordo com os Termos de Uso.</strong></label>
-                        <label><input type="checkbox" required> <strong>Autorizo o armazenamento dos meus dados para participação em processos seletivos.</strong></label>
-                        <label><input type="checkbox"> <strong>Aceito receber vagas por e-mail e WhatsApp.</strong></label>
+                        <label><input type="checkbox" id="candTermos" required> <strong>Concordo com os Termos de Uso.</strong></label>
+                        <label><input type="checkbox" id="candDados" required> <strong>Autorizo o armazenamento dos meus dados.</strong></label>
                     </div>
                 </div>
 
-                <!-- Botões -->
                 <div class="btn-group">
-                    <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Enviar Cadastro</button>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Cadastrar</button>
                     <button type="button" class="btn btn-outline" onclick="goHome()"><i class="fas fa-times"></i> Cancelar</button>
                 </div>
                 <div id="formFeedback" style="margin-top: 16px;"></div>
@@ -1127,133 +973,218 @@
         <!-- PÁGINA 3: EMPRESA -->
         <div id="formEmpresa" class="form-section">
             <div class="back-link" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar para início</div>
-            <div class="form-title"><i class="fas fa-building"></i> Área da Empresa</div>
-            <div class="form-sub">Gerencie suas vagas e encontre os melhores talentos</div>
+            <div class="form-title"><i class="fas fa-building"></i> Cadastro da Empresa</div>
+            <div class="form-sub">Cadastre sua empresa e depois defina os critérios para encontrar os melhores talentos</div>
 
-            <div class="empresa-placeholder">
-                <i class="fas fa-briefcase"></i>
-                <h3>Publicação de Vagas</h3>
-                <p>Em breve você poderá criar e gerenciar vagas, visualizar candidatos e muito mais.</p>
-                <button class="btn btn-success" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar ao início</button>
+            <!-- Etapa 1: Cadastro da Empresa -->
+            <div id="etapaEmpresa1" class="etapa-empresa ativa">
+                <form id="empresaForm" onsubmit="event.preventDefault(); cadastrarEmpresa();">
+                    <div class="section-title"><i class="fas fa-building"></i> Dados da Empresa</div>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label><i class="fas fa-store"></i> Nome Fantasia <span class="required-star">*</span></label>
+                            <input type="text" id="empNome" placeholder="Ex: Conecta Trampo" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label><i class="fas fa-gavel"></i> Razão Social</label>
+                            <input type="text" id="empRazao" placeholder="Ex: Conecta Trampo Soluções Ltda">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-id-card"></i> CNPJ</label>
+                            <input type="text" id="empCnpj" placeholder="00.000.000/0000-00">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> Segmento</label>
+                            <select id="empSegmento">
+                                <option value="">Selecione</option>
+                                <option>Tecnologia da Informação</option><option>Consultoria</option>
+                                <option>Varejo</option><option>Indústria</option><option>Serviços</option>
+                                <option>Saúde</option><option>Educação</option><option>Financeiro</option>
+                                <option>Logística</option><option>Marketing</option><option>Recursos Humanos</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-users"></i> Porte</label>
+                            <select id="empPorte">
+                                <option value="">Selecione</option>
+                                <option>MEI</option><option>Microempresa</option><option>Pequena Empresa</option>
+                                <option>Média Empresa</option><option>Grande Empresa</option><option>Startup</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="section-title"><i class="fas fa-phone-alt"></i> Contato</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> E-mail <span class="required-star">*</span></label>
+                            <input type="email" id="empEmail" placeholder="contato@empresa.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fab fa-whatsapp"></i> WhatsApp</label>
+                            <input type="text" id="empWhatsapp" placeholder="(11) 99999-9999">
+                        </div>
+                    </div>
+
+                    <div class="section-title"><i class="fas fa-map-pin"></i> Endereço</div>
+                    <div class="form-grid">
+                        <div class="form-group"><label>Cidade</label><input type="text" id="empCidade" placeholder="São Paulo"></div>
+                        <div class="form-group"><label>Estado</label>
+                            <select id="empEstado">
+                                <option value="">Selecione</option>
+                                <option>SP</option><option>RJ</option><option>MG</option><option>PR</option>
+                                <option>SC</option><option>RS</option><option>BA</option><option>PE</option>
+                                <option>CE</option><option>GO</option><option>DF</option><option>Outro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="section-title"><i class="fas fa-user-tie"></i> Responsável</div>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Nome do Responsável <span class="required-star">*</span></label>
+                            <input type="text" id="empResponsavel" placeholder="Nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cargo</label>
+                            <input type="text" id="empCargoResponsavel" placeholder="Ex: Gerente de RH">
+                        </div>
+                    </div>
+
+                    <div class="section-title"><i class="fas fa-info-circle"></i> Sobre a Empresa</div>
+                    <div class="form-group full-width">
+                        <label>Descrição</label>
+                        <textarea id="empDescricao" placeholder="Descreva sua empresa..." style="min-height:80px;"></textarea>
+                    </div>
+
+                    <div class="lgpd-box">
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="empTermos" required> <strong>Concordo com os Termos de Uso.</strong></label>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Cadastrar Empresa</button>
+                        <button type="button" class="btn btn-outline" onclick="goHome()"><i class="fas fa-times"></i> Cancelar</button>
+                    </div>
+                    <div id="empresaFeedback" style="margin-top: 16px;"></div>
+                </form>
             </div>
 
-            <!-- Área Administrativa -->
-            <div class="section-title"><i class="fas fa-chart-bar"></i> Dashboard</div>
-            <div class="admin-dashboard">
-                <div class="admin-card">
-                    <div class="number">1.247</div>
-                    <div class="label">Total de candidatos</div>
-                </div>
-                <div class="admin-card">
-                    <div class="number">89</div>
-                    <div class="label">Total de vagas</div>
-                </div>
-                <div class="admin-card">
-                    <div class="number">432</div>
-                    <div class="label">Currículos recebidos</div>
-                </div>
-                <div class="admin-card">
-                    <div class="number">12</div>
-                    <div class="label">Candidatos PCD</div>
-                </div>
-            </div>
+            <!-- Etapa 2: Critérios de Busca -->
+            <div id="etapaEmpresa2" class="etapa-empresa">
+                <div class="back-link" onclick="voltarEtapa1()"><i class="fas fa-arrow-left"></i> Voltar dados da empresa</div>
+                <div class="form-title"><i class="fas fa-search"></i> Encontrar Candidatos</div>
+                <div class="form-sub">Defina os critérios que você busca e encontre os melhores talentos</div>
 
-            <!-- Filtros -->
-            <div class="section-title"><i class="fas fa-filter"></i> Filtros Avançados</div>
-            <div class="filter-group">
-                <input type="text" placeholder="Cidade">
-                <select>
-                    <option>Escolaridade</option>
-                    <option>Ensino Fundamental</option>
-                    <option>Ensino Médio</option>
-                    <option>Superior</option>
-                    <option>Pós-graduação</option>
-                </select>
-                <select>
-                    <option>Experiência</option>
-                    <option>Estagiário</option>
-                    <option>Júnior</option>
-                    <option>Pleno</option>
-                    <option>Sênior</option>
-                </select>
-                <select>
-                    <option>Área profissional</option>
-                    <option>Administrativo</option>
-                    <option>Financeiro</option>
-                    <option>Marketing</option>
-                    <option>Tecnologia</option>
-                </select>
-                <select>
-                    <option>PCD</option>
-                    <option>Sim</option>
-                    <option>Não</option>
-                </select>
-                <input type="text" placeholder="Pretensão salarial">
-                <select>
-                    <option>Disponibilidade</option>
-                    <option>Imediata</option>
-                    <option>15 dias</option>
-                    <option>30 dias</option>
-                </select>
-            </div>
+                <form id="buscaForm" onsubmit="event.preventDefault(); buscarCandidatos();">
+                    <div class="section-title"><i class="fas fa-sliders-h"></i> Critérios de Busca</div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label><i class="fas fa-briefcase"></i> Cargo desejado <span class="required-star">*</span></label>
+                            <input type="text" id="buscaCargo" placeholder="Ex: Analista de Marketing" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> Área de atuação</label>
+                            <select id="buscaArea">
+                                <option value="">Todas</option>
+                                <option>Administrativo</option><option>Financeiro</option><option>Marketing</option>
+                                <option>Vendas</option><option>Produção</option><option>Logística</option>
+                                <option>Recursos Humanos</option><option>Tecnologia</option><option>Saúde</option><option>Educação</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-graduation-cap"></i> Escolaridade mínima</label>
+                            <select id="buscaEscolaridade">
+                                <option value="">Qualquer</option>
+                                <option>Ensino Fundamental</option><option>Ensino Médio</option><option>Técnico</option>
+                                <option>Superior Incompleto</option><option>Superior Completo</option>
+                                <option>Pós-graduação</option><option>Mestrado</option><option>Doutorado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clock"></i> Experiência mínima</label>
+                            <select id="buscaExperiencia">
+                                <option value="0">Qualquer</option>
+                                <option value="1">1 ano</option>
+                                <option value="2">2 anos</option>
+                                <option value="3">3 anos</option>
+                                <option value="4">4 anos</option>
+                                <option value="5">5 anos</option>
+                                <option value="6">6 anos ou mais</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-map-pin"></i> Cidade</label>
+                            <input type="text" id="buscaCidade" placeholder="Ex: São Paulo">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-money-bill"></i> Faixa salarial</label>
+                            <input type="text" id="buscaSalario" placeholder="Ex: R$ 4.000">
+                        </div>
+                        <div class="form-group full-width">
+                            <label><i class="fas fa-wheelchair"></i> PCD</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="buscaPcd" value="" checked> Indiferente</label>
+                                <label><input type="radio" name="buscaPcd" value="sim"> Sim</label>
+                                <label><input type="radio" name="buscaPcd" value="nao"> Não</label>
+                            </div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label><i class="fas fa-plane"></i> Disponibilidade para viagens</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="buscaViagens" value="" checked> Indiferente</label>
+                                <label><input type="radio" name="buscaViagens" value="sim"> Sim</label>
+                                <label><input type="radio" name="buscaViagens" value="nao"> Não</label>
+                            </div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label><i class="fas fa-city"></i> Aceita mudança de cidade</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="buscaMudanca" value="" checked> Indiferente</label>
+                                <label><input type="radio" name="buscaMudanca" value="sim"> Sim</label>
+                                <label><input type="radio" name="buscaMudanca" value="nao"> Não</label>
+                            </div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label><i class="fas fa-cogs"></i> Habilidades desejadas</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" value="Pacote Office"> Pacote Office</label>
+                                <label><input type="checkbox" value="Excel"> Excel</label>
+                                <label><input type="checkbox" value="Word"> Word</label>
+                                <label><input type="checkbox" value="PowerPoint"> PowerPoint</label>
+                                <label><input type="checkbox" value="Canva"> Canva</label>
+                                <label><input type="checkbox" value="Sistemas ERP"> Sistemas ERP</label>
+                                <label><input type="checkbox" value="Photoshop"> Photoshop</label>
+                                <label><input type="checkbox" value="Illustrator"> Illustrator</label>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- WhatsApp -->
-            <div style="margin: 20px 0; text-align: center;">
-                <button class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Candidatar-se via WhatsApp</button>
-            </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Procurar Candidatos</button>
+                        <button type="button" class="btn btn-outline" onclick="limparBusca()"><i class="fas fa-undo"></i> Limpar Filtros</button>
+                    </div>
+                </form>
 
-            <!-- Banco de Currículos -->
-            <div class="section-title"><i class="fas fa-database"></i> Banco de Currículos</div>
-            <div class="filter-group">
-                <input type="text" placeholder="Buscar por nome...">
-                <input type="text" placeholder="Cargo...">
-                <input type="text" placeholder="Cidade...">
-                <input type="text" placeholder="Competências...">
-                <select>
-                    <option>Escolaridade</option>
-                    <option>Ensino Fundamental</option>
-                    <option>Ensino Médio</option>
-                    <option>Superior</option>
-                    <option>Pós-graduação</option>
-                </select>
-                <button class="btn btn-success"><i class="fas fa-search"></i> Buscar</button>
-            </div>
-
-            <!-- Cadastro de Empresas -->
-            <div class="section-title"><i class="fas fa-building"></i> Cadastro de Empresas</div>
-            <div class="form-grid">
-                <div class="form-group"><label>Nome da empresa</label><input type="text" placeholder="Ex: Empresa X"></div>
-                <div class="form-group"><label>CNPJ</label><input type="text" placeholder="00.000.000/0000-00"></div>
-                <div class="form-group"><label>E-mail</label><input type="email" placeholder="contato@empresa.com"></div>
-                <div class="form-group"><label>Telefone</label><input type="text" placeholder="(11) 99999-9999"></div>
-                <div class="form-group full-width"><label>Área de atuação</label>
-                    <select>
-                        <option>Tecnologia</option>
-                        <option>Financeiro</option>
-                        <option>Marketing</option>
-                        <option>Vendas</option>
-                        <option>Produção</option>
-                        <option>Logística</option>
-                        <option>Recursos Humanos</option>
-                        <option>Saúde</option>
-                        <option>Educação</option>
-                    </select>
-                </div>
-                <div class="form-group full-width"><label>Descrição</label><textarea placeholder="Descreva sua empresa..."></textarea></div>
-                <div class="btn-group">
-                    <button class="btn btn-success"><i class="fas fa-save"></i> Cadastrar Empresa</button>
+                <!-- Resultados da Busca -->
+                <div id="resultadosBusca" style="margin-top: 30px;">
+                    <div class="section-title"><i class="fas fa-users"></i> Resultados</div>
+                    <div id="listaResultados"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // FUNÇÃO PARA MOSTRAR O FORMULÁRIO CORRETO
+        // ===== BANCO DE DADOS SIMULADO =====
+        var candidatos = [];
+        var contadorId = 1;
+
+        // ===== FUNÇÕES PRINCIPAIS =====
         function showForm(type) {
-            // Esconde a página de escolha
             document.getElementById('pageChoice').style.display = 'none';
 
-            // Pega os elementos dos formulários
             var formCandidato = document.getElementById('formCandidato');
             var formEmpresa = document.getElementById('formEmpresa');
 
@@ -1267,13 +1198,17 @@
                 formEmpresa.classList.add('active');
                 formCandidato.style.display = 'none';
                 formCandidato.classList.remove('active');
+                
+                // Resetar etapas
+                document.getElementById('etapaEmpresa1').className = 'etapa-empresa ativa';
+                document.getElementById('etapaEmpresa2').className = 'etapa-empresa';
+                document.getElementById('empresaFeedback').innerHTML = '';
             }
 
-            // Scroll para o topo
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            atualizarContador();
         }
 
-        // FUNÇÃO PARA VOLTAR PARA A PÁGINA INICIAL
         function goHome() {
             document.getElementById('pageChoice').style.display = 'block';
             document.getElementById('formCandidato').style.display = 'none';
@@ -1281,71 +1216,488 @@
             document.getElementById('formEmpresa').style.display = 'none';
             document.getElementById('formEmpresa').classList.remove('active');
             document.getElementById('formFeedback').innerHTML = '';
+            document.getElementById('empresaFeedback').innerHTML = '';
+            document.getElementById('etapaEmpresa1').className = 'etapa-empresa ativa';
+            document.getElementById('etapaEmpresa2').className = 'etapa-empresa';
+            document.getElementById('listaResultados').innerHTML = '';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // FUNÇÃO PARA ADICIONAR EXPERIÊNCIA
-        function adicionarExperiencia() {
-            var container = document.getElementById('experienciasContainer');
-            var div = document.createElement('div');
-            div.className = 'experiencia-item';
-            div.innerHTML = `
-                <div class="form-grid">
-                    <div class="form-group"><label>Nome da empresa</label><input type="text" placeholder="Ex: Empresa X"></div>
-                    <div class="form-group"><label>Cargo</label><input type="text" placeholder="Ex: Analista"></div>
-                    <div class="form-group"><label>Data de admissão</label><input type="date"></div>
-                    <div class="form-group"><label>Data de saída</label><input type="date"></div>
-                    <div class="form-group"><label>Último salário</label><input type="text" placeholder="R$ 0,00"></div>
-                    <div class="form-group"><label>Motivo da saída</label><input type="text" placeholder="Ex: Busca de novos desafios"></div>
-                    <div class="form-group full-width">
-                        <label>Atividades desenvolvidas</label>
-                        <textarea placeholder="Descreva suas principais atividades..."></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>Atualmente trabalhando?</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="trabalhando_atual" value="sim"> Sim</label>
-                            <label><input type="radio" name="trabalhando_atual" value="nao" checked> Não</label>
-                        </div>
-                    </div>
-                </div>
-                <span class="remove-btn" onclick="this.parentElement.remove()"><i class="fas fa-trash"></i> Remover esta experiência</span>
-            `;
-            container.appendChild(div);
+        function voltarEtapa1() {
+            document.getElementById('etapaEmpresa1').className = 'etapa-empresa ativa';
+            document.getElementById('etapaEmpresa2').className = 'etapa-empresa';
+            document.getElementById('listaResultados').innerHTML = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // FUNÇÃO PARA ADICIONAR CURSO COMPLEMENTAR
-        function adicionarCursoComplementar() {
-            var container = document.getElementById('cursosCompContainer');
-            var div = document.createElement('div');
-            div.className = 'curso-comp-item';
-            div.innerHTML = `
-                <div class="form-grid">
-                    <div class="form-group"><label>Nome do curso</label><input type="text" placeholder="Ex: Excel Avançado"></div>
-                    <div class="form-group"><label>Instituição</label><input type="text" placeholder="Ex: SENAI"></div>
-                    <div class="form-group"><label>Carga horária</label><input type="text" placeholder="Ex: 40h"></div>
-                    <div class="form-group"><label>Ano de conclusão</label><input type="text" placeholder="Ex: 2023"></div>
-                </div>
-                <span class="remove-btn" onclick="this.parentElement.remove()"><i class="fas fa-trash"></i> Remover este curso</span>
-            `;
-            container.appendChild(div);
+        function atualizarContador() {
+            document.getElementById('totalCandidatos').textContent = candidatos.length;
         }
 
-        // FUNÇÃO PARA ENVIAR O CADASTRO
+        // ===== CADASTRO DO CANDIDATO =====
         function submitCandidate() {
-            var feedback = document.getElementById('formFeedback');
-            feedback.innerHTML = `
+            var nome = document.getElementById('candNome').value;
+            var email = document.getElementById('candEmail').value;
+            var whatsapp = document.getElementById('candWhatsapp').value;
+            var cidade = document.getElementById('candCidade').value;
+            var estado = document.getElementById('candEstado').value;
+            var cargo = document.getElementById('candCargo').value;
+            var area = document.getElementById('candArea').value;
+            var salario = document.getElementById('candSalario').value;
+            var disponibilidade = document.getElementById('candDisponibilidade').value;
+            var escolaridade = document.getElementById('candEscolaridade').value;
+            var experiencia = parseInt(document.getElementById('candExperiencia').value);
+            var ultimoCargo = document.getElementById('candUltimoCargo').value;
+            var info = document.getElementById('candInfo').value;
+            var idioma = document.getElementById('candIdioma').value;
+            var idiomaNivel = document.getElementById('candIdiomaNivel').value;
+            
+            var pcd = document.querySelector('input[name="pcd"]:checked');
+            var pcdValor = pcd ? pcd.value : 'nao';
+            var pcdDesc = document.getElementById('candPcd').value;
+            
+            var viagens = document.querySelector('input[name="candViagens"]:checked');
+            var viagensValor = viagens ? viagens.value : 'nao';
+            
+            var mudanca = document.querySelector('input[name="candMudanca"]:checked');
+            var mudancaValor = mudanca ? mudanca.value : 'nao';
+            
+            var termo1 = document.getElementById('candTermos').checked;
+            var termo2 = document.getElementById('candDados').checked;
+
+            if (!nome || !email || !termo1 || !termo2) {
+                document.getElementById('formFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Preencha todos os campos obrigatórios e aceite os termos.
+                    </div>
+                `;
+                return;
+            }
+
+            // Habilidades selecionadas
+            var habilidades = [];
+            document.querySelectorAll('#candidateForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) {
+                habilidades.push(el.value);
+            });
+
+            var candidato = {
+                id: contadorId++,
+                nome: nome,
+                email: email,
+                whatsapp: whatsapp,
+                cidade: cidade,
+                estado: estado,
+                cargo: cargo,
+                area: area,
+                salario: salario,
+                disponibilidade: disponibilidade,
+                escolaridade: escolaridade,
+                experiencia: experiencia,
+                ultimoCargo: ultimoCargo,
+                info: info,
+                idioma: idioma,
+                idiomaNivel: idiomaNivel,
+                pcd: pcdValor,
+                pcdDesc: pcdDesc,
+                viagens: viagensValor,
+                mudanca: mudancaValor,
+                habilidades: habilidades
+            };
+
+            candidatos.push(candidato);
+
+            document.getElementById('formFeedback').innerHTML = `
                 <div class="toast-message">
                     <i class="fas fa-check-circle"></i>
-                    Cadastro enviado com sucesso! Em breve entraremos em contato.
+                    Cadastro realizado com sucesso! Você está no banco de talentos.
                 </div>
             `;
-            feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            document.getElementById('candidateForm').reset();
+            document.getElementById('pcdDesc').style.display = 'none';
+            atualizarContador();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // INICIALIZAR: garantir que a página de escolha está visível
+        // ===== CADASTRO DA EMPRESA =====
+        function cadastrarEmpresa() {
+            var nome = document.getElementById('empNome').value;
+            var email = document.getElementById('empEmail').value;
+            var responsavel = document.getElementById('empResponsavel').value;
+            var termo = document.getElementById('empTermos').checked;
+
+            if (!nome || !email || !responsavel || !termo) {
+                document.getElementById('empresaFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Preencha todos os campos obrigatórios.
+                    </div>
+                `;
+                return;
+            }
+
+            document.getElementById('empresaFeedback').innerHTML = `
+                <div class="toast-message">
+                    <i class="fas fa-check-circle"></i>
+                    Empresa cadastrada com sucesso! Agora defina os critérios de busca.
+                </div>
+            `;
+
+            // Mostrar etapa 2 após 1 segundo
+            setTimeout(function() {
+                document.getElementById('etapaEmpresa1').className = 'etapa-empresa';
+                document.getElementById('etapaEmpresa2').className = 'etapa-empresa ativa';
+                document.getElementById('empresaFeedback').innerHTML = '';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 1000);
+        }
+
+        // ===== BUSCAR CANDIDATOS =====
+        function buscarCandidatos() {
+            var cargo = document.getElementById('buscaCargo').value.toLowerCase();
+            var area = document.getElementById('buscaArea').value;
+            var escolaridade = document.getElementById('buscaEscolaridade').value;
+            var experienciaMin = parseInt(document.getElementById('buscaExperiencia').value) || 0;
+            var cidade = document.getElementById('buscaCidade').value.toLowerCase();
+            var salario = document.getElementById('buscaSalario').value;
+            
+            var pcd = document.querySelector('input[name="buscaPcd"]:checked');
+            var pcdValor = pcd ? pcd.value : '';
+            
+            var viagens = document.querySelector('input[name="buscaViagens"]:checked');
+            var viagensValor = viagens ? viagens.value : '';
+            
+            var mudanca = document.querySelector('input[name="buscaMudanca"]:checked');
+            var mudancaValor = mudanca ? mudanca.value : '';
+
+            // Habilidades desejadas
+            var habilidadesDesejadas = [];
+            document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) {
+                habilidadesDesejadas.push(el.value);
+            });
+
+            if (!cargo) {
+                document.getElementById('listaResultados').innerHTML = `
+                    <div class="sem-resultados">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Informe o cargo desejado</h3>
+                        <p>Preencha o campo "Cargo desejado" para iniciar a busca.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Filtrar candidatos
+            var resultados = candidatos.filter(function(cand) {
+                var matchCount = 0;
+                var totalCriteria = 0;
+
+                // Cargo (peso alto)
+                totalCriteria += 2;
+                if (cargo && cand.cargo && cand.cargo.toLowerCase().includes(cargo)) {
+                    matchCount += 2;
+                }
+
+                // Área
+                totalCriteria++;
+                if (area && cand.area === area) {
+                    matchCount++;
+                } else if (!area) {
+                    matchCount++;
+                }
+
+                // Escolaridade
+                totalCriteria++;
+                if (escolaridade && cand.escolaridade === escolaridade) {
+                    matchCount++;
+                } else if (!escolaridade) {
+                    matchCount++;
+                }
+
+                // Experiência
+                totalCriteria++;
+                if (experienciaMin > 0 && cand.experiencia >= experienciaMin) {
+                    matchCount++;
+                } else if (experienciaMin === 0) {
+                    matchCount++;
+                }
+
+                // Cidade
+                totalCriteria++;
+                if (cidade && cand.cidade && cand.cidade.toLowerCase().includes(cidade)) {
+                    matchCount++;
+                } else if (!cidade) {
+                    matchCount++;
+                }
+
+                // PCD
+                totalCriteria++;
+                if (pcdValor && cand.pcd === pcdValor) {
+                    matchCount++;
+                } else if (!pcdValor) {
+                    matchCount++;
+                }
+
+                // Viagens
+                totalCriteria++;
+                if (viagensValor && cand.viagens === viagensValor) {
+                    matchCount++;
+                } else if (!viagensValor) {
+                    matchCount++;
+                }
+
+                // Mudança
+                totalCriteria++;
+                if (mudancaValor && cand.mudanca === mudancaValor) {
+                    matchCount++;
+                } else if (!mudancaValor) {
+                    matchCount++;
+                }
+
+                // Habilidades (peso extra)
+                if (habilidadesDesejadas.length > 0) {
+                    var hasSkill = habilidadesDesejadas.some(function(skill) {
+                        return cand.habilidades && cand.habilidades.includes(skill);
+                    });
+                    if (hasSkill) {
+                        matchCount += 2;
+                    }
+                    totalCriteria += 2;
+                }
+
+                // Calcular porcentagem de match
+                var porcentagem = Math.round((matchCount / totalCriteria) * 100);
+                cand._match = Math.min(porcentagem, 100);
+
+                return cand._match >= 75;
+            });
+
+            // Ordenar por match
+            resultados.sort(function(a, b) {
+                return b._match - a._match;
+            });
+
+            // Exibir resultados
+            var container = document.getElementById('listaResultados');
+            
+            if (resultados.length === 0) {
+                container.innerHTML = `
+                    <div class="sem-resultados">
+                        <i class="fas fa-search"></i>
+                        <h3>Nenhum candidato encontrado</h3>
+                        <p>Ajuste os critérios de busca para encontrar mais talentos.</p>
+                        <button class="btn btn-outline" onclick="limparBusca()" style="margin-top:16px;">
+                            <i class="fas fa-undo"></i> Limpar Filtros
+                        </button>
+                    </div>
+                `;
+            } else {
+                var html = `<p style="color:var(--text-gray); margin-bottom:16px;">Encontramos <strong>${resultados.length}</strong> candidatos compatíveis</p>`;
+                
+                resultados.forEach(function(cand) {
+                    var matchClass = 'match-alta';
+                    var progressClass = 'alta';
+                    if (cand._match < 85) {
+                        matchClass = 'match-media';
+                        progressClass = 'media';
+                    }
+                    if (cand._match < 75) {
+                        matchClass = 'match-baixa';
+                        progressClass = 'baixa';
+                    }
+
+                    var whatsappNum = cand.whatsapp ? cand.whatsapp.replace(/[^0-9]/g, '') : '';
+                    var whatsappLink = whatsappNum ? `https://wa.me/55${whatsappNum}?text=Olá! Vi seu perfil no Conecta Trampo e me interessei. Podemos conversar?` : '#';
+
+                    html += `
+                        <div class="resultado-card">
+                            <div class="resultado-header">
+                                <div>
+                                    <span class="nome">${cand.nome}</span>
+                                    <span style="font-size:13px;color:var(--text-gray);margin-left:8px;">${cand.cargo || 'Cargo não informado'}</span>
+                                </div>
+                                <span class="match ${matchClass}">${cand._match}% compatível</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill ${progressClass}" style="width:${cand._match}%"></div>
+                            </div>
+                            <div class="resultado-detalhes">
+                                <div class="info-item">
+                                    <strong>📍 ${cand.cidade || 'Não informado'}</strong>
+                                    Cidade
+                                </div>
+                                <div class="info-item">
+                                    <strong>📚 ${cand.escolaridade || 'Não informado'}</strong>
+                                    Escolaridade
+                                </div>
+                                <div class="info-item">
+                                    <strong>⏱️ ${cand.experiencia || 0} anos</strong>
+                                    Experiência
+                                </div>
+                                <div class="info-item">
+                                    <strong>${cand.disponibilidade || 'Não informado'}</strong>
+                                    Disponibilidade
+                                </div>
+                                <div class="info-item">
+                                    <strong>${cand.pcd === 'sim' ? '♿ PCD' : 'Sem PCD'}</strong>
+                                    Deficiência
+                                </div>
+                                <div class="info-item">
+                                    <strong>${cand.habilidades && cand.habilidades.length > 0 ? cand.habilidades.join(', ') : 'Nenhuma'}</strong>
+                                    Habilidades
+                                </div>
+                            </div>
+                            <div class="resultado-actions">
+                                ${whatsappNum ? `<button class="btn-small btn-small-whatsapp" onclick="window.open('${whatsappLink}', '_blank')">
+                                    <i class="fab fa-whatsapp"></i> Entrar em Contato
+                                </button>` : ''}
+                                <button class="btn-small btn-small-outline" onclick="alert('Perfil de ${cand.nome} visualizado com sucesso!')">
+                                    <i class="fas fa-eye"></i> Ver Perfil
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+            }
+
+            // Atualizar contador de resultados
+            var totalLabel = document.querySelector('#resultadosBusca .section-title');
+            if (totalLabel) {
+                totalLabel.innerHTML = `<i class="fas fa-users"></i> Resultados (${resultados.length} candidatos)`;
+            }
+
+            window.scrollTo({ top: document.getElementById('resultadosBusca').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        function limparBusca() {
+            document.getElementById('buscaCargo').value = '';
+            document.getElementById('buscaArea').value = '';
+            document.getElementById('buscaEscolaridade').value = '';
+            document.getElementById('buscaExperiencia').value = '0';
+            document.getElementById('buscaCidade').value = '';
+            document.getElementById('buscaSalario').value = '';
+            
+            document.querySelectorAll('input[name="buscaPcd"]').forEach(function(el) { el.checked = false; });
+            document.querySelectorAll('input[name="buscaViagens"]').forEach(function(el) { el.checked = false; });
+            document.querySelectorAll('input[name="buscaMudanca"]').forEach(function(el) { el.checked = false; });
+            document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]').forEach(function(el) { el.checked = false; });
+            
+            document.querySelector('input[name="buscaPcd"][value=""]').checked = true;
+            document.querySelector('input[name="buscaViagens"][value=""]').checked = true;
+            document.querySelector('input[name="buscaMudanca"][value=""]').checked = true;
+            
+            document.getElementById('listaResultados').innerHTML = '';
+            var totalLabel = document.querySelector('#resultadosBusca .section-title');
+            if (totalLabel) {
+                totalLabel.innerHTML = `<i class="fas fa-users"></i> Resultados`;
+            }
+        }
+
+        // INICIALIZAR
         document.addEventListener('DOMContentLoaded', function() {
             goHome();
+            
+            // Adicionar candidatos de exemplo para teste
+            candidatos.push({
+                id: contadorId++,
+                nome: 'Ana Carolina Silva',
+                email: 'ana@email.com',
+                whatsapp: '11999998888',
+                cidade: 'São Paulo',
+                estado: 'SP',
+                cargo: 'Analista de Marketing',
+                area: 'Marketing',
+                salario: 'R$ 5.000',
+                disponibilidade: 'Imediata',
+                escolaridade: 'Superior Completo',
+                experiencia: 3,
+                ultimoCargo: 'Analista na Empresa Y',
+                info: 'Avançado',
+                idioma: 'Inglês',
+                idiomaNivel: 'Intermediário',
+                pcd: 'nao',
+                pcdDesc: '',
+                viagens: 'sim',
+                mudanca: 'nao',
+                habilidades: ['Pacote Office', 'Excel', 'Canva']
+            });
+
+            candidatos.push({
+                id: contadorId++,
+                nome: 'Carlos Eduardo Santos',
+                email: 'carlos@email.com',
+                whatsapp: '11988887777',
+                cidade: 'Rio de Janeiro',
+                estado: 'RJ',
+                cargo: 'Desenvolvedor Full Stack',
+                area: 'Tecnologia',
+                salario: 'R$ 8.000',
+                disponibilidade: '30 dias',
+                escolaridade: 'Superior Completo',
+                experiencia: 4,
+                ultimoCargo: 'Desenvolvedor na Empresa Z',
+                info: 'Avançado',
+                idioma: 'Inglês',
+                idiomaNivel: 'Fluente',
+                pcd: 'nao',
+                pcdDesc: '',
+                viagens: 'sim',
+                mudanca: 'sim',
+                habilidades: ['Excel', 'Sistemas ERP', 'Photoshop']
+            });
+
+            candidatos.push({
+                id: contadorId++,
+                nome: 'Mariana Oliveira',
+                email: 'mariana@email.com',
+                whatsapp: '11977776666',
+                cidade: 'Belo Horizonte',
+                estado: 'MG',
+                cargo: 'Analista de RH',
+                area: 'Recursos Humanos',
+                salario: 'R$ 4.500',
+                disponibilidade: '15 dias',
+                escolaridade: 'Pós-graduação',
+                experiencia: 5,
+                ultimoCargo: 'Coordenadora de RH',
+                info: 'Intermediário',
+                idioma: 'Espanhol',
+                idiomaNivel: 'Básico',
+                pcd: 'sim',
+                pcdDesc: 'Deficiência visual leve',
+                viagens: 'nao',
+                mudanca: 'nao',
+                habilidades: ['Pacote Office', 'Word', 'PowerPoint']
+            });
+
+            candidatos.push({
+                id: contadorId++,
+                nome: 'João Pedro Ferreira',
+                email: 'joao@email.com',
+                whatsapp: '11966665555',
+                cidade: 'Curitiba',
+                estado: 'PR',
+                cargo: 'Analista Financeiro',
+                area: 'Financeiro',
+                salario: 'R$ 6.500',
+                disponibilidade: 'Imediata',
+                escolaridade: 'Superior Completo',
+                experiencia: 2,
+                ultimoCargo: 'Auxiliar Financeiro',
+                info: 'Intermediário',
+                idioma: 'Inglês',
+                idiomaNivel: 'Básico',
+                pcd: 'nao',
+                pcdDesc: '',
+                viagens: 'nao',
+                mudanca: 'nao',
+                habilidades: ['Excel', 'Sistemas ERP']
+            });
+
+            atualizarContador();
         });
     </script>
 </body>
