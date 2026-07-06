@@ -474,33 +474,6 @@
             color: white !important;
         }
 
-        .experiencia-item,
-        .curso-comp-item {
-            border-bottom: 1px dashed var(--gray-border);
-            padding-bottom: 12px;
-            margin-bottom: 12px;
-        }
-
-        .experiencia-item:last-child,
-        .curso-comp-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .remove-btn {
-            color: #d32f2f;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            display: inline-block;
-            margin-top: 8px;
-        }
-
-        .remove-btn:hover {
-            text-decoration: underline;
-        }
-
-        /* LGPD */
         .lgpd-box {
             background: var(--gray-light);
             border-radius: 16px;
@@ -527,33 +500,6 @@
             width: 18px;
             height: 18px;
             accent-color: var(--primary);
-        }
-
-        /* Upload */
-        .upload-area {
-            border: 2px dashed var(--gray-border);
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            background: var(--gray-light);
-            cursor: pointer;
-            transition: 0.15s;
-        }
-
-        .upload-area:hover {
-            border-color: var(--primary);
-            background: var(--primary-light);
-        }
-
-        .upload-area i {
-            font-size: 32px;
-            color: var(--primary);
-        }
-
-        .upload-area p {
-            color: var(--text-gray);
-            margin-top: 8px;
-            font-size: 14px;
         }
 
         /* RESULTADOS DA BUSCA */
@@ -700,7 +646,6 @@
             background: var(--match-low);
         }
 
-        /* Esconder etapas da empresa */
         .etapa-empresa {
             display: none;
         }
@@ -1177,9 +1122,86 @@
     </div>
 
     <script>
-        // ===== BANCO DE DADOS SIMULADO =====
+        // ===== BANCO DE DADOS FAKE COM 50 CANDIDATOS =====
         var candidatos = [];
         var contadorId = 1;
+
+        function gerarCandidatosFake() {
+            var nomes = [
+                'Ana Carolina Silva', 'Carlos Eduardo Santos', 'Mariana Oliveira', 'João Pedro Ferreira',
+                'Fernanda Lima', 'Rafael Almeida', 'Patrícia Costa', 'Lucas Mendes', 'Juliana Rocha',
+                'Bruno Souza', 'Camila Fernandes', 'Diego Nascimento', 'Letícia Barros', 'André Ribeiro',
+                'Tatiana Gomes', 'Felipe Araujo', 'Carolina Martins', 'Gustavo Lima', 'Isabela Cruz',
+                'Renato Oliveira', 'Vanessa Santos', 'Eduardo Pereira', 'Sabrina Costa', 'Marcelo Silva',
+                'Aline Ferreira', 'Thiago Rodrigues', 'Larissa Alves', 'Paulo Henrique', 'Amanda Nunes',
+                'Fábio Mendes', 'Roberta Lima', 'Anderson Rocha', 'Priscila Souza', 'Danilo Fernandes',
+                'Cristina Barros', 'Rogério Silva', 'Bianca Costa', 'Caio Oliveira', 'Natália Santos',
+                'Vinícius Pereira', 'Tatiane Rodrigues', 'Henrique Almeida', 'Luciana Martins',
+                'Jorge Nunes', 'Monica Rocha', 'Samuel Lima', 'Adriana Souza', 'Leonardo Gomes',
+                'Patrícia Araujo', 'Roberto Ferreira', 'Simone Costa', 'Alexandre Santos'
+            ];
+
+            var cargos = [
+                'Analista de Marketing', 'Desenvolvedor Full Stack', 'Analista de RH', 'Analista Financeiro',
+                'Designer Gráfico', 'Gerente de Projetos', 'Assistente Administrativo', 'Coordenador de Marketing',
+                'Analista de Sistemas', 'Consultor de Vendas', 'Especialista em SEO', 'Product Manager',
+                'Analista de Dados', 'Engenheiro de Software', 'Social Media', 'Analista de Qualidade',
+                'Scrum Master', 'UX Designer', 'Analista de Suporte', 'Gerente de Contas'
+            ];
+
+            var areas = ['Administrativo', 'Financeiro', 'Marketing', 'Vendas', 'Produção', 'Logística', 'Recursos Humanos', 'Tecnologia', 'Saúde', 'Educação'];
+            var escolaridades = ['Ensino Médio', 'Técnico', 'Superior Incompleto', 'Superior Completo', 'Pós-graduação', 'Mestrado'];
+            var cidades = ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Curitiba', 'Porto Alegre', 'Brasília', 'Salvador', 'Recife', 'Fortaleza', 'Manaus'];
+            var estados = ['SP', 'RJ', 'MG', 'PR', 'RS', 'DF', 'BA', 'PE', 'CE', 'AM'];
+            var disponibilidades = ['Imediata', '15 dias', '30 dias', 'Outro prazo'];
+            var habilidadesList = [
+                ['Pacote Office', 'Excel'],
+                ['Excel', 'Word', 'PowerPoint'],
+                ['Canva', 'Photoshop'],
+                ['Sistemas ERP', 'Excel'],
+                ['Pacote Office', 'Canva'],
+                ['Excel', 'Sistemas ERP', 'PowerPoint'],
+                ['Photoshop', 'Illustrator'],
+                ['Pacote Office', 'Word', 'Excel', 'PowerPoint'],
+                ['Canva', 'Pacote Office'],
+                ['Excel', 'PowerPoint']
+            ];
+
+            var idiomas = ['Inglês', 'Espanhol', 'Francês', 'Alemão', 'Português'];
+            var niveis = ['Básico', 'Intermediário', 'Avançado', 'Fluente'];
+
+            for (var i = 0; i < 50; i++) {
+                var habilidades = habilidadesList[Math.floor(Math.random() * habilidadesList.length)];
+                var nome = nomes[i % nomes.length];
+                // Adicionar sobrenome extra para variar
+                if (i > 20) nome = nome + ' ' + ['Jr.', 'Filho', 'Neto', 'Sobrinho'][Math.floor(Math.random() * 4)];
+
+                var candidato = {
+                    id: contadorId++,
+                    nome: nome,
+                    email: nome.toLowerCase().replace(/ /g, '.') + '@email.com',
+                    whatsapp: '11' + (Math.floor(Math.random() * 90000000) + 10000000).toString(),
+                    cidade: cidades[Math.floor(Math.random() * cidades.length)],
+                    estado: estados[Math.floor(Math.random() * estados.length)],
+                    cargo: cargos[Math.floor(Math.random() * cargos.length)],
+                    area: areas[Math.floor(Math.random() * areas.length)],
+                    salario: 'R$ ' + (Math.floor(Math.random() * 8000) + 2000) + ',00',
+                    disponibilidade: disponibilidades[Math.floor(Math.random() * disponibilidades.length)],
+                    escolaridade: escolaridades[Math.floor(Math.random() * escolaridades.length)],
+                    experiencia: Math.floor(Math.random() * 6) + 1,
+                    ultimoCargo: 'Cargo na Empresa ' + ['A', 'B', 'C', 'D', 'E', 'F', 'G'][Math.floor(Math.random() * 7)],
+                    info: ['Básico', 'Intermediário', 'Avançado'][Math.floor(Math.random() * 3)],
+                    idioma: idiomas[Math.floor(Math.random() * idiomas.length)],
+                    idiomaNivel: niveis[Math.floor(Math.random() * niveis.length)],
+                    pcd: Math.random() > 0.85 ? 'sim' : 'nao',
+                    pcdDesc: Math.random() > 0.85 ? ['Deficiência visual leve', 'Deficiência motora', 'Deficiência auditiva', 'Deficiência intelectual'][Math.floor(Math.random() * 4)] : '',
+                    viagens: Math.random() > 0.5 ? 'sim' : 'nao',
+                    mudanca: Math.random() > 0.5 ? 'sim' : 'nao',
+                    habilidades: habilidades
+                };
+                candidatos.push(candidato);
+            }
+        }
 
         // ===== FUNÇÕES PRINCIPAIS =====
         function showForm(type) {
@@ -1199,7 +1221,6 @@
                 formCandidato.style.display = 'none';
                 formCandidato.classList.remove('active');
                 
-                // Resetar etapas
                 document.getElementById('etapaEmpresa1').className = 'etapa-empresa ativa';
                 document.getElementById('etapaEmpresa2').className = 'etapa-empresa';
                 document.getElementById('empresaFeedback').innerHTML = '';
@@ -1275,7 +1296,6 @@
                 return;
             }
 
-            // Habilidades selecionadas
             var habilidades = [];
             document.querySelectorAll('#candidateForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) {
                 habilidades.push(el.value);
@@ -1286,20 +1306,20 @@
                 nome: nome,
                 email: email,
                 whatsapp: whatsapp,
-                cidade: cidade,
-                estado: estado,
-                cargo: cargo,
-                area: area,
-                salario: salario,
-                disponibilidade: disponibilidade,
-                escolaridade: escolaridade,
-                experiencia: experiencia,
-                ultimoCargo: ultimoCargo,
-                info: info,
-                idioma: idioma,
-                idiomaNivel: idiomaNivel,
+                cidade: cidade || 'Não informado',
+                estado: estado || 'Não informado',
+                cargo: cargo || 'Não informado',
+                area: area || 'Não informado',
+                salario: salario || 'Não informado',
+                disponibilidade: disponibilidade || 'Não informado',
+                escolaridade: escolaridade || 'Não informado',
+                experiencia: experiencia || 0,
+                ultimoCargo: ultimoCargo || 'Não informado',
+                info: info || 'Não informado',
+                idioma: idioma || 'Não informado',
+                idiomaNivel: idiomaNivel || 'Não informado',
                 pcd: pcdValor,
-                pcdDesc: pcdDesc,
+                pcdDesc: pcdDesc || '',
                 viagens: viagensValor,
                 mudanca: mudancaValor,
                 habilidades: habilidades
@@ -1344,7 +1364,6 @@
                 </div>
             `;
 
-            // Mostrar etapa 2 após 1 segundo
             setTimeout(function() {
                 document.getElementById('etapaEmpresa1').className = 'etapa-empresa';
                 document.getElementById('etapaEmpresa2').className = 'etapa-empresa ativa';
@@ -1371,7 +1390,6 @@
             var mudanca = document.querySelector('input[name="buscaMudanca"]:checked');
             var mudancaValor = mudanca ? mudanca.value : '';
 
-            // Habilidades desejadas
             var habilidadesDesejadas = [];
             document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) {
                 habilidadesDesejadas.push(el.value);
@@ -1388,18 +1406,15 @@
                 return;
             }
 
-            // Filtrar candidatos
             var resultados = candidatos.filter(function(cand) {
                 var matchCount = 0;
                 var totalCriteria = 0;
 
-                // Cargo (peso alto)
                 totalCriteria += 2;
                 if (cargo && cand.cargo && cand.cargo.toLowerCase().includes(cargo)) {
                     matchCount += 2;
                 }
 
-                // Área
                 totalCriteria++;
                 if (area && cand.area === area) {
                     matchCount++;
@@ -1407,7 +1422,6 @@
                     matchCount++;
                 }
 
-                // Escolaridade
                 totalCriteria++;
                 if (escolaridade && cand.escolaridade === escolaridade) {
                     matchCount++;
@@ -1415,7 +1429,6 @@
                     matchCount++;
                 }
 
-                // Experiência
                 totalCriteria++;
                 if (experienciaMin > 0 && cand.experiencia >= experienciaMin) {
                     matchCount++;
@@ -1423,7 +1436,6 @@
                     matchCount++;
                 }
 
-                // Cidade
                 totalCriteria++;
                 if (cidade && cand.cidade && cand.cidade.toLowerCase().includes(cidade)) {
                     matchCount++;
@@ -1431,7 +1443,6 @@
                     matchCount++;
                 }
 
-                // PCD
                 totalCriteria++;
                 if (pcdValor && cand.pcd === pcdValor) {
                     matchCount++;
@@ -1439,7 +1450,6 @@
                     matchCount++;
                 }
 
-                // Viagens
                 totalCriteria++;
                 if (viagensValor && cand.viagens === viagensValor) {
                     matchCount++;
@@ -1447,7 +1457,6 @@
                     matchCount++;
                 }
 
-                // Mudança
                 totalCriteria++;
                 if (mudancaValor && cand.mudanca === mudancaValor) {
                     matchCount++;
@@ -1455,7 +1464,6 @@
                     matchCount++;
                 }
 
-                // Habilidades (peso extra)
                 if (habilidadesDesejadas.length > 0) {
                     var hasSkill = habilidadesDesejadas.some(function(skill) {
                         return cand.habilidades && cand.habilidades.includes(skill);
@@ -1466,19 +1474,16 @@
                     totalCriteria += 2;
                 }
 
-                // Calcular porcentagem de match
                 var porcentagem = Math.round((matchCount / totalCriteria) * 100);
                 cand._match = Math.min(porcentagem, 100);
 
                 return cand._match >= 75;
             });
 
-            // Ordenar por match
             resultados.sort(function(a, b) {
                 return b._match - a._match;
             });
 
-            // Exibir resultados
             var container = document.getElementById('listaResultados');
             
             if (resultados.length === 0) {
@@ -1563,7 +1568,6 @@
                 container.innerHTML = html;
             }
 
-            // Atualizar contador de resultados
             var totalLabel = document.querySelector('#resultadosBusca .section-title');
             if (totalLabel) {
                 totalLabel.innerHTML = `<i class="fas fa-users"></i> Resultados (${resultados.length} candidatos)`;
@@ -1596,107 +1600,10 @@
             }
         }
 
-        // INICIALIZAR
+        // ===== INICIALIZAR =====
         document.addEventListener('DOMContentLoaded', function() {
+            gerarCandidatosFake();
             goHome();
-            
-            // Adicionar candidatos de exemplo para teste
-            candidatos.push({
-                id: contadorId++,
-                nome: 'Ana Carolina Silva',
-                email: 'ana@email.com',
-                whatsapp: '11999998888',
-                cidade: 'São Paulo',
-                estado: 'SP',
-                cargo: 'Analista de Marketing',
-                area: 'Marketing',
-                salario: 'R$ 5.000',
-                disponibilidade: 'Imediata',
-                escolaridade: 'Superior Completo',
-                experiencia: 3,
-                ultimoCargo: 'Analista na Empresa Y',
-                info: 'Avançado',
-                idioma: 'Inglês',
-                idiomaNivel: 'Intermediário',
-                pcd: 'nao',
-                pcdDesc: '',
-                viagens: 'sim',
-                mudanca: 'nao',
-                habilidades: ['Pacote Office', 'Excel', 'Canva']
-            });
-
-            candidatos.push({
-                id: contadorId++,
-                nome: 'Carlos Eduardo Santos',
-                email: 'carlos@email.com',
-                whatsapp: '11988887777',
-                cidade: 'Rio de Janeiro',
-                estado: 'RJ',
-                cargo: 'Desenvolvedor Full Stack',
-                area: 'Tecnologia',
-                salario: 'R$ 8.000',
-                disponibilidade: '30 dias',
-                escolaridade: 'Superior Completo',
-                experiencia: 4,
-                ultimoCargo: 'Desenvolvedor na Empresa Z',
-                info: 'Avançado',
-                idioma: 'Inglês',
-                idiomaNivel: 'Fluente',
-                pcd: 'nao',
-                pcdDesc: '',
-                viagens: 'sim',
-                mudanca: 'sim',
-                habilidades: ['Excel', 'Sistemas ERP', 'Photoshop']
-            });
-
-            candidatos.push({
-                id: contadorId++,
-                nome: 'Mariana Oliveira',
-                email: 'mariana@email.com',
-                whatsapp: '11977776666',
-                cidade: 'Belo Horizonte',
-                estado: 'MG',
-                cargo: 'Analista de RH',
-                area: 'Recursos Humanos',
-                salario: 'R$ 4.500',
-                disponibilidade: '15 dias',
-                escolaridade: 'Pós-graduação',
-                experiencia: 5,
-                ultimoCargo: 'Coordenadora de RH',
-                info: 'Intermediário',
-                idioma: 'Espanhol',
-                idiomaNivel: 'Básico',
-                pcd: 'sim',
-                pcdDesc: 'Deficiência visual leve',
-                viagens: 'nao',
-                mudanca: 'nao',
-                habilidades: ['Pacote Office', 'Word', 'PowerPoint']
-            });
-
-            candidatos.push({
-                id: contadorId++,
-                nome: 'João Pedro Ferreira',
-                email: 'joao@email.com',
-                whatsapp: '11966665555',
-                cidade: 'Curitiba',
-                estado: 'PR',
-                cargo: 'Analista Financeiro',
-                area: 'Financeiro',
-                salario: 'R$ 6.500',
-                disponibilidade: 'Imediata',
-                escolaridade: 'Superior Completo',
-                experiencia: 2,
-                ultimoCargo: 'Auxiliar Financeiro',
-                info: 'Intermediário',
-                idioma: 'Inglês',
-                idiomaNivel: 'Básico',
-                pcd: 'nao',
-                pcdDesc: '',
-                viagens: 'nao',
-                mudanca: 'nao',
-                habilidades: ['Excel', 'Sistemas ERP']
-            });
-
             atualizarContador();
         });
     </script>
