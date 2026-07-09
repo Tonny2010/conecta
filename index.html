@@ -192,6 +192,167 @@
             background: #2c3e50;
         }
 
+        /* TELA DE LOGIN */
+        .login-section {
+            display: none;
+            animation: fadeIn 0.25s ease;
+        }
+
+        .login-section.active {
+            display: block;
+        }
+
+        .login-container {
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .login-container .icone-login {
+            text-align: center;
+            font-size: 56px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            font-size: 24px;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .login-container .subtitulo-login {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 28px;
+            font-size: 14px;
+        }
+
+        .login-container .form-group {
+            margin-bottom: 16px;
+        }
+
+        .login-container .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .login-container .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-border);
+            border-radius: 12px;
+            font-size: 15px;
+            transition: 0.15s;
+        }
+
+        .login-container .form-group input:focus {
+            border-color: var(--primary);
+            outline: 2px solid rgba(10, 102, 194, 0.2);
+        }
+
+        .login-container .btn-login {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 40px;
+            background: var(--primary);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+            margin-top: 8px;
+        }
+
+        .login-container .btn-login:hover {
+            background: #084a8f;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
+        }
+
+        .login-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .login-divider .linha {
+            flex: 1;
+            height: 1px;
+            background: var(--gray-border);
+        }
+
+        .login-divider .texto {
+            color: var(--text-gray);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .login-container .btn-cadastrar {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--primary);
+            border-radius: 40px;
+            background: transparent;
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+        .login-container .btn-cadastrar:hover {
+            background: var(--primary-light);
+        }
+
+        .login-container .info-tipo {
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 16px;
+        }
+
+        .login-container .info-tipo strong {
+            color: var(--primary);
+        }
+
+        .login-container .senha-link {
+            text-align: right;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .login-container .senha-link a {
+            color: var(--primary);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .login-container .senha-link a:hover {
+            text-decoration: underline;
+        }
+
+        .login-container .erro-login {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            display: none;
+            border-left: 4px solid #c62828;
+        }
+
+        .login-container .erro-login.visivel {
+            display: block;
+        }
+
         /* FORMULÁRIO */
         .form-section {
             display: none;
@@ -394,21 +555,6 @@
 
         .section-title i {
             font-size: 20px;
-        }
-
-        .sub-section {
-            background: var(--gray-light);
-            border-radius: 16px;
-            padding: 16px 18px;
-            margin-top: 12px;
-            border: 1px solid var(--gray-border);
-        }
-
-        .sub-section .sub-title {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 6px;
-            font-size: 15px;
         }
 
         .back-link {
@@ -787,6 +933,9 @@
                 font-size: 14px;
                 padding: 8px 16px;
             }
+            .login-container {
+                padding: 16px;
+            }
         }
     </style>
 </head>
@@ -804,7 +953,7 @@
                     <div class="slogan">CONECTANDO TALENTOS A OPORTUNIDADES</div>
                 </div>
             </div>
-            <span class="header-badge"><i class="fas fa-users"></i> <span id="totalCandidatos">0</span> candidatos</span>
+            <span class="header-badge"><i class="fas fa-users"></i> <span id="totalCandidatos">0</span> talentos</span>
         </div>
 
         <!-- PÁGINA 1: ESCOLHA -->
@@ -814,7 +963,7 @@
                 <p style="color: var(--text-gray); margin-top: 4px;">Escolha abaixo o perfil que melhor representa você</p>
             </div>
             <div class="page-selector">
-                <div class="selector-card" onclick="showForm('candidato')">
+                <div class="selector-card" onclick="irParaLogin('candidato')">
                     <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
                     <div class="info">
                         <h3>Sou Candidato</h3>
@@ -823,7 +972,7 @@
                     <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
                     <span class="tag">Vagas</span>
                 </div>
-                <div class="selector-card" onclick="showForm('empresa')">
+                <div class="selector-card" onclick="irParaLogin('contratante')">
                     <div class="card-icon"><i class="fas fa-building"></i></div>
                     <div class="info">
                         <h3>Sou Contratante</h3>
@@ -839,9 +988,56 @@
             </div>
         </div>
 
-        <!-- PÁGINA 2: FORMULÁRIO CANDIDATO -->
-        <div id="formCandidato" class="form-section">
+        <!-- PÁGINA 2: LOGIN -->
+        <div id="loginSection" class="login-section">
             <div class="back-link" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar para início</div>
+            
+            <div class="login-container">
+                <div class="icone-login">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h2 id="loginTitulo">Bem-vindo de volta!</h2>
+                <p class="subtitulo-login" id="loginSubtitulo">Acesse sua conta como Candidato</p>
+
+                <div id="erroLogin" class="erro-login">
+                    <i class="fas fa-exclamation-circle"></i> E-mail ou senha inválidos. Tente novamente.
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> E-mail</label>
+                    <input type="email" id="loginEmail" placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Senha</label>
+                    <input type="password" id="loginSenha" placeholder="Digite sua senha">
+                </div>
+                <div class="senha-link">
+                    <a onclick="alert('Funcionalidade em desenvolvimento. Entre em contato com o suporte.')">Esqueceu sua senha?</a>
+                </div>
+
+                <button class="btn-login" onclick="fazerLogin()">
+                    <i class="fas fa-sign-in-alt"></i> ENTRAR
+                </button>
+
+                <div class="login-divider">
+                    <div class="linha"></div>
+                    <div class="texto">ou</div>
+                    <div class="linha"></div>
+                </div>
+
+                <button class="btn-cadastrar" onclick="irParaCadastro()">
+                    <i class="fas fa-user-plus"></i> Cadastrar-me
+                </button>
+
+                <div class="info-tipo" id="loginInfoTipo">
+                    Ainda não tem conta? <strong>Cadastre-se</strong> como <strong id="tipoDisplay">Candidato</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- PÁGINA 3: FORMULÁRIO CANDIDATO -->
+        <div id="formCandidato" class="form-section">
+            <div class="back-link" onclick="voltarLogin()"><i class="fas fa-arrow-left"></i> Voltar para login</div>
             <div class="form-title"><i class="fas fa-clipboard-list"></i> Cadastro de Candidato</div>
             <div class="form-sub">Preencha todos os campos para entrar no banco de talentos</div>
 
@@ -1023,64 +1219,21 @@
 
                 <div class="btn-group">
                     <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Cadastrar</button>
-                    <button type="button" class="btn btn-outline" onclick="goHome()"><i class="fas fa-times"></i> Cancelar</button>
+                    <button type="button" class="btn btn-outline" onclick="voltarLogin()"><i class="fas fa-times"></i> Cancelar</button>
                 </div>
                 <div id="formFeedback" style="margin-top: 16px;"></div>
             </form>
         </div>
 
-        <!-- PÁGINA 2.5: CRIAÇÃO DE SENHA -->
-        <div id="formSenha" class="form-section">
-            <div class="back-link" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar para início</div>
-            
-            <div id="senhaContainer" class="senha-container">
-                <div class="icone-grande"><i class="fas fa-key"></i></div>
-                <h2>Crie sua senha de acesso</h2>
-                <p>Para finalizar seu cadastro, crie uma senha para acessar sua conta no Conecta Trampo</p>
-                
-                <div class="email-destacado" id="senhaEmailDisplay">email@exemplo.com</div>
-                
-                <form id="senhaForm" onsubmit="event.preventDefault(); criarSenha();">
-                    <div class="form-group">
-                        <label><i class="fas fa-lock"></i> Senha <span class="required-star">*</span></label>
-                        <input type="password" id="senhaInput" placeholder="Digite sua senha" required minlength="6">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-lock"></i> Confirmar senha <span class="required-star">*</span></label>
-                        <input type="password" id="senhaConfirmInput" placeholder="Confirme sua senha" required minlength="6">
-                    </div>
-                    
-                    <div style="text-align: left; max-width: 400px; margin: 0 auto 16px; font-size: 13px; color: var(--text-gray);">
-                        <p><i class="fas fa-info-circle" style="color: var(--primary);"></i> A senha deve ter no mínimo 6 caracteres</p>
-                    </div>
-                    
-                    <div class="btn-group">
-                        <button type="submit" class="btn btn-success"><i class="fas fa-check-circle"></i> Criar Senha</button>
-                        <button type="button" class="btn btn-outline" onclick="goHome()"><i class="fas fa-times"></i> Cancelar</button>
-                    </div>
-                    <div id="senhaFeedback" style="margin-top: 16px;"></div>
-                </form>
-                
-                <div id="senhaCriada" class="senha-criada">
-                    <div class="icone-sucesso"><i class="fas fa-check-circle"></i></div>
-                    <h2>Senha criada com sucesso!</h2>
-                    <p>Seu cadastro foi finalizado. Agora você pode acessar o Conecta Trampo com seu e-mail e senha.</p>
-                    <div style="margin-top: 24px;">
-                        <button class="btn btn-success" onclick="goHome()"><i class="fas fa-home"></i> Ir para início</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PÁGINA 3: EMPRESA / CONTRATANTE -->
-        <div id="formEmpresa" class="form-section">
-            <div class="back-link" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar para início</div>
+        <!-- PÁGINA 4: FORMULÁRIO CONTRATANTE -->
+        <div id="formContratante" class="form-section">
+            <div class="back-link" onclick="voltarLogin()"><i class="fas fa-arrow-left"></i> Voltar para login</div>
             <div class="form-title"><i class="fas fa-building"></i> Cadastro do Contratante</div>
             <div class="form-sub">Cadastre-se como empresa ou pessoa física para encontrar os melhores talentos</div>
 
             <!-- Etapa 1: Cadastro -->
             <div id="etapaEmpresa1" class="etapa-empresa ativa">
-                <form id="empresaForm" onsubmit="event.preventDefault(); cadastrarEmpresa();">
+                <form id="empresaForm" onsubmit="event.preventDefault(); cadastrarContratante();">
                     <div class="section-title"><i class="fas fa-user-tag"></i> Tipo de Pessoa</div>
                     
                     <div class="tipo-pessoa-selector">
@@ -1179,7 +1332,7 @@
 
                     <div class="btn-group">
                         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Cadastrar</button>
-                        <button type="button" class="btn btn-outline" onclick="goHome()"><i class="fas fa-times"></i> Cancelar</button>
+                        <button type="button" class="btn btn-outline" onclick="voltarLogin()"><i class="fas fa-times"></i> Cancelar</button>
                     </div>
                     <div id="empresaFeedback" style="margin-top: 16px;"></div>
                 </form>
@@ -1296,11 +1449,14 @@
     </div>
 
     <script>
-        // ===== BANCO DE DADOS FAKE =====
+        // ===== VARIÁVEIS GLOBAIS =====
         var candidatos = [];
         var contadorId = 1;
         var ultimoEmailCadastrado = '';
+        var tipoUsuarioSelecionado = 'candidato'; // 'candidato' ou 'contratante'
+        var usuariosCadastrados = [];
 
+        // ===== BANCO DE DADOS FAKE =====
         function gerarCandidatosFake() {
             var nomes = [
                 'Ana Carolina Silva', 'Carlos Eduardo Santos', 'Mariana Oliveira', 'João Pedro Ferreira',
@@ -1377,44 +1533,15 @@
             }
         }
 
-        // ===== FUNÇÕES PRINCIPAIS =====
-        function showForm(type) {
-            document.getElementById('pageChoice').style.display = 'none';
-
-            var formCandidato = document.getElementById('formCandidato');
-            var formEmpresa = document.getElementById('formEmpresa');
-            var formSenha = document.getElementById('formSenha');
-
-            if (type === 'candidato') {
-                formCandidato.style.display = 'block';
-                formCandidato.classList.add('active');
-                formEmpresa.style.display = 'none';
-                formEmpresa.classList.remove('active');
-                formSenha.style.display = 'none';
-                formSenha.classList.remove('active');
-            } else if (type === 'empresa') {
-                formEmpresa.style.display = 'block';
-                formEmpresa.classList.add('active');
-                formCandidato.style.display = 'none';
-                formCandidato.classList.remove('active');
-                formSenha.style.display = 'none';
-                formSenha.classList.remove('active');
-                
-                document.getElementById('etapaEmpresa1').className = 'etapa-empresa ativa';
-                document.getElementById('etapaEmpresa2').className = 'etapa-empresa';
-                document.getElementById('empresaFeedback').innerHTML = '';
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            atualizarContador();
-        }
-
+        // ===== FUNÇÕES DE NAVEGAÇÃO =====
         function goHome() {
             document.getElementById('pageChoice').style.display = 'block';
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('loginSection').classList.remove('active');
             document.getElementById('formCandidato').style.display = 'none';
             document.getElementById('formCandidato').classList.remove('active');
-            document.getElementById('formEmpresa').style.display = 'none';
-            document.getElementById('formEmpresa').classList.remove('active');
+            document.getElementById('formContratante').style.display = 'none';
+            document.getElementById('formContratante').classList.remove('active');
             document.getElementById('formSenha').style.display = 'none';
             document.getElementById('formSenha').classList.remove('active');
             document.getElementById('formFeedback').innerHTML = '';
@@ -1428,7 +1555,88 @@
             document.getElementById('senhaCriada').className = 'senha-criada';
             document.getElementById('senhaInput').value = '';
             document.getElementById('senhaConfirmInput').value = '';
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginSenha').value = '';
+            document.getElementById('erroLogin').className = 'erro-login';
             
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            atualizarContador();
+        }
+
+        function irParaLogin(tipo) {
+            tipoUsuarioSelecionado = tipo;
+            document.getElementById('pageChoice').style.display = 'none';
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('loginSection').classList.add('active');
+            
+            var titulo = document.getElementById('loginTitulo');
+            var subtitulo = document.getElementById('loginSubtitulo');
+            var tipoDisplay = document.getElementById('tipoDisplay');
+            var infoTipo = document.getElementById('loginInfoTipo');
+            
+            if (tipo === 'candidato') {
+                titulo.textContent = 'Bem-vindo de volta!';
+                subtitulo.textContent = 'Acesse sua conta como Candidato';
+                tipoDisplay.textContent = 'Candidato';
+                infoTipo.innerHTML = 'Ainda não tem conta? <strong>Cadastre-se</strong> como <strong>Candidato</strong>';
+            } else {
+                titulo.textContent = 'Bem-vindo de volta!';
+                subtitulo.textContent = 'Acesse sua conta como Contratante';
+                tipoDisplay.textContent = 'Contratante';
+                infoTipo.innerHTML = 'Ainda não tem conta? <strong>Cadastre-se</strong> como <strong>Contratante</strong>';
+            }
+            
+            document.getElementById('erroLogin').className = 'erro-login';
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginSenha').value = '';
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function voltarLogin() {
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('loginSection').classList.add('active');
+            document.getElementById('formCandidato').style.display = 'none';
+            document.getElementById('formCandidato').classList.remove('active');
+            document.getElementById('formContratante').style.display = 'none';
+            document.getElementById('formContratante').classList.remove('active');
+            document.getElementById('formSenha').style.display = 'none';
+            document.getElementById('formSenha').classList.remove('active');
+            document.getElementById('formFeedback').innerHTML = '';
+            document.getElementById('empresaFeedback').innerHTML = '';
+            document.getElementById('senhaFeedback').innerHTML = '';
+            document.getElementById('etapaEmpresa1').className = 'etapa-empresa ativa';
+            document.getElementById('etapaEmpresa2').className = 'etapa-empresa';
+            document.getElementById('listaResultados').innerHTML = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function irParaCadastro() {
+            var tipo = tipoUsuarioSelecionado;
+            
+            if (tipo === 'candidato') {
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('loginSection').classList.remove('active');
+                document.getElementById('formCandidato').style.display = 'block';
+                document.getElementById('formCandidato').classList.add('active');
+                // Preencher email se digitou no login
+                var email = document.getElementById('loginEmail').value;
+                if (email) {
+                    document.getElementById('candEmail').value = email;
+                }
+            } else {
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('loginSection').classList.remove('active');
+                document.getElementById('formContratante').style.display = 'block';
+                document.getElementById('formContratante').classList.add('active');
+                // Preencher email se digitou no login
+                var email = document.getElementById('loginEmail').value;
+                if (email) {
+                    document.getElementById('empEmail').value = email;
+                }
+            }
+            
+            document.getElementById('erroLogin').className = 'erro-login';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1441,6 +1649,49 @@
 
         function atualizarContador() {
             document.getElementById('totalCandidatos').textContent = candidatos.length;
+        }
+
+        // ===== FUNÇÕES DE LOGIN =====
+        function fazerLogin() {
+            var email = document.getElementById('loginEmail').value;
+            var senha = document.getElementById('loginSenha').value;
+            var erro = document.getElementById('erroLogin');
+
+            if (!email || !senha) {
+                erro.className = 'erro-login visivel';
+                erro.innerHTML = '<i class="fas fa-exclamation-circle"></i> Preencha todos os campos.';
+                return;
+            }
+
+            // Verificar se usuário existe
+            var usuario = usuariosCadastrados.find(function(u) {
+                return u.email === email && u.senha === senha;
+            });
+
+            if (!usuario) {
+                erro.className = 'erro-login visivel';
+                erro.innerHTML = '<i class="fas fa-exclamation-circle"></i> E-mail ou senha inválidos. Tente novamente.';
+                return;
+            }
+
+            erro.className = 'erro-login';
+            
+            // Login bem sucedido
+            if (usuario.tipo === 'candidato') {
+                alert('Login realizado com sucesso! Bem-vindo, ' + usuario.nome + '!');
+                // Aqui você pode redirecionar para o dashboard do candidato
+                goHome();
+            } else {
+                alert('Login realizado com sucesso! Bem-vindo, ' + usuario.nome + '!');
+                // Aqui você pode redirecionar para a área de busca do contratante
+                // Vamos simular indo para a busca
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('loginSection').classList.remove('active');
+                document.getElementById('formContratante').style.display = 'block';
+                document.getElementById('formContratante').classList.add('active');
+                document.getElementById('etapaEmpresa1').className = 'etapa-empresa';
+                document.getElementById('etapaEmpresa2').className = 'etapa-empresa ativa';
+            }
         }
 
         // ===== TIPO DE PESSOA =====
@@ -1514,6 +1765,17 @@
                 return;
             }
 
+            // Verificar se e-mail já está cadastrado
+            if (usuariosCadastrados.some(u => u.email === email)) {
+                document.getElementById('formFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Este e-mail já está cadastrado. Faça login ou use outro e-mail.
+                    </div>
+                `;
+                return;
+            }
+
             var habilidades = [];
             document.querySelectorAll('#candidateForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) {
                 habilidades.push(el.value);
@@ -1544,6 +1806,15 @@
             };
 
             candidatos.push(candidato);
+            
+            // Salvar usuário
+            usuariosCadastrados.push({
+                email: email,
+                senha: 'senha123', // Será substituído pela tela de senha
+                nome: nome,
+                tipo: 'candidato'
+            });
+
             ultimoEmailCadastrado = email;
 
             document.getElementById('formFeedback').innerHTML = `
@@ -1558,17 +1829,75 @@
             atualizarContador();
 
             setTimeout(function() {
-                mostrarTelaSenha(email);
+                mostrarTelaSenha(email, 'candidato');
             }, 1500);
         }
 
+        // ===== CADASTRO DO CONTRATANTE =====
+        function cadastrarContratante() {
+            var nome = document.getElementById('empNome').value;
+            var documento = document.getElementById('empDocumento').value;
+            var email = document.getElementById('empEmail').value;
+            var responsavel = document.getElementById('empResponsavel').value;
+            var termo = document.getElementById('empTermos').checked;
+            var tipo = document.getElementById('tipoPessoa').value;
+
+            if (!nome || !documento || !email || !responsavel || !termo) {
+                document.getElementById('empresaFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Preencha todos os campos obrigatórios.
+                    </div>
+                `;
+                return;
+            }
+
+            // Verificar se e-mail já está cadastrado
+            if (usuariosCadastrados.some(u => u.email === email)) {
+                document.getElementById('empresaFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Este e-mail já está cadastrado. Faça login ou use outro e-mail.
+                    </div>
+                `;
+                return;
+            }
+
+            // Salvar usuário
+            usuariosCadastrados.push({
+                email: email,
+                senha: 'senha123',
+                nome: responsavel,
+                tipo: 'contratante',
+                empresa: nome,
+                documento: documento
+            });
+
+            document.getElementById('empresaFeedback').innerHTML = `
+                <div class="toast-message">
+                    <i class="fas fa-check-circle"></i>
+                    ${tipo === 'juridica' ? 'Empresa' : 'Conta'} cadastrada com sucesso! Agora defina os critérios de busca.
+                </div>
+            `;
+
+            setTimeout(function() {
+                document.getElementById('etapaEmpresa1').className = 'etapa-empresa';
+                document.getElementById('etapaEmpresa2').className = 'etapa-empresa ativa';
+                document.getElementById('empresaFeedback').innerHTML = '';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 1000);
+        }
+
         // ===== TELA DE CRIAÇÃO DE SENHA =====
-        function mostrarTelaSenha(email) {
+        function mostrarTelaSenha(email, tipo) {
             var formCandidato = document.getElementById('formCandidato');
+            var formContratante = document.getElementById('formContratante');
             var formSenha = document.getElementById('formSenha');
             
             formCandidato.style.display = 'none';
             formCandidato.classList.remove('active');
+            formContratante.style.display = 'none';
+            formContratante.classList.remove('active');
             formSenha.style.display = 'block';
             formSenha.classList.add('active');
             
@@ -1579,6 +1908,9 @@
             document.getElementById('senhaInput').value = '';
             document.getElementById('senhaConfirmInput').value = '';
             
+            // Salvar qual tipo está criando senha
+            document.getElementById('senhaForm').dataset.tipo = tipo;
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1586,6 +1918,8 @@
             var senha = document.getElementById('senhaInput').value;
             var confirmar = document.getElementById('senhaConfirmInput').value;
             var feedback = document.getElementById('senhaFeedback');
+            var email = document.getElementById('senhaEmailDisplay').textContent;
+            var tipo = document.getElementById('senhaForm').dataset.tipo || 'candidato';
 
             if (senha.length < 6) {
                 feedback.innerHTML = `
@@ -1607,6 +1941,15 @@
                 return;
             }
 
+            // Atualizar senha do usuário
+            var usuario = usuariosCadastrados.find(function(u) {
+                return u.email === email;
+            });
+
+            if (usuario) {
+                usuario.senha = senha;
+            }
+
             feedback.innerHTML = `
                 <div class="toast-message">
                     <i class="fas fa-spinner fa-spin"></i>
@@ -1618,41 +1961,12 @@
                 document.getElementById('senhaForm').style.display = 'none';
                 document.getElementById('senhaCriada').className = 'senha-criada ativa';
                 feedback.innerHTML = '';
+                
+                // Atualizar o texto de sucesso com o tipo
+                var msgTipo = tipo === 'candidato' ? 'candidato' : 'contratante';
+                document.querySelector('#senhaCriada p').textContent = 
+                    'Seu cadastro como ' + msgTipo + ' foi finalizado. Agora você pode acessar o Conecta Trampo com seu e-mail e senha.';
             }, 1500);
-        }
-
-        // ===== CADASTRO DA EMPRESA / CONTRATANTE =====
-        function cadastrarEmpresa() {
-            var nome = document.getElementById('empNome').value;
-            var documento = document.getElementById('empDocumento').value;
-            var email = document.getElementById('empEmail').value;
-            var responsavel = document.getElementById('empResponsavel').value;
-            var termo = document.getElementById('empTermos').checked;
-            var tipo = document.getElementById('tipoPessoa').value;
-
-            if (!nome || !documento || !email || !responsavel || !termo) {
-                document.getElementById('empresaFeedback').innerHTML = `
-                    <div class="toast-message toast-error">
-                        <i class="fas fa-exclamation-circle"></i>
-                        Preencha todos os campos obrigatórios.
-                    </div>
-                `;
-                return;
-            }
-
-            document.getElementById('empresaFeedback').innerHTML = `
-                <div class="toast-message">
-                    <i class="fas fa-check-circle"></i>
-                    ${tipo === 'juridica' ? 'Empresa' : 'Conta'} cadastrada com sucesso! Agora defina os critérios de busca.
-                </div>
-            `;
-
-            setTimeout(function() {
-                document.getElementById('etapaEmpresa1').className = 'etapa-empresa';
-                document.getElementById('etapaEmpresa2').className = 'etapa-empresa ativa';
-                document.getElementById('empresaFeedback').innerHTML = '';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 1000);
         }
 
         // ===== BUSCAR CANDIDATOS =====
@@ -1888,8 +2202,22 @@
             gerarCandidatosFake();
             goHome();
             atualizarContador();
-            // Selecionar pessoa jurídica por padrão
             selecionarTipoPessoa('juridica');
+            
+            // Adicionar um usuário fake para teste de login
+            usuariosCadastrados.push({
+                email: 'teste@email.com',
+                senha: '123456',
+                nome: 'Usuário Teste',
+                tipo: 'candidato'
+            });
+            usuariosCadastrados.push({
+                email: 'empresa@email.com',
+                senha: '123456',
+                nome: 'Empresa Teste',
+                tipo: 'contratante',
+                empresa: 'Teste Ltda'
+            });
         });
     </script>
 </body>
