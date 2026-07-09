@@ -429,21 +429,6 @@
             background: var(--primary-light);
         }
 
-        .add-btn {
-            color: var(--primary);
-            cursor: pointer;
-            font-weight: 500;
-            padding: 8px 0;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.15s;
-        }
-
-        .add-btn:hover {
-            color: #084a8f;
-        }
-
         .required-star {
             color: #d32f2f;
             margin-left: 2px;
@@ -654,6 +639,77 @@
             display: block;
         }
 
+        /* TELA DE CRIAÇÃO DE SENHA */
+        .senha-container {
+            background: var(--gray-light);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid var(--gray-border);
+            margin: 20px 0;
+        }
+
+        .senha-container .icone-grande {
+            font-size: 64px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .senha-container h2 {
+            font-size: 24px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .senha-container p {
+            color: var(--text-gray);
+            margin-bottom: 24px;
+        }
+
+        .senha-container .email-destacado {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--gray-border);
+            display: inline-block;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+
+        .senha-container .form-group {
+            max-width: 400px;
+            margin: 0 auto 16px;
+        }
+
+        .senha-container .btn-group {
+            justify-content: center;
+        }
+
+        .senha-container .btn-group .btn {
+            flex: 0 1 auto;
+            min-width: 200px;
+        }
+
+        .senha-criada {
+            display: none;
+        }
+
+        .senha-criada.ativa {
+            display: block;
+        }
+
+        .senha-criada .icone-sucesso {
+            font-size: 72px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .senha-criada h2 {
+            color: var(--accent);
+        }
+
         @media (max-width: 640px) {
             .app-container {
                 padding: 16px;
@@ -675,6 +731,13 @@
             }
             .resultado-detalhes {
                 grid-template-columns: 1fr 1fr;
+            }
+            .senha-container {
+                padding: 24px;
+            }
+            .senha-container .email-destacado {
+                font-size: 14px;
+                padding: 8px 16px;
             }
         }
     </style>
@@ -915,6 +978,49 @@
             </form>
         </div>
 
+        <!-- PÁGINA 2.5: CRIAÇÃO DE SENHA -->
+        <div id="formSenha" class="form-section">
+            <div class="back-link" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar para início</div>
+            
+            <div id="senhaContainer" class="senha-container">
+                <div class="icone-grande"><i class="fas fa-key"></i></div>
+                <h2>Crie sua senha de acesso</h2>
+                <p>Para finalizar seu cadastro, crie uma senha para acessar sua conta no Conecta Trampo</p>
+                
+                <div class="email-destacado" id="senhaEmailDisplay">email@exemplo.com</div>
+                
+                <form id="senhaForm" onsubmit="event.preventDefault(); criarSenha();">
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Senha <span class="required-star">*</span></label>
+                        <input type="password" id="senhaInput" placeholder="Digite sua senha" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Confirmar senha <span class="required-star">*</span></label>
+                        <input type="password" id="senhaConfirmInput" placeholder="Confirme sua senha" required minlength="6">
+                    </div>
+                    
+                    <div style="text-align: left; max-width: 400px; margin: 0 auto 16px; font-size: 13px; color: var(--text-gray);">
+                        <p><i class="fas fa-info-circle" style="color: var(--primary);"></i> A senha deve ter no mínimo 6 caracteres</p>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-check-circle"></i> Criar Senha</button>
+                        <button type="button" class="btn btn-outline" onclick="goHome()"><i class="fas fa-times"></i> Cancelar</button>
+                    </div>
+                    <div id="senhaFeedback" style="margin-top: 16px;"></div>
+                </form>
+                
+                <div id="senhaCriada" class="senha-criada">
+                    <div class="icone-sucesso"><i class="fas fa-check-circle"></i></div>
+                    <h2>Senha criada com sucesso!</h2>
+                    <p>Seu cadastro foi finalizado. Agora você pode acessar o Conecta Trampo com seu e-mail e senha.</p>
+                    <div style="margin-top: 24px;">
+                        <button class="btn btn-success" onclick="goHome()"><i class="fas fa-home"></i> Ir para início</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- PÁGINA 3: EMPRESA -->
         <div id="formEmpresa" class="form-section">
             <div class="back-link" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar para início</div>
@@ -1122,9 +1228,10 @@
     </div>
 
     <script>
-        // ===== BANCO DE DADOS FAKE COM 50 CANDIDATOS =====
+        // ===== BANCO DE DADOS FAKE =====
         var candidatos = [];
         var contadorId = 1;
+        var ultimoEmailCadastrado = '';
 
         function gerarCandidatosFake() {
             var nomes = [
@@ -1132,21 +1239,14 @@
                 'Fernanda Lima', 'Rafael Almeida', 'Patrícia Costa', 'Lucas Mendes', 'Juliana Rocha',
                 'Bruno Souza', 'Camila Fernandes', 'Diego Nascimento', 'Letícia Barros', 'André Ribeiro',
                 'Tatiana Gomes', 'Felipe Araujo', 'Carolina Martins', 'Gustavo Lima', 'Isabela Cruz',
-                'Renato Oliveira', 'Vanessa Santos', 'Eduardo Pereira', 'Sabrina Costa', 'Marcelo Silva',
-                'Aline Ferreira', 'Thiago Rodrigues', 'Larissa Alves', 'Paulo Henrique', 'Amanda Nunes',
-                'Fábio Mendes', 'Roberta Lima', 'Anderson Rocha', 'Priscila Souza', 'Danilo Fernandes',
-                'Cristina Barros', 'Rogério Silva', 'Bianca Costa', 'Caio Oliveira', 'Natália Santos',
-                'Vinícius Pereira', 'Tatiane Rodrigues', 'Henrique Almeida', 'Luciana Martins',
-                'Jorge Nunes', 'Monica Rocha', 'Samuel Lima', 'Adriana Souza', 'Leonardo Gomes',
-                'Patrícia Araujo', 'Roberto Ferreira', 'Simone Costa', 'Alexandre Santos'
+                'Renato Oliveira', 'Vanessa Santos', 'Eduardo Pereira', 'Sabrina Costa', 'Marcelo Silva'
             ];
 
             var cargos = [
                 'Analista de Marketing', 'Desenvolvedor Full Stack', 'Analista de RH', 'Analista Financeiro',
                 'Designer Gráfico', 'Gerente de Projetos', 'Assistente Administrativo', 'Coordenador de Marketing',
                 'Analista de Sistemas', 'Consultor de Vendas', 'Especialista em SEO', 'Product Manager',
-                'Analista de Dados', 'Engenheiro de Software', 'Social Media', 'Analista de Qualidade',
-                'Scrum Master', 'UX Designer', 'Analista de Suporte', 'Gerente de Contas'
+                'Analista de Dados', 'Engenheiro de Software', 'Social Media', 'Analista de Qualidade'
             ];
 
             var areas = ['Administrativo', 'Financeiro', 'Marketing', 'Vendas', 'Produção', 'Logística', 'Recursos Humanos', 'Tecnologia', 'Saúde', 'Educação'];
@@ -1162,19 +1262,16 @@
                 ['Pacote Office', 'Canva'],
                 ['Excel', 'Sistemas ERP', 'PowerPoint'],
                 ['Photoshop', 'Illustrator'],
-                ['Pacote Office', 'Word', 'Excel', 'PowerPoint'],
-                ['Canva', 'Pacote Office'],
-                ['Excel', 'PowerPoint']
+                ['Pacote Office', 'Word', 'Excel', 'PowerPoint']
             ];
 
-            var idiomas = ['Inglês', 'Espanhol', 'Francês', 'Alemão', 'Português'];
+            var idiomas = ['Inglês', 'Espanhol', 'Francês', 'Alemão'];
             var niveis = ['Básico', 'Intermediário', 'Avançado', 'Fluente'];
 
-            for (var i = 0; i < 50; i++) {
+            for (var i = 0; i < 30; i++) {
                 var habilidades = habilidadesList[Math.floor(Math.random() * habilidadesList.length)];
                 var nome = nomes[i % nomes.length];
-                // Adicionar sobrenome extra para variar
-                if (i > 20) nome = nome + ' ' + ['Jr.', 'Filho', 'Neto', 'Sobrinho'][Math.floor(Math.random() * 4)];
+                if (i > 15) nome = nome + ' ' + ['Jr.', 'Filho', 'Neto'][Math.floor(Math.random() * 3)];
 
                 var candidato = {
                     id: contadorId++,
@@ -1189,12 +1286,12 @@
                     disponibilidade: disponibilidades[Math.floor(Math.random() * disponibilidades.length)],
                     escolaridade: escolaridades[Math.floor(Math.random() * escolaridades.length)],
                     experiencia: Math.floor(Math.random() * 6) + 1,
-                    ultimoCargo: 'Cargo na Empresa ' + ['A', 'B', 'C', 'D', 'E', 'F', 'G'][Math.floor(Math.random() * 7)],
+                    ultimoCargo: 'Cargo na Empresa ' + ['A', 'B', 'C', 'D', 'E', 'F'][Math.floor(Math.random() * 6)],
                     info: ['Básico', 'Intermediário', 'Avançado'][Math.floor(Math.random() * 3)],
                     idioma: idiomas[Math.floor(Math.random() * idiomas.length)],
                     idiomaNivel: niveis[Math.floor(Math.random() * niveis.length)],
                     pcd: Math.random() > 0.85 ? 'sim' : 'nao',
-                    pcdDesc: Math.random() > 0.85 ? ['Deficiência visual leve', 'Deficiência motora', 'Deficiência auditiva', 'Deficiência intelectual'][Math.floor(Math.random() * 4)] : '',
+                    pcdDesc: Math.random() > 0.85 ? ['Deficiência visual leve', 'Deficiência motora', 'Deficiência auditiva'][Math.floor(Math.random() * 3)] : '',
                     viagens: Math.random() > 0.5 ? 'sim' : 'nao',
                     mudanca: Math.random() > 0.5 ? 'sim' : 'nao',
                     habilidades: habilidades
@@ -1209,17 +1306,22 @@
 
             var formCandidato = document.getElementById('formCandidato');
             var formEmpresa = document.getElementById('formEmpresa');
+            var formSenha = document.getElementById('formSenha');
 
             if (type === 'candidato') {
                 formCandidato.style.display = 'block';
                 formCandidato.classList.add('active');
                 formEmpresa.style.display = 'none';
                 formEmpresa.classList.remove('active');
+                formSenha.style.display = 'none';
+                formSenha.classList.remove('active');
             } else if (type === 'empresa') {
                 formEmpresa.style.display = 'block';
                 formEmpresa.classList.add('active');
                 formCandidato.style.display = 'none';
                 formCandidato.classList.remove('active');
+                formSenha.style.display = 'none';
+                formSenha.classList.remove('active');
                 
                 document.getElementById('etapaEmpresa1').className = 'etapa-empresa ativa';
                 document.getElementById('etapaEmpresa2').className = 'etapa-empresa';
@@ -1236,11 +1338,21 @@
             document.getElementById('formCandidato').classList.remove('active');
             document.getElementById('formEmpresa').style.display = 'none';
             document.getElementById('formEmpresa').classList.remove('active');
+            document.getElementById('formSenha').style.display = 'none';
+            document.getElementById('formSenha').classList.remove('active');
             document.getElementById('formFeedback').innerHTML = '';
             document.getElementById('empresaFeedback').innerHTML = '';
+            document.getElementById('senhaFeedback').innerHTML = '';
             document.getElementById('etapaEmpresa1').className = 'etapa-empresa ativa';
             document.getElementById('etapaEmpresa2').className = 'etapa-empresa';
             document.getElementById('listaResultados').innerHTML = '';
+            
+            // Resetar tela de senha
+            document.getElementById('senhaForm').style.display = 'block';
+            document.getElementById('senhaCriada').className = 'senha-criada';
+            document.getElementById('senhaInput').value = '';
+            document.getElementById('senhaConfirmInput').value = '';
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1326,18 +1438,87 @@
             };
 
             candidatos.push(candidato);
+            
+            // Salvar o email para a tela de senha
+            ultimoEmailCadastrado = email;
 
+            // Mostrar mensagem de sucesso e depois ir para tela de senha
             document.getElementById('formFeedback').innerHTML = `
                 <div class="toast-message">
                     <i class="fas fa-check-circle"></i>
-                    Cadastro realizado com sucesso! Você está no banco de talentos.
+                    Cadastro realizado com sucesso! Agora crie sua senha de acesso.
                 </div>
             `;
 
+            // Limpar formulário
             document.getElementById('candidateForm').reset();
             document.getElementById('pcdDesc').style.display = 'none';
             atualizarContador();
+
+            // Após 1.5 segundos, ir para tela de senha
+            setTimeout(function() {
+                mostrarTelaSenha(email);
+            }, 1500);
+        }
+
+        // ===== TELA DE CRIAÇÃO DE SENHA =====
+        function mostrarTelaSenha(email) {
+            var formCandidato = document.getElementById('formCandidato');
+            var formSenha = document.getElementById('formSenha');
+            
+            formCandidato.style.display = 'none';
+            formCandidato.classList.remove('active');
+            formSenha.style.display = 'block';
+            formSenha.classList.add('active');
+            
+            document.getElementById('senhaEmailDisplay').textContent = email;
+            document.getElementById('senhaForm').style.display = 'block';
+            document.getElementById('senhaCriada').className = 'senha-criada';
+            document.getElementById('senhaFeedback').innerHTML = '';
+            document.getElementById('senhaInput').value = '';
+            document.getElementById('senhaConfirmInput').value = '';
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function criarSenha() {
+            var senha = document.getElementById('senhaInput').value;
+            var confirmar = document.getElementById('senhaConfirmInput').value;
+            var feedback = document.getElementById('senhaFeedback');
+
+            if (senha.length < 6) {
+                feedback.innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        A senha deve ter no mínimo 6 caracteres.
+                    </div>
+                `;
+                return;
+            }
+
+            if (senha !== confirmar) {
+                feedback.innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        As senhas não coincidem. Tente novamente.
+                    </div>
+                `;
+                return;
+            }
+
+            // Simular criação de conta
+            feedback.innerHTML = `
+                <div class="toast-message">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    Criando sua conta...
+                </div>
+            `;
+
+            setTimeout(function() {
+                document.getElementById('senhaForm').style.display = 'none';
+                document.getElementById('senhaCriada').className = 'senha-criada ativa';
+                feedback.innerHTML = '';
+            }, 1500);
         }
 
         // ===== CADASTRO DA EMPRESA =====
