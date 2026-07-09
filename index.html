@@ -710,6 +710,54 @@
             color: var(--accent);
         }
 
+        /* Estilo para pessoa física */
+        .tipo-pessoa-selector {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tipo-pessoa-selector .opcao {
+            padding: 10px 24px;
+            border: 2px solid var(--gray-border);
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.15s;
+            background: white;
+        }
+
+        .tipo-pessoa-selector .opcao:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .tipo-pessoa-selector .opcao.selecionado {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        .tipo-pessoa-selector .opcao i {
+            margin-right: 8px;
+        }
+
+        .documento-info {
+            background: var(--primary-light);
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 13px;
+            color: var(--text-dark);
+            border-left: 4px solid var(--primary);
+            margin-top: 8px;
+        }
+
+        .documento-info i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+
         @media (max-width: 640px) {
             .app-container {
                 padding: 16px;
@@ -778,8 +826,8 @@
                 <div class="selector-card" onclick="showForm('empresa')">
                     <div class="card-icon"><i class="fas fa-building"></i></div>
                     <div class="info">
-                        <h3>Sou Empresa</h3>
-                        <p>Quero encontrar candidatos ideais</p>
+                        <h3>Sou Contratante</h3>
+                        <p>Quero encontrar profissionais ou talentos</p>
                     </div>
                     <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
                     <span class="tag tag-empresa">RH</span>
@@ -873,6 +921,7 @@
                             <option>Administrativo</option><option>Financeiro</option><option>Marketing</option>
                             <option>Vendas</option><option>Produção</option><option>Logística</option>
                             <option>Recursos Humanos</option><option>Tecnologia</option><option>Saúde</option><option>Educação</option>
+                            <option>Construção Civil</option><option>Mecânica</option><option>Jardinagem</option><option>Serviços Gerais</option>
                         </select>
                     </div>
                     <div class="form-group"><label>Faixa salarial desejada</label><input type="text" id="candSalario" placeholder="Ex: R$ 4.000 - R$ 6.000"></div>
@@ -947,6 +996,8 @@
                         <label><input type="checkbox" value="Sistemas ERP"> Sistemas ERP</label>
                         <label><input type="checkbox" value="Photoshop"> Photoshop</label>
                         <label><input type="checkbox" value="Illustrator"> Illustrator</label>
+                        <label><input type="checkbox" value="Ferramentas Manuais"> Ferramentas Manuais</label>
+                        <label><input type="checkbox" value="Equipamentos Elétricos"> Equipamentos Elétricos</label>
                     </div>
                 </div>
                 <div class="form-group full-width">
@@ -1021,47 +1072,47 @@
             </div>
         </div>
 
-        <!-- PÁGINA 3: EMPRESA -->
+        <!-- PÁGINA 3: EMPRESA / CONTRATANTE -->
         <div id="formEmpresa" class="form-section">
             <div class="back-link" onclick="goHome()"><i class="fas fa-arrow-left"></i> Voltar para início</div>
-            <div class="form-title"><i class="fas fa-building"></i> Cadastro da Empresa</div>
-            <div class="form-sub">Cadastre sua empresa e depois defina os critérios para encontrar os melhores talentos</div>
+            <div class="form-title"><i class="fas fa-building"></i> Cadastro do Contratante</div>
+            <div class="form-sub">Cadastre-se como empresa ou pessoa física para encontrar os melhores talentos</div>
 
-            <!-- Etapa 1: Cadastro da Empresa -->
+            <!-- Etapa 1: Cadastro -->
             <div id="etapaEmpresa1" class="etapa-empresa ativa">
                 <form id="empresaForm" onsubmit="event.preventDefault(); cadastrarEmpresa();">
-                    <div class="section-title"><i class="fas fa-building"></i> Dados da Empresa</div>
+                    <div class="section-title"><i class="fas fa-user-tag"></i> Tipo de Pessoa</div>
+                    
+                    <div class="tipo-pessoa-selector">
+                        <div class="opcao selecionado" id="tipoPessoaJuridica" onclick="selecionarTipoPessoa('juridica')">
+                            <i class="fas fa-building"></i> Pessoa Jurídica (CNPJ)
+                        </div>
+                        <div class="opcao" id="tipoPessoaFisica" onclick="selecionarTipoPessoa('fisica')">
+                            <i class="fas fa-user"></i> Pessoa Física (CPF)
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="tipoPessoa" value="juridica">
+
+                    <div class="section-title"><i class="fas fa-address-card"></i> Dados Cadastrais</div>
                     <div class="form-grid">
                         <div class="form-group full-width">
-                            <label><i class="fas fa-store"></i> Nome Fantasia <span class="required-star">*</span></label>
-                            <input type="text" id="empNome" placeholder="Ex: Conecta Trampo" required>
+                            <label><i class="fas fa-store"></i> Nome / Razão Social <span class="required-star">*</span></label>
+                            <input type="text" id="empNome" placeholder="Ex: Conecta Trampo ou João da Silva" required>
                         </div>
-                        <div class="form-group full-width">
-                            <label><i class="fas fa-gavel"></i> Razão Social</label>
-                            <input type="text" id="empRazao" placeholder="Ex: Conecta Trampo Soluções Ltda">
+                        <div class="form-group" id="grupoDocumento">
+                            <label><i class="fas fa-id-card"></i> <span id="labelDocumento">CNPJ</span> <span class="required-star">*</span></label>
+                            <input type="text" id="empDocumento" placeholder="00.000.000/0000-00" required>
                         </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-id-card"></i> CNPJ</label>
-                            <input type="text" id="empCnpj" placeholder="00.000.000/0000-00">
+                        <div class="form-group" id="grupoNomeFantasia">
+                            <label><i class="fas fa-tag"></i> Nome Fantasia</label>
+                            <input type="text" id="empFantasia" placeholder="Ex: Conecta Trampo">
                         </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-tag"></i> Segmento</label>
-                            <select id="empSegmento">
-                                <option value="">Selecione</option>
-                                <option>Tecnologia da Informação</option><option>Consultoria</option>
-                                <option>Varejo</option><option>Indústria</option><option>Serviços</option>
-                                <option>Saúde</option><option>Educação</option><option>Financeiro</option>
-                                <option>Logística</option><option>Marketing</option><option>Recursos Humanos</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-users"></i> Porte</label>
-                            <select id="empPorte">
-                                <option value="">Selecione</option>
-                                <option>MEI</option><option>Microempresa</option><option>Pequena Empresa</option>
-                                <option>Média Empresa</option><option>Grande Empresa</option><option>Startup</option>
-                            </select>
-                        </div>
+                    </div>
+
+                    <div class="documento-info" id="documentoInfo">
+                        <i class="fas fa-info-circle"></i>
+                        <span id="documentoInfoText">CNPJ: Para empresas e organizações formais</span>
                     </div>
 
                     <div class="section-title"><i class="fas fa-phone-alt"></i> Contato</div>
@@ -1089,22 +1140,35 @@
                         </div>
                     </div>
 
-                    <div class="section-title"><i class="fas fa-user-tie"></i> Responsável</div>
+                    <div class="section-title"><i class="fas fa-user-tie"></i> Responsável / Contato</div>
                     <div class="form-grid">
                         <div class="form-group full-width">
                             <label>Nome do Responsável <span class="required-star">*</span></label>
                             <input type="text" id="empResponsavel" placeholder="Nome completo" required>
                         </div>
                         <div class="form-group">
-                            <label>Cargo</label>
-                            <input type="text" id="empCargoResponsavel" placeholder="Ex: Gerente de RH">
+                            <label>Cargo / Função</label>
+                            <input type="text" id="empCargoResponsavel" placeholder="Ex: Gerente de RH ou Autônomo">
                         </div>
                     </div>
 
-                    <div class="section-title"><i class="fas fa-info-circle"></i> Sobre a Empresa</div>
+                    <div class="section-title"><i class="fas fa-info-circle"></i> Sobre você / sua empresa</div>
                     <div class="form-group full-width">
                         <label>Descrição</label>
-                        <textarea id="empDescricao" placeholder="Descreva sua empresa..." style="min-height:80px;"></textarea>
+                        <textarea id="empDescricao" placeholder="Descreva sua empresa ou o que você faz..." style="min-height:80px;"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label><i class="fas fa-briefcase"></i> Área de atuação / Serviços oferecidos</label>
+                        <select id="empSegmento">
+                            <option value="">Selecione</option>
+                            <option>Tecnologia da Informação</option><option>Consultoria</option>
+                            <option>Varejo</option><option>Indústria</option><option>Serviços</option>
+                            <option>Saúde</option><option>Educação</option><option>Financeiro</option>
+                            <option>Logística</option><option>Marketing</option><option>Recursos Humanos</option>
+                            <option>Construção Civil</option><option>Mecânica</option><option>Jardinagem</option>
+                            <option>Manutenção</option><option>Serviços Gerais</option><option>Autônomo</option>
+                            <option>Outro</option>
+                        </select>
                     </div>
 
                     <div class="lgpd-box">
@@ -1114,7 +1178,7 @@
                     </div>
 
                     <div class="btn-group">
-                        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Cadastrar Empresa</button>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Cadastrar</button>
                         <button type="button" class="btn btn-outline" onclick="goHome()"><i class="fas fa-times"></i> Cancelar</button>
                     </div>
                     <div id="empresaFeedback" style="margin-top: 16px;"></div>
@@ -1123,17 +1187,17 @@
 
             <!-- Etapa 2: Critérios de Busca -->
             <div id="etapaEmpresa2" class="etapa-empresa">
-                <div class="back-link" onclick="voltarEtapa1()"><i class="fas fa-arrow-left"></i> Voltar dados da empresa</div>
-                <div class="form-title"><i class="fas fa-search"></i> Encontrar Candidatos</div>
-                <div class="form-sub">Defina os critérios que você busca e encontre os melhores talentos</div>
+                <div class="back-link" onclick="voltarEtapa1()"><i class="fas fa-arrow-left"></i> Voltar dados</div>
+                <div class="form-title"><i class="fas fa-search"></i> Encontrar Talentos</div>
+                <div class="form-sub">Defina os critérios que você busca e encontre os melhores profissionais</div>
 
                 <form id="buscaForm" onsubmit="event.preventDefault(); buscarCandidatos();">
                     <div class="section-title"><i class="fas fa-sliders-h"></i> Critérios de Busca</div>
                     
                     <div class="form-grid">
                         <div class="form-group full-width">
-                            <label><i class="fas fa-briefcase"></i> Cargo desejado <span class="required-star">*</span></label>
-                            <input type="text" id="buscaCargo" placeholder="Ex: Analista de Marketing" required>
+                            <label><i class="fas fa-briefcase"></i> Profissão / Cargo desejado <span class="required-star">*</span></label>
+                            <input type="text" id="buscaCargo" placeholder="Ex: Pedreiro, Jardineiro, Professor, Analista" required>
                         </div>
                         <div class="form-group">
                             <label><i class="fas fa-tag"></i> Área de atuação</label>
@@ -1141,7 +1205,9 @@
                                 <option value="">Todas</option>
                                 <option>Administrativo</option><option>Financeiro</option><option>Marketing</option>
                                 <option>Vendas</option><option>Produção</option><option>Logística</option>
-                                <option>Recursos Humanos</option><option>Tecnologia</option><option>Saúde</option><option>Educação</option>
+                                <option>Recursos Humanos</option><option>Tecnologia</option><option>Saúde</option>
+                                <option>Educação</option><option>Construção Civil</option><option>Mecânica</option>
+                                <option>Jardinagem</option><option>Serviços Gerais</option><option>Autônomo</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1208,12 +1274,14 @@
                                 <label><input type="checkbox" value="Sistemas ERP"> Sistemas ERP</label>
                                 <label><input type="checkbox" value="Photoshop"> Photoshop</label>
                                 <label><input type="checkbox" value="Illustrator"> Illustrator</label>
+                                <label><input type="checkbox" value="Ferramentas Manuais"> Ferramentas Manuais</label>
+                                <label><input type="checkbox" value="Equipamentos Elétricos"> Equipamentos Elétricos</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="btn-group">
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Procurar Candidatos</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Procurar Talentos</button>
                         <button type="button" class="btn btn-outline" onclick="limparBusca()"><i class="fas fa-undo"></i> Limpar Filtros</button>
                     </div>
                 </form>
@@ -1239,18 +1307,23 @@
                 'Fernanda Lima', 'Rafael Almeida', 'Patrícia Costa', 'Lucas Mendes', 'Juliana Rocha',
                 'Bruno Souza', 'Camila Fernandes', 'Diego Nascimento', 'Letícia Barros', 'André Ribeiro',
                 'Tatiana Gomes', 'Felipe Araujo', 'Carolina Martins', 'Gustavo Lima', 'Isabela Cruz',
-                'Renato Oliveira', 'Vanessa Santos', 'Eduardo Pereira', 'Sabrina Costa', 'Marcelo Silva'
+                'Renato Oliveira', 'Vanessa Santos', 'Eduardo Pereira', 'Sabrina Costa', 'Marcelo Silva',
+                'José Carlos Santos', 'Maria Aparecida', 'Antonio Oliveira', 'Paulo Roberto', 'Carlos Alberto'
             ];
 
             var cargos = [
                 'Analista de Marketing', 'Desenvolvedor Full Stack', 'Analista de RH', 'Analista Financeiro',
                 'Designer Gráfico', 'Gerente de Projetos', 'Assistente Administrativo', 'Coordenador de Marketing',
                 'Analista de Sistemas', 'Consultor de Vendas', 'Especialista em SEO', 'Product Manager',
-                'Analista de Dados', 'Engenheiro de Software', 'Social Media', 'Analista de Qualidade'
+                'Analista de Dados', 'Engenheiro de Software', 'Social Media', 'Analista de Qualidade',
+                'Pedreiro', 'Jardineiro', 'Mecânico', 'Professor Particular', 'Eletricista', 'Encanador',
+                'Pintor', 'Marceneiro', 'Cozinheiro', 'Motorista', 'Fotógrafo', 'Personal Trainer'
             ];
 
-            var areas = ['Administrativo', 'Financeiro', 'Marketing', 'Vendas', 'Produção', 'Logística', 'Recursos Humanos', 'Tecnologia', 'Saúde', 'Educação'];
-            var escolaridades = ['Ensino Médio', 'Técnico', 'Superior Incompleto', 'Superior Completo', 'Pós-graduação', 'Mestrado'];
+            var areas = ['Administrativo', 'Financeiro', 'Marketing', 'Vendas', 'Produção', 'Logística', 
+                        'Recursos Humanos', 'Tecnologia', 'Saúde', 'Educação', 'Construção Civil', 
+                        'Mecânica', 'Jardinagem', 'Serviços Gerais', 'Autônomo'];
+            var escolaridades = ['Ensino Fundamental', 'Ensino Médio', 'Técnico', 'Superior Incompleto', 'Superior Completo', 'Pós-graduação', 'Mestrado'];
             var cidades = ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Curitiba', 'Porto Alegre', 'Brasília', 'Salvador', 'Recife', 'Fortaleza', 'Manaus'];
             var estados = ['SP', 'RJ', 'MG', 'PR', 'RS', 'DF', 'BA', 'PE', 'CE', 'AM'];
             var disponibilidades = ['Imediata', '15 dias', '30 dias', 'Outro prazo'];
@@ -1262,16 +1335,20 @@
                 ['Pacote Office', 'Canva'],
                 ['Excel', 'Sistemas ERP', 'PowerPoint'],
                 ['Photoshop', 'Illustrator'],
-                ['Pacote Office', 'Word', 'Excel', 'PowerPoint']
+                ['Pacote Office', 'Word', 'Excel', 'PowerPoint'],
+                ['Ferramentas Manuais', 'Equipamentos Elétricos'],
+                ['Ferramentas Manuais'],
+                ['Equipamentos Elétricos'],
+                ['Pacote Office', 'Ferramentas Manuais']
             ];
 
-            var idiomas = ['Inglês', 'Espanhol', 'Francês', 'Alemão'];
+            var idiomas = ['Inglês', 'Espanhol', 'Francês', 'Alemão', 'Português'];
             var niveis = ['Básico', 'Intermediário', 'Avançado', 'Fluente'];
 
-            for (var i = 0; i < 30; i++) {
+            for (var i = 0; i < 35; i++) {
                 var habilidades = habilidadesList[Math.floor(Math.random() * habilidadesList.length)];
                 var nome = nomes[i % nomes.length];
-                if (i > 15) nome = nome + ' ' + ['Jr.', 'Filho', 'Neto'][Math.floor(Math.random() * 3)];
+                if (i > 20) nome = nome + ' ' + ['Jr.', 'Filho', 'Neto', 'Sobrinho'][Math.floor(Math.random() * 4)];
 
                 var candidato = {
                     id: contadorId++,
@@ -1282,16 +1359,16 @@
                     estado: estados[Math.floor(Math.random() * estados.length)],
                     cargo: cargos[Math.floor(Math.random() * cargos.length)],
                     area: areas[Math.floor(Math.random() * areas.length)],
-                    salario: 'R$ ' + (Math.floor(Math.random() * 8000) + 2000) + ',00',
+                    salario: 'R$ ' + (Math.floor(Math.random() * 8000) + 1500) + ',00',
                     disponibilidade: disponibilidades[Math.floor(Math.random() * disponibilidades.length)],
                     escolaridade: escolaridades[Math.floor(Math.random() * escolaridades.length)],
                     experiencia: Math.floor(Math.random() * 6) + 1,
-                    ultimoCargo: 'Cargo na Empresa ' + ['A', 'B', 'C', 'D', 'E', 'F'][Math.floor(Math.random() * 6)],
+                    ultimoCargo: 'Cargo na Empresa ' + ['A', 'B', 'C', 'D', 'E', 'F', 'G'][Math.floor(Math.random() * 7)],
                     info: ['Básico', 'Intermediário', 'Avançado'][Math.floor(Math.random() * 3)],
                     idioma: idiomas[Math.floor(Math.random() * idiomas.length)],
                     idiomaNivel: niveis[Math.floor(Math.random() * niveis.length)],
                     pcd: Math.random() > 0.85 ? 'sim' : 'nao',
-                    pcdDesc: Math.random() > 0.85 ? ['Deficiência visual leve', 'Deficiência motora', 'Deficiência auditiva'][Math.floor(Math.random() * 3)] : '',
+                    pcdDesc: Math.random() > 0.85 ? ['Deficiência visual leve', 'Deficiência motora', 'Deficiência auditiva', 'Deficiência intelectual'][Math.floor(Math.random() * 4)] : '',
                     viagens: Math.random() > 0.5 ? 'sim' : 'nao',
                     mudanca: Math.random() > 0.5 ? 'sim' : 'nao',
                     habilidades: habilidades
@@ -1347,7 +1424,6 @@
             document.getElementById('etapaEmpresa2').className = 'etapa-empresa';
             document.getElementById('listaResultados').innerHTML = '';
             
-            // Resetar tela de senha
             document.getElementById('senhaForm').style.display = 'block';
             document.getElementById('senhaCriada').className = 'senha-criada';
             document.getElementById('senhaInput').value = '';
@@ -1365,6 +1441,36 @@
 
         function atualizarContador() {
             document.getElementById('totalCandidatos').textContent = candidatos.length;
+        }
+
+        // ===== TIPO DE PESSOA =====
+        function selecionarTipoPessoa(tipo) {
+            document.getElementById('tipoPessoa').value = tipo;
+            
+            var btnJuridica = document.getElementById('tipoPessoaJuridica');
+            var btnFisica = document.getElementById('tipoPessoaFisica');
+            var labelDocumento = document.getElementById('labelDocumento');
+            var inputDocumento = document.getElementById('empDocumento');
+            var grupoFantasia = document.getElementById('grupoNomeFantasia');
+            var infoText = document.getElementById('documentoInfoText');
+
+            if (tipo === 'juridica') {
+                btnJuridica.className = 'opcao selecionado';
+                btnFisica.className = 'opcao';
+                labelDocumento.textContent = 'CNPJ';
+                inputDocumento.placeholder = '00.000.000/0000-00';
+                grupoFantasia.style.display = 'block';
+                infoText.textContent = 'CNPJ: Para empresas e organizações formais';
+                document.querySelector('#empNome').placeholder = 'Ex: Conecta Trampo Soluções Ltda';
+            } else {
+                btnFisica.className = 'opcao selecionado';
+                btnJuridica.className = 'opcao';
+                labelDocumento.textContent = 'CPF';
+                inputDocumento.placeholder = '000.000.000-00';
+                grupoFantasia.style.display = 'none';
+                infoText.textContent = 'CPF: Para pessoas físicas (autônomos, profissionais liberais)';
+                document.querySelector('#empNome').placeholder = 'Ex: João da Silva';
+            }
         }
 
         // ===== CADASTRO DO CANDIDATO =====
@@ -1438,11 +1544,8 @@
             };
 
             candidatos.push(candidato);
-            
-            // Salvar o email para a tela de senha
             ultimoEmailCadastrado = email;
 
-            // Mostrar mensagem de sucesso e depois ir para tela de senha
             document.getElementById('formFeedback').innerHTML = `
                 <div class="toast-message">
                     <i class="fas fa-check-circle"></i>
@@ -1450,12 +1553,10 @@
                 </div>
             `;
 
-            // Limpar formulário
             document.getElementById('candidateForm').reset();
             document.getElementById('pcdDesc').style.display = 'none';
             atualizarContador();
 
-            // Após 1.5 segundos, ir para tela de senha
             setTimeout(function() {
                 mostrarTelaSenha(email);
             }, 1500);
@@ -1506,7 +1607,6 @@
                 return;
             }
 
-            // Simular criação de conta
             feedback.innerHTML = `
                 <div class="toast-message">
                     <i class="fas fa-spinner fa-spin"></i>
@@ -1521,14 +1621,16 @@
             }, 1500);
         }
 
-        // ===== CADASTRO DA EMPRESA =====
+        // ===== CADASTRO DA EMPRESA / CONTRATANTE =====
         function cadastrarEmpresa() {
             var nome = document.getElementById('empNome').value;
+            var documento = document.getElementById('empDocumento').value;
             var email = document.getElementById('empEmail').value;
             var responsavel = document.getElementById('empResponsavel').value;
             var termo = document.getElementById('empTermos').checked;
+            var tipo = document.getElementById('tipoPessoa').value;
 
-            if (!nome || !email || !responsavel || !termo) {
+            if (!nome || !documento || !email || !responsavel || !termo) {
                 document.getElementById('empresaFeedback').innerHTML = `
                     <div class="toast-message toast-error">
                         <i class="fas fa-exclamation-circle"></i>
@@ -1541,7 +1643,7 @@
             document.getElementById('empresaFeedback').innerHTML = `
                 <div class="toast-message">
                     <i class="fas fa-check-circle"></i>
-                    Empresa cadastrada com sucesso! Agora defina os critérios de busca.
+                    ${tipo === 'juridica' ? 'Empresa' : 'Conta'} cadastrada com sucesso! Agora defina os critérios de busca.
                 </div>
             `;
 
@@ -1580,8 +1682,8 @@
                 document.getElementById('listaResultados').innerHTML = `
                     <div class="sem-resultados">
                         <i class="fas fa-exclamation-circle"></i>
-                        <h3>Informe o cargo desejado</h3>
-                        <p>Preencha o campo "Cargo desejado" para iniciar a busca.</p>
+                        <h3>Informe a profissão desejada</h3>
+                        <p>Preencha o campo "Profissão / Cargo desejado" para iniciar a busca.</p>
                     </div>
                 `;
                 return;
@@ -1671,7 +1773,7 @@
                 container.innerHTML = `
                     <div class="sem-resultados">
                         <i class="fas fa-search"></i>
-                        <h3>Nenhum candidato encontrado</h3>
+                        <h3>Nenhum profissional encontrado</h3>
                         <p>Ajuste os critérios de busca para encontrar mais talentos.</p>
                         <button class="btn btn-outline" onclick="limparBusca()" style="margin-top:16px;">
                             <i class="fas fa-undo"></i> Limpar Filtros
@@ -1679,7 +1781,7 @@
                     </div>
                 `;
             } else {
-                var html = `<p style="color:var(--text-gray); margin-bottom:16px;">Encontramos <strong>${resultados.length}</strong> candidatos compatíveis</p>`;
+                var html = `<p style="color:var(--text-gray); margin-bottom:16px;">Encontramos <strong>${resultados.length}</strong> profissionais compatíveis</p>`;
                 
                 resultados.forEach(function(cand) {
                     var matchClass = 'match-alta';
@@ -1751,7 +1853,7 @@
 
             var totalLabel = document.querySelector('#resultadosBusca .section-title');
             if (totalLabel) {
-                totalLabel.innerHTML = `<i class="fas fa-users"></i> Resultados (${resultados.length} candidatos)`;
+                totalLabel.innerHTML = `<i class="fas fa-users"></i> Resultados (${resultados.length} profissionais)`;
             }
 
             window.scrollTo({ top: document.getElementById('resultadosBusca').offsetTop - 100, behavior: 'smooth' });
@@ -1786,6 +1888,8 @@
             gerarCandidatosFake();
             goHome();
             atualizarContador();
+            // Selecionar pessoa jurídica por padrão
+            selecionarTipoPessoa('juridica');
         });
     </script>
 </body>
