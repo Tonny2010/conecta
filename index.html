@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ===== RESET E BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -66,7 +65,6 @@
             z-index: 1;
         }
 
-        /* ===== TÍTULO GRANDE (ocupa o espaço da logo) ===== */
         .logo-titulo-grande {
             display: flex;
             flex-direction: column;
@@ -115,7 +113,6 @@
             padding-top: 12px;
         }
 
-        /* ===== BOTÃO INICIAR ===== */
         .btn-iniciar {
             background: linear-gradient(135deg, #0a66c2 0%, #084a8f 100%);
             color: white;
@@ -149,7 +146,6 @@
             transform: translateX(4px);
         }
 
-        /* ===== RODAPÉ ===== */
         .landing-footer {
             margin-top: 40px;
             padding-top: 20px;
@@ -187,7 +183,6 @@
             display: block;
         }
 
-        /* CABEÇALHO DO APP */
         .app-header {
             display: flex;
             align-items: center;
@@ -290,7 +285,7 @@
             transform: scale(1.02);
         }
 
-        /* ===== ESTILOS DO APP (reutilizados) ===== */
+        /* ===== APP STYLES ===== */
         :root {
             --primary: #0a66c2;
             --primary-light: #e8f0fe;
@@ -1352,19 +1347,16 @@
     <!-- ============================================ -->
     <div id="landingPage" class="landing-container">
         <div class="landing-content">
-            <!-- Título GRANDE (ocupa o espaço da logo) -->
             <div class="logo-titulo-grande">
                 <span class="conecta">CONECTA</span>
                 <span class="trampo">Trampo</span>
                 <div class="slogan">Conectando talentos a oportunidades</div>
             </div>
 
-            <!-- Botão Iniciar -->
             <button class="btn-iniciar" onclick="iniciarApp()">
                 <i class="fas fa-rocket"></i> Iniciar
             </button>
 
-            <!-- Rodapé -->
             <div class="landing-footer">
                 <span><i class="fas fa-shield-alt"></i> Dados seguros</span>
                 <span><i class="fas fa-users"></i> +2.500 talentos</span>
@@ -1374,7 +1366,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- APP (oculto inicialmente) -->
+    <!-- APP -->
     <!-- ============================================ -->
     <div id="appContainer" class="app-container">
         <!-- CABEÇALHO DO APP -->
@@ -1430,7 +1422,6 @@
         <!-- PÁGINA 2: LOGIN -->
         <div id="loginSection" class="login-section">
             <div class="back-link" onclick="goHomeApp()"><i class="fas fa-arrow-left"></i> Voltar</div>
-            
             <div class="login-container">
                 <div class="icone-login">
                     <i class="fas fa-user-circle"></i>
@@ -1494,7 +1485,7 @@
             </div>
         </div>
 
-        <!-- PÁGINA 4: FORMULÁRIO CANDIDATO (RESUMIDO) -->
+        <!-- PÁGINA 4: FORMULÁRIO CANDIDATO -->
         <div id="formCandidato" class="form-section">
             <div class="back-link" onclick="voltarLogin()"><i class="fas fa-arrow-left"></i> Voltar</div>
             <div class="form-title"><i class="fas fa-clipboard-list"></i> Cadastro de Candidato</div>
@@ -1665,7 +1656,7 @@
             </form>
         </div>
 
-        <!-- PÁGINA 5: FORMULÁRIO CONTRATANTE (RESUMIDO) -->
+        <!-- PÁGINA 5: FORMULÁRIO CONTRATANTE -->
         <div id="formContratante" class="form-section">
             <div class="back-link" onclick="voltarLogin()"><i class="fas fa-arrow-left"></i> Voltar</div>
             <div class="form-title"><i class="fas fa-building"></i> Cadastro do Contratante</div>
@@ -1906,9 +1897,6 @@
         </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- JAVASCRIPT -->
-    <!-- ============================================ -->
     <script>
         // =====================================================
         // VARIÁVEIS GLOBAIS
@@ -2002,7 +1990,7 @@
                 });
             }
 
-            // Usuários de teste
+            // Usuários de teste (genéricos)
             usuariosCadastrados.push(
                 { email: 'teste@email.com', senha: '123456', nome: 'Usuário Teste', tipo: 'candidato' },
                 { email: 'empresa@email.com', senha: '123456', nome: 'Empresa Teste', tipo: 'contratante' }
@@ -2593,6 +2581,14 @@
             goHomeApp();
             document.getElementById('totalCandidatosApp').textContent = candidatos.length;
             selecionarTipoPessoa('juridica');
+
+            // Adicionar usuário específico
+            usuariosCadastrados.push({
+                email: 'tonnyluiz706@gmail.com',
+                senha: '33430081',
+                nome: 'Luiz Antônio dos Santos Ribeiro',
+                tipo: 'candidato'
+            });
         });
     </script>
 </body>
