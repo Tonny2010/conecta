@@ -23,7 +23,6 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* ===== LANDING PAGE ===== */
         .landing-container {
             max-width: 920px;
             width: 100%;
@@ -85,7 +84,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 2px 4px rgba(10, 102, 194, 0.1);
             line-height: 1;
         }
 
@@ -96,7 +94,6 @@
             font-style: italic;
             color: #2c3e50;
             letter-spacing: -2px;
-            text-shadow: 0 2px 4px rgba(44, 62, 80, 0.1);
             line-height: 1;
             margin-top: -8px;
         }
@@ -168,7 +165,6 @@
             color: #0a66c2;
         }
 
-        /* ===== APP ===== */
         .app-container {
             display: none;
             max-width: 920px;
@@ -285,7 +281,6 @@
             transform: scale(1.02);
         }
 
-        /* ===== APP STYLES ===== */
         :root {
             --primary: #0a66c2;
             --primary-light: #e8f0fe;
@@ -551,8 +546,14 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .form-title {
@@ -696,6 +697,7 @@
             background: var(--accent);
             color: white;
         }
+
         .btn-success:hover {
             background: #008f5a;
         }
@@ -704,6 +706,7 @@
             background: var(--primary);
             color: white;
         }
+
         .btn-primary:hover {
             background: #084a8f;
         }
@@ -713,6 +716,7 @@
             color: var(--primary);
             border: 2px solid var(--primary);
         }
+
         .btn-outline:hover {
             background: var(--primary-light);
         }
@@ -788,6 +792,7 @@
         .toast-error {
             background: #d32f2f !important;
         }
+
         .toast-error i {
             color: white !important;
         }
@@ -1276,6 +1281,146 @@
             background: #e53935;
         }
 
+        /* ===== BOTÃO CRÉDITOS ===== */
+        .btn-creditos {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: #1a2632;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-creditos:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            background: #0a66c2;
+        }
+
+        /* ===== MODAL CRÉDITOS ===== */
+        .modal-creditos {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInModal 0.3s ease;
+        }
+
+        .modal-creditos.ativo {
+            display: flex;
+        }
+
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-creditos .conteudo {
+            background: white;
+            border-radius: 24px;
+            padding: 32px 40px;
+            max-width: 420px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-creditos .conteudo .fechar {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-size: 22px;
+            color: #8a9ba8;
+            cursor: pointer;
+            transition: 0.15s;
+            background: none;
+            border: none;
+        }
+
+        .modal-creditos .conteudo .fechar:hover {
+            color: #1a2632;
+            transform: rotate(90deg);
+        }
+
+        .modal-creditos .conteudo .icone-creditos {
+            font-size: 48px;
+            color: #0a66c2;
+            margin-bottom: 12px;
+        }
+
+        .modal-creditos .conteudo h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            color: #0a66c2;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .modal-creditos .conteudo .cargo {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 14px;
+            margin-top: 12px;
+            margin-bottom: 4px;
+            border-top: 1px solid #e8edf3;
+            padding-top: 12px;
+        }
+
+        .modal-creditos .conteudo .nome {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1a2632;
+            margin-bottom: 2px;
+        }
+
+        .modal-creditos .conteudo .equipe {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 16px;
+            margin-top: 6px;
+        }
+
+        .modal-creditos .conteudo .equipe span {
+            font-size: 14px;
+            color: #1a2632;
+            background: #f0f4f8;
+            padding: 2px 12px;
+            border-radius: 40px;
+        }
+
+        .modal-creditos .conteudo .footer-modal {
+            margin-top: 16px;
+            font-size: 11px;
+            color: #8a9ba8;
+            border-top: 1px solid #e8edf3;
+            padding-top: 12px;
+        }
+
         @media (max-width: 640px) {
             .app-container {
                 padding: 16px;
@@ -1328,6 +1473,15 @@
                 width: 100%;
                 justify-content: center;
             }
+            .modal-creditos .conteudo {
+                padding: 24px 20px;
+            }
+            .btn-creditos {
+                bottom: 12px;
+                right: 12px;
+                font-size: 11px;
+                padding: 6px 14px;
+            }
         }
 
         @media (max-width: 400px) {
@@ -1342,9 +1496,7 @@
 </head>
 <body>
 
-    <!-- ============================================ -->
-    <!-- LANDING PAGE -->
-    <!-- ============================================ -->
+    <!-- ===== LANDING PAGE ===== -->
     <div id="landingPage" class="landing-container">
         <div class="landing-content">
             <div class="logo-titulo-grande">
@@ -1352,11 +1504,9 @@
                 <span class="trampo">Trampo</span>
                 <div class="slogan">Conectando talentos a oportunidades</div>
             </div>
-
             <button class="btn-iniciar" onclick="iniciarApp()">
                 <i class="fas fa-rocket"></i> Iniciar
             </button>
-
             <div class="landing-footer">
                 <span><i class="fas fa-shield-alt"></i> Dados seguros</span>
                 <span><i class="fas fa-users"></i> +2.500 talentos</span>
@@ -1365,9 +1515,7 @@
         </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- APP -->
-    <!-- ============================================ -->
+    <!-- ===== APP ===== -->
     <div id="appContainer" class="app-container">
         <!-- CABEÇALHO DO APP -->
         <div class="app-header">
@@ -1492,6 +1640,7 @@
             <div class="form-sub">Preencha todos os campos para entrar no banco de talentos</div>
 
             <form id="candidateForm" onsubmit="event.preventDefault(); submitCandidate();">
+                <!-- DADOS PESSOAIS -->
                 <div class="section-title"><i class="fas fa-address-card"></i> DADOS PESSOAIS</div>
                 <div class="form-grid">
                     <div class="form-group full-width">
@@ -1529,6 +1678,7 @@
                     </div>
                 </div>
 
+                <!-- Contato -->
                 <div class="section-title"><i class="fas fa-phone-alt"></i> Contato</div>
                 <div class="form-grid">
                     <div class="form-group">
@@ -1541,6 +1691,7 @@
                     </div>
                 </div>
 
+                <!-- Endereço -->
                 <div class="section-title"><i class="fas fa-map-pin"></i> Endereço</div>
                 <div class="form-grid">
                     <div class="form-group"><label>Cidade</label><input type="text" id="candCidade" placeholder="São Paulo"></div>
@@ -1554,6 +1705,7 @@
                     </div>
                 </div>
 
+                <!-- OBJETIVO PROFISSIONAL -->
                 <div class="section-title"><i class="fas fa-bullseye"></i> OBJETIVO PROFISSIONAL</div>
                 <div class="form-grid">
                     <div class="form-group"><label>Cargo desejado</label><input type="text" id="candCargo" placeholder="Ex: Analista de Marketing"></div>
@@ -1588,6 +1740,7 @@
                     </div>
                 </div>
 
+                <!-- FORMAÇÃO ACADÊMICA -->
                 <div class="section-title"><i class="fas fa-graduation-cap"></i> FORMAÇÃO ACADÊMICA</div>
                 <div class="form-group">
                     <label>Escolaridade</label>
@@ -1599,6 +1752,7 @@
                     </select>
                 </div>
 
+                <!-- EXPERIÊNCIA -->
                 <div class="section-title"><i class="fas fa-briefcase"></i> EXPERIÊNCIA</div>
                 <div class="form-group">
                     <label>Tempo de experiência (anos)</label>
@@ -1617,6 +1771,7 @@
                     <input type="text" id="candUltimoCargo" placeholder="Ex: Analista na Empresa X">
                 </div>
 
+                <!-- HABILIDADES -->
                 <div class="section-title"><i class="fas fa-cogs"></i> HABILIDADES</div>
                 <div class="form-group">
                     <label>Nível de Informática</label>
@@ -1640,6 +1795,7 @@
                     </div>
                 </div>
 
+                <!-- LGPD -->
                 <div class="section-title"><i class="fas fa-shield-alt"></i> LGPD e Termos</div>
                 <div class="lgpd-box">
                     <div class="checkbox-group">
@@ -1780,23 +1936,36 @@
                             <input type="text" id="buscaCargo" placeholder="Ex: Pedreiro, Jardineiro, Analista" required>
                         </div>
                         <div class="form-group">
-                            <label><i class="fas fa-tag"></i> Área</label>
-                            <select id="buscaArea">
-                                <option value="">Todas</option>
-                                <option>Administrativo</option><option>Financeiro</option><option>Marketing</option>
-                                <option>Vendas</option><option>Produção</option><option>Logística</option>
-                                <option>Recursos Humanos</option><option>Tecnologia</option><option>Saúde</option>
-                                <option>Educação</option><option>Construção Civil</option><option>Mecânica</option>
-                                <option>Jardinagem</option><option>Serviços Gerais</option>
+                            <label><i class="fas fa-tag"></i> Área <span class="required-star">*</span></label>
+                            <select id="buscaArea" required>
+                                <option value="">Selecione uma área</option>
+                                <option>Administrativo</option>
+                                <option>Financeiro</option>
+                                <option>Marketing</option>
+                                <option>Vendas</option>
+                                <option>Produção</option>
+                                <option>Logística</option>
+                                <option>Recursos Humanos</option>
+                                <option>Tecnologia</option>
+                                <option>Saúde</option>
+                                <option>Educação</option>
+                                <option>Construção Civil</option>
+                                <option>Mecânica</option>
+                                <option>Jardinagem</option>
+                                <option>Serviços Gerais</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label><i class="fas fa-graduation-cap"></i> Escolaridade</label>
                             <select id="buscaEscolaridade">
                                 <option value="">Qualquer</option>
-                                <option>Ensino Fundamental</option><option>Ensino Médio</option><option>Técnico</option>
-                                <option>Superior Incompleto</option><option>Superior Completo</option>
-                                <option>Pós-graduação</option><option>Mestrado</option>
+                                <option>Ensino Fundamental</option>
+                                <option>Ensino Médio</option>
+                                <option>Técnico</option>
+                                <option>Superior Incompleto</option>
+                                <option>Superior Completo</option>
+                                <option>Pós-graduação</option>
+                                <option>Mestrado</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1865,7 +2034,7 @@
                 <h2>Crie sua senha de acesso</h2>
                 <p>Para finalizar seu cadastro, crie uma senha</p>
                 <div class="email-destacado" id="senhaEmailDisplay">email@exemplo.com</div>
-                
+
                 <form id="senhaForm" onsubmit="event.preventDefault(); criarSenha();">
                     <div class="form-group">
                         <label><i class="fas fa-lock"></i> Senha <span class="required-star">*</span></label>
@@ -1884,7 +2053,7 @@
                     </div>
                     <div id="senhaFeedback" style="margin-top:16px;"></div>
                 </form>
-                
+
                 <div id="senhaCriada" class="senha-criada">
                     <div class="icone-sucesso"><i class="fas fa-check-circle"></i></div>
                     <h2>Senha criada com sucesso!</h2>
@@ -1897,10 +2066,57 @@
         </div>
     </div>
 
+    <!-- ===== BOTÃO CRÉDITOS (fixo) ===== -->
+    <button class="btn-creditos" onclick="abrirCreditos()">
+        <i class="fas fa-info-circle"></i> Créditos
+    </button>
+
+    <!-- ===== MODAL CRÉDITOS ===== -->
+    <div id="modalCreditos" class="modal-creditos" onclick="fecharCreditos(event)">
+        <div class="conteudo" onclick="event.stopPropagation();">
+            <button class="fechar" onclick="fecharCreditos()">&times;</button>
+            <div class="icone-creditos"><i class="fas fa-star"></i></div>
+            <h2>CONECTA TRAMPO</h2>
+            <p style="font-size:14px; color:#5a6b7c; margin-bottom:12px;">Projeto de conexão entre talentos e oportunidades</p>
+
+            <div class="cargo">Coordenador do Projeto</div>
+            <div class="nome">Éder Ezequiel</div>
+
+            <div class="cargo">Desenvolvedor do Site</div>
+            <div class="nome">Luiz Antônio</div>
+
+            <div class="cargo">Equipe Conecta</div>
+            <div class="equipe">
+                <span>Deborah Letícia</span>
+                <span>Luan Miguel</span>
+                <span>Renan</span>
+                <span>Maria Eduarda Andrade</span>
+            </div>
+
+            <div class="footer-modal">
+                <i class="fas fa-code"></i> Conecta Trampo &bull; 2026
+            </div>
+        </div>
+    </div>
+
     <script>
-        // =====================================================
-        // VARIÁVEIS GLOBAIS
-        // =====================================================
+        // ===== MODAL CRÉDITOS =====
+        function abrirCreditos() {
+            document.getElementById('modalCreditos').classList.add('ativo');
+        }
+
+        function fecharCreditos(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('modalCreditos').classList.remove('ativo');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('modalCreditos').classList.remove('ativo');
+            }
+        });
+
+        // ===== VARIÁVEIS GLOBAIS =====
         var candidatos = [];
         var contadorId = 1;
         var tipoUsuarioSelecionado = 'candidato';
@@ -1908,9 +2124,7 @@
         var usuarioLogado = null;
         var notificacoes = [];
 
-        // =====================================================
-        // LANDING PAGE
-        // =====================================================
+        // ===== LANDING PAGE =====
         function iniciarApp() {
             document.getElementById('landingPage').style.display = 'none';
             document.getElementById('appContainer').className = 'app-container active';
@@ -1925,57 +2139,71 @@
             }
         }
 
-        // =====================================================
-        // BANCO DE DADOS FAKE
-        // =====================================================
+        // ===== BANCO DE DADOS FAKE =====
         function gerarDadosFake() {
-            // Candidatos
-            var nomes = ['Ana Carolina Silva', 'Carlos Eduardo Santos', 'Mariana Oliveira', 'João Pedro Ferreira',
-                'Fernanda Lima', 'Rafael Almeida', 'Patrícia Costa', 'Lucas Mendes', 'Juliana Rocha',
-                'Bruno Souza', 'Camila Fernandes', 'Diego Nascimento', 'Letícia Barros', 'André Ribeiro'
-            ];
-            var cargos = ['Analista de Marketing', 'Desenvolvedor Full Stack', 'Analista de RH', 'Analista Financeiro',
-                'Designer Gráfico', 'Gerente de Projetos', 'Assistente Administrativo', 'Coordenador de Marketing',
-                'Analista de Sistemas', 'Consultor de Vendas', 'Pedreiro', 'Jardineiro', 'Mecânico', 'Professor'
-            ];
-            var areas = ['Administrativo', 'Financeiro', 'Marketing', 'Vendas', 'Tecnologia', 'Educação', 'Construção Civil', 'Mecânica', 'Jardinagem'];
-            var escolaridades = ['Ensino Médio', 'Técnico', 'Superior Completo', 'Pós-graduação'];
-            var cidades = ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Curitiba', 'Porto Alegre', 'Brasília'];
-            var habilidadesList = [
-                ['Pacote Office', 'Excel'],
-                ['Excel', 'Word', 'PowerPoint'],
-                ['Canva', 'Photoshop'],
-                ['Sistemas ERP', 'Excel'],
-                ['Ferramentas Manuais'],
-                ['Equipamentos Elétricos']
+            var lista = [
+                { nome: 'Ana Carolina Silva', cargo: 'Analista de Marketing', area: 'Marketing', cidade: 'São Paulo',
+                    exp: 3, salario: 'R$ 5.000', hab: ['Pacote Office', 'Excel', 'Canva'] },
+                { nome: 'Carlos Eduardo Santos', cargo: 'Desenvolvedor Full Stack', area: 'Tecnologia',
+                    cidade: 'Rio de Janeiro', exp: 4, salario: 'R$ 8.000', hab: ['Excel', 'Sistemas ERP',
+                        'Photoshop'
+                    ] },
+                { nome: 'Mariana Oliveira', cargo: 'Analista de RH', area: 'Recursos Humanos',
+                    cidade: 'Belo Horizonte', exp: 5, salario: 'R$ 4.500', hab: ['Pacote Office', 'Word',
+                        'PowerPoint'
+                    ] },
+                { nome: 'João Pedro Ferreira', cargo: 'Jardineiro', area: 'Jardinagem', cidade: 'Londrina', exp: 2,
+                    salario: 'R$ 2.500', hab: ['Ferramentas Manuais', 'Equipamentos Elétricos'] },
+                { nome: 'Fernanda Lima', cargo: 'Designer Gráfico', area: 'Marketing', cidade: 'Curitiba', exp: 2,
+                    salario: 'R$ 3.800', hab: ['Canva', 'Photoshop', 'Illustrator'] },
+                { nome: 'Rafael Almeida', cargo: 'Mecânico', area: 'Mecânica', cidade: 'Porto Alegre', exp: 6,
+                    salario: 'R$ 4.200', hab: ['Ferramentas Manuais', 'Equipamentos Elétricos'] },
+                { nome: 'Patrícia Costa', cargo: 'Analista Financeiro', area: 'Financeiro', cidade: 'Brasília', exp: 4,
+                    salario: 'R$ 6.000', hab: ['Excel', 'Sistemas ERP'] },
+                { nome: 'Lucas Mendes', cargo: 'Pedreiro', area: 'Construção Civil', cidade: 'São Paulo', exp: 3,
+                    salario: 'R$ 3.000', hab: ['Ferramentas Manuais'] },
+                { nome: 'Juliana Rocha', cargo: 'Coordenadora de Marketing', area: 'Marketing', cidade: 'Rio de Janeiro',
+                    exp: 6, salario: 'R$ 7.500', hab: ['Pacote Office', 'Canva', 'Photoshop'] },
+                { nome: 'Bruno Souza', cargo: 'Analista de Sistemas', area: 'Tecnologia', cidade: 'Belo Horizonte',
+                    exp: 5, salario: 'R$ 6.800', hab: ['Excel', 'Sistemas ERP'] },
+                { nome: 'Camila Fernandes', cargo: 'Jardineira', area: 'Jardinagem', cidade: 'Curitiba', exp: 1,
+                    salario: 'R$ 2.200', hab: ['Ferramentas Manuais'] },
+                { nome: 'Diego Nascimento', cargo: 'Professor de Matemática', area: 'Educação', cidade: 'Londrina',
+                    exp: 4, salario: 'R$ 4.000', hab: ['Pacote Office', 'Word'] },
+                { nome: 'Letícia Barros', cargo: 'Assistente Administrativo', area: 'Administrativo', cidade: 'São Paulo',
+                    exp: 2, salario: 'R$ 3.200', hab: ['Pacote Office', 'Excel'] },
+                { nome: 'André Ribeiro', cargo: 'Vendedor', area: 'Vendas', cidade: 'Rio de Janeiro', exp: 3,
+                    salario: 'R$ 3.500', hab: ['Word', 'PowerPoint'] }
             ];
 
-            for (var i = 0; i < 14; i++) {
-                var habilidades = habilidadesList[Math.floor(Math.random() * habilidadesList.length)];
-                var nome = nomes[i % nomes.length];
+            var disponibilidades = ['Imediata', '15 dias', '30 dias'];
+            var escolaridades = ['Ensino Médio', 'Técnico', 'Superior Completo', 'Pós-graduação'];
+
+            for (var i = 0; i < lista.length; i++) {
+                var item = lista[i];
                 candidatos.push({
                     id: contadorId++,
-                    nome: nome,
-                    email: nome.toLowerCase().replace(/ /g, '.') + '@email.com',
+                    nome: item.nome,
+                    email: item.nome.toLowerCase().replace(/ /g, '.') + '@email.com',
                     whatsapp: '11' + (Math.floor(Math.random() * 90000000) + 10000000).toString(),
-                    cidade: cidades[Math.floor(Math.random() * cidades.length)],
+                    cidade: item.cidade,
                     estado: 'SP',
-                    cargo: cargos[Math.floor(Math.random() * cargos.length)],
-                    area: areas[Math.floor(Math.random() * areas.length)],
-                    salario: 'R$ ' + (Math.floor(Math.random() * 6000) + 2000) + ',00',
-                    disponibilidade: ['Imediata', '15 dias', '30 dias'][Math.floor(Math.random() * 3)],
+                    cargo: item.cargo,
+                    area: item.area,
+                    salario: item.salario,
+                    disponibilidade: disponibilidades[Math.floor(Math.random() * disponibilidades.length)],
                     escolaridade: escolaridades[Math.floor(Math.random() * escolaridades.length)],
-                    experiencia: Math.floor(Math.random() * 5) + 1,
+                    experiencia: item.exp,
                     pcd: Math.random() > 0.9 ? 'sim' : 'nao',
                     viagens: Math.random() > 0.5 ? 'sim' : 'nao',
                     mudanca: Math.random() > 0.5 ? 'sim' : 'nao',
-                    habilidades: habilidades
+                    habilidades: item.hab || []
                 });
             }
 
-            // Notificações
             var empresas = ['Tech Solutions', 'RH Consultoria', 'Conecta Jobs', 'Talents RH', 'Empresa X'];
             var msgs = ['Gostou do seu perfil!', 'Tem uma vaga que combina com você.', 'Seu currículo foi selecionado.'];
+            var cargos = ['Analista de Marketing', 'Desenvolvedor', 'Assistente Administrativo', 'Jardineiro', 'Mecânico'];
             for (var j = 0; j < 5; j++) {
                 var data = new Date();
                 data.setDate(data.getDate() - j);
@@ -1990,16 +2218,19 @@
                 });
             }
 
-            // Usuários de teste (genéricos)
-            usuariosCadastrados.push(
-                { email: 'teste@email.com', senha: '123456', nome: 'Usuário Teste', tipo: 'candidato' },
-                { email: 'empresa@email.com', senha: '123456', nome: 'Empresa Teste', tipo: 'contratante' }
-            );
+            usuariosCadastrados.push({ email: 'teste@email.com', senha: '123456', nome: 'Usuário Teste',
+                tipo: 'candidato' });
+            usuariosCadastrados.push({ email: 'empresa@email.com', senha: '123456', nome: 'Empresa Teste',
+                tipo: 'contratante' });
+            usuariosCadastrados.push({
+                email: 'tonnyluiz706@gmail.com',
+                senha: '33430081',
+                nome: 'Luiz Antônio dos Santos Ribeiro',
+                tipo: 'candidato'
+            });
         }
 
-        // =====================================================
-        // NAVEGAÇÃO DO APP
-        // =====================================================
+        // ===== NAVEGAÇÃO =====
         function goHomeApp() {
             document.getElementById('pageChoice').style.display = 'block';
             document.getElementById('loginSection').style.display = 'none';
@@ -2090,9 +2321,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // =====================================================
-        // LOGIN
-        // =====================================================
+        // ===== LOGIN =====
         function fazerLogin() {
             var email = document.getElementById('loginEmail').value;
             var senha = document.getElementById('loginSenha').value;
@@ -2137,9 +2366,7 @@
             }
         }
 
-        // =====================================================
-        // DASHBOARD
-        // =====================================================
+        // ===== DASHBOARD =====
         function mostrarDashboard(usuario) {
             document.getElementById('loginSection').style.display = 'none';
             document.getElementById('loginSection').classList.remove('active');
@@ -2173,11 +2400,14 @@
 
             var html = '';
             notificacoes.forEach(function(notif) {
-                var dataFormatada = notif.data.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
-                var hora = String(notif.data.getHours()).padStart(2, '0') + ':' + String(notif.data.getMinutes()).padStart(2, '0');
+                var dataFormatada = notif.data.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short',
+                        year: 'numeric' });
+                var hora = String(notif.data.getHours()).padStart(2, '0') + ':' + String(notif.data.getMinutes())
+                    .padStart(2, '0');
                 var estiloNaoLida = notif.lida ? '' : ' style="border-left-color: #d32f2f; background: #fff5f5;"';
                 var whatsappNum = notif.whatsapp ? notif.whatsapp.replace(/[^0-9]/g, '') : '';
-                var whatsappLink = whatsappNum ? `https://wa.me/55${whatsappNum}?text=Olá! Vi seu interesse.` : '#';
+                var whatsappLink = whatsappNum ? `https://wa.me/55${whatsappNum}?text=Olá! Vi seu interesse.` :
+                '#';
 
                 html += `
                     <div class="notificacao-item"${estiloNaoLida}>
@@ -2212,9 +2442,7 @@
             }
         }
 
-        // =====================================================
-        // TIPO DE PESSOA (contratante)
-        // =====================================================
+        // ===== TIPO DE PESSOA =====
         function selecionarTipoPessoa(tipo) {
             document.getElementById('tipoPessoa').value = tipo;
             var btnJuridica = document.getElementById('tipoPessoaJuridica');
@@ -2243,9 +2471,7 @@
             }
         }
 
-        // =====================================================
-        // CADASTRO DO CANDIDATO
-        // =====================================================
+        // ===== CADASTRO DO CANDIDATO =====
         function submitCandidate() {
             var nome = document.getElementById('candNome').value;
             var email = document.getElementById('candEmail').value;
@@ -2279,7 +2505,8 @@
             }
 
             var habilidades = [];
-            document.querySelectorAll('#candidateForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) {
+            document.querySelectorAll('#candidateForm .checkbox-group input[type="checkbox"]:checked').forEach(function(
+            el) {
                 habilidades.push(el.value);
             });
 
@@ -2325,9 +2552,7 @@
             }, 1500);
         }
 
-        // =====================================================
-        // CADASTRO DO CONTRATANTE
-        // =====================================================
+        // ===== CADASTRO DO CONTRATANTE =====
         function cadastrarContratante() {
             var nome = document.getElementById('empNome').value;
             var documento = document.getElementById('empDocumento').value;
@@ -2378,9 +2603,7 @@
             }, 1000);
         }
 
-        // =====================================================
-        // TELA DE SENHA
-        // =====================================================
+        // ===== TELA DE SENHA =====
         function mostrarTelaSenha(email, tipo) {
             document.getElementById('formCandidato').style.display = 'none';
             document.getElementById('formCandidato').classList.remove('active');
@@ -2442,9 +2665,7 @@
             }, 1500);
         }
 
-        // =====================================================
-        // BUSCAR CANDIDATOS (contratante)
-        // =====================================================
+        // ===== BUSCAR CANDIDATOS =====
         function buscarCandidatos() {
             var cargo = document.getElementById('buscaCargo').value.toLowerCase();
             var area = document.getElementById('buscaArea').value;
@@ -2454,9 +2675,21 @@
             var pcd = document.querySelector('input[name="buscaPcd"]:checked');
             var pcdValor = pcd ? pcd.value : '';
             var habilidadesDesejadas = [];
-            document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) {
+            document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]:checked').forEach(function(
+            el) {
                 habilidadesDesejadas.push(el.value);
             });
+
+            if (!area) {
+                document.getElementById('listaResultados').innerHTML = `
+                    <div class="sem-resultados">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Selecione uma área</h3>
+                        <p>Para buscar, escolha uma área de atuação.</p>
+                    </div>
+                `;
+                return;
+            }
 
             if (!cargo) {
                 document.getElementById('listaResultados').innerHTML = `
@@ -2469,14 +2702,13 @@
             }
 
             var resultados = candidatos.filter(function(cand) {
-                var matchCount = 0, totalCriteria = 0;
+                if (cand.area !== area) return false;
+
+                var matchCount = 0;
+                var totalCriteria = 0;
 
                 totalCriteria += 2;
                 if (cargo && cand.cargo && cand.cargo.toLowerCase().includes(cargo)) matchCount += 2;
-
-                totalCriteria++;
-                if (area && cand.area === area) matchCount++;
-                else if (!area) matchCount++;
 
                 totalCriteria++;
                 if (escolaridade && cand.escolaridade === escolaridade) matchCount++;
@@ -2504,7 +2736,7 @@
 
                 var porcentagem = Math.round((matchCount / totalCriteria) * 100);
                 cand._match = Math.min(porcentagem, 100);
-                return cand._match >= 75;
+                return cand._match >= 50;
             });
 
             resultados.sort(function(a, b) { return b._match - a._match; });
@@ -2515,16 +2747,19 @@
                     <div class="sem-resultados">
                         <i class="fas fa-search"></i>
                         <h3>Nenhum profissional encontrado</h3>
+                        <p>Tente ajustar os critérios de busca.</p>
                         <button class="btn btn-outline" onclick="limparBusca()" style="margin-top:16px;">
                             <i class="fas fa-undo"></i> Limpar Filtros
                         </button>
                     </div>
                 `;
             } else {
-                var html = `<p style="color:#5a6b7c; margin-bottom:16px;">Encontramos <strong>${resultados.length}</strong> profissionais compatíveis</p>`;
+                var html =
+                    `<p style="color:#5a6b7c; margin-bottom:16px;">Encontramos <strong>${resultados.length}</strong> profissionais compatíveis</p>`;
                 resultados.forEach(function(cand) {
-                    var matchClass = cand._match >= 85 ? 'match-alta' : 'match-media';
-                    var progressClass = cand._match >= 85 ? 'alta' : 'media';
+                    var matchClass = cand._match >= 75 ? 'match-alta' : (cand._match >= 50 ? 'match-media' :
+                        'match-baixa');
+                    var progressClass = cand._match >= 75 ? 'alta' : (cand._match >= 50 ? 'media' : 'baixa');
                     var whatsappNum = cand.whatsapp ? cand.whatsapp.replace(/[^0-9]/g, '') : '';
                     var whatsappLink = whatsappNum ? `https://wa.me/55${whatsappNum}?text=Olá!` : '#';
 
@@ -2568,27 +2803,18 @@
             document.getElementById('buscaCidade').value = '';
             document.getElementById('buscaSalario').value = '';
             document.querySelectorAll('input[name="buscaPcd"]').forEach(function(el) { el.checked = false; });
-            document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]').forEach(function(el) { el.checked = false; });
+            document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]').forEach(function(el) { el
+                    .checked = false; });
             document.querySelector('input[name="buscaPcd"][value=""]').checked = true;
             document.getElementById('listaResultados').innerHTML = '';
         }
 
-        // =====================================================
-        // INICIALIZAR
-        // =====================================================
+        // ===== INICIALIZAR =====
         document.addEventListener('DOMContentLoaded', function() {
             gerarDadosFake();
             goHomeApp();
             document.getElementById('totalCandidatosApp').textContent = candidatos.length;
             selecionarTipoPessoa('juridica');
-
-            // Adicionar usuário específico
-            usuariosCadastrados.push({
-                email: 'tonnyluiz706@gmail.com',
-                senha: '33430081',
-                nome: 'Luiz Antônio dos Santos Ribeiro',
-                tipo: 'candidato'
-            });
         });
     </script>
 </body>
