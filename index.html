@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* ========================================================== */
+        /* ESTILOS GERAIS */
+        /* ========================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -23,6 +26,9 @@
             font-family: 'Inter', sans-serif;
         }
 
+        /* ========================================================== */
+        /* LANDING PAGE */
+        /* ========================================================== */
         .landing-container {
             max-width: 920px;
             width: 100%;
@@ -34,7 +40,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .landing-container::before {
             content: '';
             position: absolute;
@@ -46,7 +51,6 @@
             border-radius: 50%;
             z-index: 0;
         }
-
         .landing-container::after {
             content: '';
             position: absolute;
@@ -58,7 +62,6 @@
             border-radius: 50%;
             z-index: 0;
         }
-
         .landing-content {
             position: relative;
             z-index: 1;
@@ -72,7 +75,6 @@
             margin: 10px auto 20px;
             padding: 20px;
         }
-
         .logo-titulo-grande .conecta {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
@@ -86,7 +88,6 @@
             background-clip: text;
             line-height: 1;
         }
-
         .logo-titulo-grande .trampo {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -97,7 +98,6 @@
             line-height: 1;
             margin-top: -8px;
         }
-
         .logo-titulo-grande .slogan {
             font-family: 'Inter', sans-serif;
             font-size: 16px;
@@ -127,18 +127,15 @@
             box-shadow: 0 4px 16px rgba(10, 102, 194, 0.3);
             margin-top: 16px;
         }
-
         .btn-iniciar:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 32px rgba(10, 102, 194, 0.4);
             background: linear-gradient(135deg, #0a66c2 0%, #063d6e 100%);
         }
-
         .btn-iniciar i {
             font-size: 22px;
             transition: transform 0.3s ease;
         }
-
         .btn-iniciar:hover i {
             transform: translateX(4px);
         }
@@ -154,17 +151,18 @@
             font-size: 13px;
             color: #8a9ba8;
         }
-
         .landing-footer span {
             display: flex;
             align-items: center;
             gap: 6px;
         }
-
         .landing-footer i {
             color: #0a66c2;
         }
 
+        /* ========================================================== */
+        /* APP CONTAINER */
+        /* ========================================================== */
         .app-container {
             display: none;
             max-width: 920px;
@@ -174,11 +172,13 @@
             box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
             padding: 24px 28px;
         }
-
         .app-container.active {
             display: block;
         }
 
+        /* ========================================================== */
+        /* APP HEADER */
+        /* ========================================================== */
         .app-header {
             display: flex;
             align-items: center;
@@ -188,13 +188,11 @@
             margin-bottom: 24px;
             flex-wrap: wrap;
         }
-
         .app-header .logo-mini {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
         .app-header .logo-mini .icon {
             width: 40px;
             height: 40px;
@@ -207,14 +205,12 @@
             font-weight: 800;
             font-size: 18px;
         }
-
         .app-header .logo-mini .conecta-mini {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             font-size: 20px;
             color: #0a66c2;
         }
-
         .app-header .logo-mini .trampo-mini {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -222,7 +218,6 @@
             font-style: italic;
             color: #2c3e50;
         }
-
         .app-header .header-badge {
             margin-left: auto;
             background: #e8f0fe;
@@ -247,7 +242,6 @@
             align-items: center;
             gap: 6px;
         }
-
         .btn-voltar-landing:hover {
             background: #f0f4f8;
             border-color: #0a66c2;
@@ -260,7 +254,6 @@
             gap: 12px;
             margin-left: auto;
         }
-
         .btn-sair {
             background: transparent;
             border: 1px solid #d32f2f;
@@ -275,12 +268,14 @@
             align-items: center;
             gap: 6px;
         }
-
         .btn-sair:hover {
             background: #ffebee;
             transform: scale(1.02);
         }
 
+        /* ========================================================== */
+        /* VARIÁVEIS E UTILIDADES */
+        /* ========================================================== */
         :root {
             --primary: #0a66c2;
             --primary-light: #e8f0fe;
@@ -291,13 +286,15 @@
             --accent: #00a86b;
         }
 
+        /* ========================================================== */
+        /* PÁGINA DE ESCOLHA (SELECTOR) */
+        /* ========================================================== */
         .page-selector {
             display: flex;
             flex-direction: column;
             gap: 18px;
             margin: 20px 0 10px;
         }
-
         .selector-card {
             background: var(--gray-light);
             border: 2px solid var(--gray-border);
@@ -310,14 +307,12 @@
             transition: all 0.2s;
             position: relative;
         }
-
         .selector-card:hover {
             background: var(--primary-light);
             border-color: var(--primary);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(10, 102, 194, 0.1);
         }
-
         .selector-card .card-icon {
             font-size: 36px;
             color: var(--primary);
@@ -329,19 +324,16 @@
             align-items: center;
             justify-content: center;
         }
-
         .selector-card .info h3 {
             font-size: 20px;
             font-weight: 600;
             color: var(--text-dark);
         }
-
         .selector-card .info p {
             color: var(--text-gray);
             font-size: 15px;
             margin-top: 4px;
         }
-
         .selector-card .arrow-btn {
             margin-left: auto;
             background: var(--primary);
@@ -355,11 +347,9 @@
             font-size: 18px;
             transition: 0.2s;
         }
-
         .selector-card:hover .arrow-btn {
             background: #084a8f;
         }
-
         .tag {
             position: absolute;
             top: 12px;
@@ -371,51 +361,46 @@
             border-radius: 40px;
             font-weight: 600;
         }
-
         .tag-empresa {
             background: #2c3e50;
         }
 
+        /* ========================================================== */
+        /* LOGIN */
+        /* ========================================================== */
         .login-section {
             display: none;
             animation: fadeIn 0.25s ease;
         }
-
         .login-section.active {
             display: block;
         }
-
         .login-container {
             max-width: 440px;
             margin: 0 auto;
             padding: 30px 20px;
         }
-
         .login-container .icone-login {
             text-align: center;
             font-size: 56px;
             color: var(--primary);
             margin-bottom: 16px;
         }
-
         .login-container h2 {
             text-align: center;
             font-size: 24px;
             color: var(--text-dark);
             margin-bottom: 4px;
         }
-
         .login-container .subtitulo-login {
             text-align: center;
             color: var(--text-gray);
             margin-bottom: 28px;
             font-size: 14px;
         }
-
         .login-container .form-group {
             margin-bottom: 16px;
         }
-
         .login-container .form-group label {
             display: block;
             font-size: 13px;
@@ -423,7 +408,6 @@
             color: var(--text-dark);
             margin-bottom: 4px;
         }
-
         .login-container .form-group input {
             width: 100%;
             padding: 12px 16px;
@@ -432,12 +416,10 @@
             font-size: 15px;
             transition: 0.15s;
         }
-
         .login-container .form-group input:focus {
             border-color: var(--primary);
             outline: 2px solid rgba(10, 102, 194, 0.2);
         }
-
         .login-container .btn-login {
             width: 100%;
             padding: 14px;
@@ -451,32 +433,27 @@
             transition: 0.15s;
             margin-top: 8px;
         }
-
         .login-container .btn-login:hover {
             background: #084a8f;
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
         }
-
         .login-divider {
             display: flex;
             align-items: center;
             gap: 16px;
             margin: 24px 0;
         }
-
         .login-divider .linha {
             flex: 1;
             height: 1px;
             background: var(--gray-border);
         }
-
         .login-divider .texto {
             color: var(--text-gray);
             font-size: 13px;
             white-space: nowrap;
         }
-
         .login-container .btn-cadastrar {
             width: 100%;
             padding: 14px;
@@ -489,38 +466,31 @@
             cursor: pointer;
             transition: 0.15s;
         }
-
         .login-container .btn-cadastrar:hover {
             background: var(--primary-light);
         }
-
         .login-container .info-tipo {
             text-align: center;
             font-size: 14px;
             color: var(--text-gray);
             margin-top: 16px;
         }
-
         .login-container .info-tipo strong {
             color: var(--primary);
         }
-
         .login-container .senha-link {
             text-align: right;
             font-size: 13px;
             margin-top: 4px;
         }
-
         .login-container .senha-link a {
             color: var(--primary);
             text-decoration: none;
             cursor: pointer;
         }
-
         .login-container .senha-link a:hover {
             text-decoration: underline;
         }
-
         .login-container .erro-login {
             background: #ffebee;
             color: #c62828;
@@ -531,20 +501,20 @@
             display: none;
             border-left: 4px solid #c62828;
         }
-
         .login-container .erro-login.visivel {
             display: block;
         }
 
+        /* ========================================================== */
+        /* FORMULÁRIOS GERAIS */
+        /* ========================================================== */
         .form-section {
             display: none;
             animation: fadeIn 0.25s ease;
         }
-
         .form-section.active {
             display: block;
         }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -564,11 +534,9 @@
             align-items: center;
             gap: 12px;
         }
-
         .form-title i {
             color: var(--primary);
         }
-
         .form-sub {
             color: var(--text-gray);
             margin-bottom: 24px;
@@ -582,29 +550,24 @@
             grid-template-columns: 1fr 1fr;
             gap: 16px 20px;
         }
-
         .form-group {
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
-
         .form-group.full-width {
             grid-column: 1 / -1;
         }
-
         .form-group label {
             font-size: 13px;
             font-weight: 600;
             color: var(--text-dark);
         }
-
         .form-group label i {
             color: var(--primary);
             width: 18px;
             margin-right: 4px;
         }
-
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -616,14 +579,12 @@
             width: 100%;
             transition: 0.15s;
         }
-
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             border-color: var(--primary);
             outline: 2px solid rgba(10, 102, 194, 0.2);
         }
-
         .form-group textarea {
             resize: vertical;
             min-height: 60px;
@@ -635,7 +596,6 @@
             padding: 6px 0;
             flex-wrap: wrap;
         }
-
         .form-group .radio-group label {
             display: flex;
             align-items: center;
@@ -644,7 +604,6 @@
             font-size: 14px;
             cursor: pointer;
         }
-
         .form-group .radio-group input[type="radio"] {
             width: 18px;
             height: 18px;
@@ -658,7 +617,6 @@
             flex-wrap: wrap;
             padding: 6px 0;
         }
-
         .form-group .checkbox-group label {
             display: flex;
             align-items: center;
@@ -667,7 +625,6 @@
             font-size: 14px;
             cursor: pointer;
         }
-
         .form-group .checkbox-group input[type="checkbox"] {
             width: 18px;
             height: 18px;
@@ -687,36 +644,29 @@
             align-items: center;
             gap: 10px;
         }
-
         .btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
-
         .btn-success {
             background: var(--accent);
             color: white;
         }
-
         .btn-success:hover {
             background: #008f5a;
         }
-
         .btn-primary {
             background: var(--primary);
             color: white;
         }
-
         .btn-primary:hover {
             background: #084a8f;
         }
-
         .btn-outline {
             background: transparent;
             color: var(--primary);
             border: 2px solid var(--primary);
         }
-
         .btn-outline:hover {
             background: var(--primary-light);
         }
@@ -727,7 +677,6 @@
             gap: 16px;
             flex-wrap: wrap;
         }
-
         .btn-group .btn {
             flex: 1;
             justify-content: center;
@@ -743,7 +692,6 @@
             align-items: center;
             gap: 10px;
         }
-
         .section-title i {
             font-size: 20px;
         }
@@ -761,7 +709,6 @@
             border-radius: 40px;
             transition: 0.15s;
         }
-
         .back-link:hover {
             background: var(--primary-light);
         }
@@ -783,16 +730,13 @@
             margin-top: 16px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
         }
-
         .toast-message i {
             font-size: 20px;
             color: var(--accent);
         }
-
         .toast-error {
             background: #d32f2f !important;
         }
-
         .toast-error i {
             color: white !important;
         }
@@ -803,13 +747,11 @@
             padding: 18px 20px;
             border: 1px solid var(--gray-border);
         }
-
         .lgpd-box .checkbox-group {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-
         .lgpd-box .checkbox-group label {
             display: flex;
             align-items: center;
@@ -818,22 +760,22 @@
             font-size: 14px;
             cursor: pointer;
         }
-
         .lgpd-box .checkbox-group input[type="checkbox"] {
             width: 18px;
             height: 18px;
             accent-color: var(--primary);
         }
 
+        /* ========================================================== */
+        /* DASHBOARD */
+        /* ========================================================== */
         .dashboard-section {
             display: none;
             animation: fadeIn 0.25s ease;
         }
-
         .dashboard-section.active {
             display: block;
         }
-
         .dashboard-header {
             display: flex;
             align-items: center;
@@ -844,7 +786,6 @@
             margin-bottom: 24px;
             flex-wrap: wrap;
         }
-
         .dashboard-avatar {
             width: 72px;
             height: 72px;
@@ -858,18 +799,15 @@
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
         }
-
         .dashboard-info h2 {
             font-size: 24px;
             color: var(--text-dark);
             margin-bottom: 2px;
         }
-
         .dashboard-info p {
             color: var(--text-gray);
             font-size: 14px;
         }
-
         .dashboard-info .badge-status {
             display: inline-block;
             background: var(--accent);
@@ -884,14 +822,12 @@
         .notificacoes-container {
             margin-top: 8px;
         }
-
         .notificacoes-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 16px;
         }
-
         .notificacoes-header h3 {
             font-size: 18px;
             color: var(--text-dark);
@@ -899,11 +835,9 @@
             align-items: center;
             gap: 10px;
         }
-
         .notificacoes-header h3 i {
             color: var(--primary);
         }
-
         .notificacoes-header .badge-nova {
             background: #d32f2f;
             color: white;
@@ -924,11 +858,9 @@
             border-left: 4px solid var(--primary);
             transition: 0.15s;
         }
-
         .notificacao-item:hover {
             background: var(--primary-light);
         }
-
         .notificacao-item .icone-notif {
             font-size: 20px;
             color: var(--primary);
@@ -941,23 +873,19 @@
             justify-content: center;
             flex-shrink: 0;
         }
-
         .notificacao-item .conteudo {
             flex: 1;
         }
-
         .notificacao-item .conteudo .titulo {
             font-weight: 600;
             color: var(--text-dark);
             font-size: 15px;
         }
-
         .notificacao-item .conteudo .descricao {
             color: var(--text-gray);
             font-size: 14px;
             margin-top: 2px;
         }
-
         .notificacao-item .conteudo .tempo {
             color: var(--text-gray);
             font-size: 12px;
@@ -966,7 +894,6 @@
             align-items: center;
             gap: 4px;
         }
-
         .notificacao-item .btn-responder {
             background: var(--primary);
             color: white;
@@ -979,11 +906,9 @@
             transition: 0.15s;
             white-space: nowrap;
         }
-
         .notificacao-item .btn-responder:hover {
             background: #084a8f;
         }
-
         .notificacao-item .btn-responder-wpp {
             background: #25D366;
             color: white;
@@ -996,7 +921,6 @@
             transition: 0.15s;
             white-space: nowrap;
         }
-
         .notificacao-item .btn-responder-wpp:hover {
             background: #1da851;
         }
@@ -1006,19 +930,20 @@
             padding: 40px 20px;
             color: var(--text-gray);
         }
-
         .notificacao-vazia i {
             font-size: 48px;
             opacity: 0.3;
             margin-bottom: 16px;
         }
-
         .notificacao-vazia h3 {
             font-size: 18px;
             color: var(--text-dark);
             margin-bottom: 4px;
         }
 
+        /* ========================================================== */
+        /* SENHA */
+        /* ========================================================== */
         .senha-container {
             background: var(--gray-light);
             border-radius: 24px;
@@ -1027,24 +952,20 @@
             border: 2px solid var(--gray-border);
             margin: 20px 0;
         }
-
         .senha-container .icone-grande {
             font-size: 64px;
             color: var(--primary);
             margin-bottom: 16px;
         }
-
         .senha-container h2 {
             font-size: 24px;
             color: var(--text-dark);
             margin-bottom: 8px;
         }
-
         .senha-container p {
             color: var(--text-gray);
             margin-bottom: 24px;
         }
-
         .senha-container .email-destacado {
             background: white;
             padding: 12px 20px;
@@ -1056,16 +977,13 @@
             font-size: 18px;
             margin-bottom: 24px;
         }
-
         .senha-container .form-group {
             max-width: 400px;
             margin: 0 auto 16px;
         }
-
         .senha-container .btn-group {
             justify-content: center;
         }
-
         .senha-container .btn-group .btn {
             flex: 0 1 auto;
             min-width: 200px;
@@ -1074,28 +992,27 @@
         .senha-criada {
             display: none;
         }
-
         .senha-criada.ativa {
             display: block;
         }
-
         .senha-criada .icone-sucesso {
             font-size: 72px;
             color: var(--accent);
             margin-bottom: 16px;
         }
-
         .senha-criada h2 {
             color: var(--accent);
         }
 
+        /* ========================================================== */
+        /* TIPO PESSOA (contratante) */
+        /* ========================================================== */
         .tipo-pessoa-selector {
             display: flex;
             gap: 16px;
             margin-bottom: 16px;
             flex-wrap: wrap;
         }
-
         .tipo-pessoa-selector .opcao {
             padding: 10px 24px;
             border: 2px solid var(--gray-border);
@@ -1105,18 +1022,15 @@
             transition: 0.15s;
             background: white;
         }
-
         .tipo-pessoa-selector .opcao:hover {
             border-color: var(--primary);
             background: var(--primary-light);
         }
-
         .tipo-pessoa-selector .opcao.selecionado {
             border-color: var(--primary);
             background: var(--primary);
             color: white;
         }
-
         .tipo-pessoa-selector .opcao i {
             margin-right: 8px;
         }
@@ -1130,7 +1044,6 @@
             border-left: 4px solid var(--primary);
             margin-top: 8px;
         }
-
         .documento-info i {
             color: var(--primary);
             margin-right: 8px;
@@ -1139,11 +1052,13 @@
         .etapa-empresa {
             display: none;
         }
-
         .etapa-empresa.ativa {
             display: block;
         }
 
+        /* ========================================================== */
+        /* RESULTADOS DA BUSCA */
+        /* ========================================================== */
         .resultado-card {
             background: var(--gray-light);
             border-radius: 16px;
@@ -1151,7 +1066,6 @@
             border: 1px solid var(--gray-border);
             margin-bottom: 16px;
         }
-
         .resultado-header {
             display: flex;
             align-items: center;
@@ -1159,30 +1073,25 @@
             flex-wrap: wrap;
             gap: 12px;
         }
-
         .resultado-header .nome {
             font-size: 18px;
             font-weight: 600;
             color: var(--text-dark);
         }
-
         .resultado-header .match {
             font-weight: 700;
             padding: 4px 16px;
             border-radius: 40px;
             font-size: 14px;
         }
-
         .match-alta {
             background: #e8f5e9;
             color: #2e7d32;
         }
-
         .match-media {
             background: #fff8e1;
             color: #f57f17;
         }
-
         .match-baixa {
             background: #ffebee;
             color: #c62828;
@@ -1196,12 +1105,10 @@
             padding-top: 12px;
             border-top: 1px solid var(--gray-border);
         }
-
         .resultado-detalhes .info-item {
             font-size: 13px;
             color: var(--text-gray);
         }
-
         .resultado-detalhes .info-item strong {
             color: var(--text-dark);
             display: block;
@@ -1214,7 +1121,6 @@
             gap: 12px;
             flex-wrap: wrap;
         }
-
         .btn-small {
             padding: 6px 16px;
             font-size: 13px;
@@ -1224,22 +1130,18 @@
             font-weight: 500;
             transition: 0.15s;
         }
-
         .btn-small-whatsapp {
             background: #25D366;
             color: white;
         }
-
         .btn-small-whatsapp:hover {
             background: #1da851;
         }
-
         .btn-small-outline {
             background: transparent;
             border: 1px solid var(--primary);
             color: var(--primary);
         }
-
         .btn-small-outline:hover {
             background: var(--primary-light);
         }
@@ -1249,7 +1151,6 @@
             padding: 40px 20px;
             color: var(--text-gray);
         }
-
         .sem-resultados i {
             font-size: 48px;
             opacity: 0.3;
@@ -1264,13 +1165,11 @@
             overflow: hidden;
             margin-top: 8px;
         }
-
         .progress-bar .progress-fill {
             height: 100%;
             border-radius: 40px;
             transition: width 0.5s ease;
         }
-
         .progress-fill.alta {
             background: #00a86b;
         }
@@ -1281,7 +1180,9 @@
             background: #e53935;
         }
 
-        /* ===== BOTÃO CRÉDITOS ===== */
+        /* ========================================================== */
+        /* BOTÃO CRÉDITOS */
+        /* ========================================================== */
         .btn-creditos {
             position: fixed;
             bottom: 20px;
@@ -1301,14 +1202,15 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             letter-spacing: 0.5px;
         }
-
         .btn-creditos:hover {
             opacity: 1;
             transform: scale(1.05);
             background: #0a66c2;
         }
 
-        /* ===== MODAL CRÉDITOS ===== */
+        /* ========================================================== */
+        /* MODAL CRÉDITOS */
+        /* ========================================================== */
         .modal-creditos {
             display: none;
             position: fixed;
@@ -1322,11 +1224,9 @@
             align-items: center;
             animation: fadeInModal 0.3s ease;
         }
-
         .modal-creditos.ativo {
             display: flex;
         }
-
         @keyframes fadeInModal {
             from {
                 opacity: 0;
@@ -1337,7 +1237,6 @@
                 transform: scale(1);
             }
         }
-
         .modal-creditos .conteudo {
             background: white;
             border-radius: 24px;
@@ -1348,7 +1247,6 @@
             text-align: center;
             position: relative;
         }
-
         .modal-creditos .conteudo .fechar {
             position: absolute;
             top: 12px;
@@ -1360,18 +1258,15 @@
             background: none;
             border: none;
         }
-
         .modal-creditos .conteudo .fechar:hover {
             color: #1a2632;
             transform: rotate(90deg);
         }
-
         .modal-creditos .conteudo .icone-creditos {
             font-size: 48px;
             color: #0a66c2;
             margin-bottom: 12px;
         }
-
         .modal-creditos .conteudo h2 {
             font-family: 'Montserrat', sans-serif;
             font-size: 22px;
@@ -1379,7 +1274,6 @@
             margin-bottom: 16px;
             letter-spacing: -0.5px;
         }
-
         .modal-creditos .conteudo .cargo {
             font-weight: 600;
             color: #2c3e50;
@@ -1389,14 +1283,12 @@
             border-top: 1px solid #e8edf3;
             padding-top: 12px;
         }
-
         .modal-creditos .conteudo .nome {
             font-size: 16px;
             font-weight: 500;
             color: #1a2632;
             margin-bottom: 2px;
         }
-
         .modal-creditos .conteudo .equipe {
             display: flex;
             flex-wrap: wrap;
@@ -1404,7 +1296,6 @@
             gap: 8px 16px;
             margin-top: 6px;
         }
-
         .modal-creditos .conteudo .equipe span {
             font-size: 14px;
             color: #1a2632;
@@ -1412,7 +1303,6 @@
             padding: 2px 12px;
             border-radius: 40px;
         }
-
         .modal-creditos .conteudo .footer-modal {
             margin-top: 16px;
             font-size: 11px;
@@ -1421,6 +1311,9 @@
             padding-top: 12px;
         }
 
+        /* ========================================================== */
+        /* RESPONSIVIDADE */
+        /* ========================================================== */
         @media (max-width: 640px) {
             .app-container {
                 padding: 16px;
@@ -1483,7 +1376,6 @@
                 padding: 6px 14px;
             }
         }
-
         @media (max-width: 400px) {
             .logo-titulo-grande .conecta {
                 font-size: 36px;
@@ -1496,7 +1388,9 @@
 </head>
 <body>
 
-    <!-- ===== LANDING PAGE ===== -->
+    <!-- ========================================================== -->
+    <!-- LANDING PAGE -->
+    <!-- ========================================================== -->
     <div id="landingPage" class="landing-container">
         <div class="landing-content">
             <div class="logo-titulo-grande">
@@ -1515,9 +1409,14 @@
         </div>
     </div>
 
-    <!-- ===== APP ===== -->
+    <!-- ========================================================== -->
+    <!-- APP -->
+    <!-- ========================================================== -->
     <div id="appContainer" class="app-container">
+
+        <!-- ========================================================== -->
         <!-- CABEÇALHO DO APP -->
+        <!-- ========================================================== -->
         <div class="app-header">
             <div class="logo-mini">
                 <div class="icon">CT</div>
@@ -1535,11 +1434,13 @@
             <span class="header-badge"><i class="fas fa-users"></i> <span id="totalCandidatosApp">0</span> talentos</span>
         </div>
 
+        <!-- ========================================================== -->
         <!-- PÁGINA 1: ESCOLHA -->
+        <!-- ========================================================== -->
         <div id="pageChoice">
-            <div style="margin-bottom: 20px;">
-                <h2 style="font-weight: 400; font-size: 22px; color: #1a2632;">Comece sua jornada</h2>
-                <p style="color: #5a6b7c; margin-top: 4px;">Escolha abaixo o perfil que melhor representa você</p>
+            <div style="margin-bottom:20px;">
+                <h2 style="font-weight:400; font-size:22px; color:#1a2632;">Comece sua jornada</h2>
+                <p style="color:#5a6b7c; margin-top:4px;">Escolha abaixo o perfil que melhor representa você</p>
             </div>
             <div class="page-selector">
                 <div class="selector-card" onclick="irParaLogin('candidato')">
@@ -1561,26 +1462,24 @@
                     <span class="tag tag-empresa">RH</span>
                 </div>
             </div>
-            <div style="margin-top: 24px; font-size: 13px; color: #5a6b7c; text-align: center; border-top: 1px solid #e0e6ed; padding-top: 16px;">
-                <i class="fas fa-shield-alt" style="margin-right: 6px; color: #0a66c2;"></i>
+            <div style="margin-top:24px; font-size:13px; color:#5a6b7c; text-align:center; border-top:1px solid #e0e6ed; padding-top:16px;">
+                <i class="fas fa-shield-alt" style="margin-right:6px; color:#0a66c2;"></i>
                 Seus dados estão seguros e protegidos
             </div>
         </div>
 
+        <!-- ========================================================== -->
         <!-- PÁGINA 2: LOGIN -->
+        <!-- ========================================================== -->
         <div id="loginSection" class="login-section">
             <div class="back-link" onclick="goHomeApp()"><i class="fas fa-arrow-left"></i> Voltar</div>
             <div class="login-container">
-                <div class="icone-login">
-                    <i class="fas fa-user-circle"></i>
-                </div>
+                <div class="icone-login"><i class="fas fa-user-circle"></i></div>
                 <h2 id="loginTituloApp">Bem-vindo de volta!</h2>
                 <p class="subtitulo-login" id="loginSubtituloApp">Acesse sua conta como Candidato</p>
-
                 <div id="erroLoginApp" class="erro-login">
                     <i class="fas fa-exclamation-circle"></i> E-mail ou senha inválidos. Tente novamente.
                 </div>
-
                 <div class="form-group">
                     <label><i class="fas fa-envelope"></i> E-mail</label>
                     <input type="email" id="loginEmail" placeholder="seu@email.com">
@@ -1590,30 +1489,28 @@
                     <input type="password" id="loginSenha" placeholder="Digite sua senha">
                 </div>
                 <div class="senha-link">
-                    <a onclick="alert('Funcionalidade em desenvolvimento. Entre em contato com o suporte.')">Esqueceu sua senha?</a>
+                    <a onclick="alert('Funcionalidade em desenvolvimento.')">Esqueceu sua senha?</a>
                 </div>
-
                 <button class="btn-login" onclick="fazerLogin()">
                     <i class="fas fa-sign-in-alt"></i> ENTRAR
                 </button>
-
                 <div class="login-divider">
                     <div class="linha"></div>
                     <div class="texto">ou</div>
                     <div class="linha"></div>
                 </div>
-
                 <button class="btn-cadastrar" onclick="irParaCadastro()">
                     <i class="fas fa-user-plus"></i> Cadastrar-me
                 </button>
-
                 <div class="info-tipo" id="loginInfoTipo">
                     Ainda não tem conta? <strong>Cadastre-se</strong> como <strong id="tipoDisplay">Candidato</strong>
                 </div>
             </div>
         </div>
 
+        <!-- ========================================================== -->
         <!-- PÁGINA 3: DASHBOARD CANDIDATO -->
+        <!-- ========================================================== -->
         <div id="dashboardCandidato" class="dashboard-section">
             <div class="dashboard-header">
                 <div class="dashboard-avatar" id="dashAvatar">A</div>
@@ -1623,7 +1520,6 @@
                     <span class="badge-status"><i class="fas fa-check-circle"></i> Perfil ativo</span>
                 </div>
             </div>
-
             <div class="notificacoes-container">
                 <div class="notificacoes-header">
                     <h3><i class="fas fa-bell"></i> Notificações <span class="badge-nova" id="notifBadge">3</span></h3>
@@ -1633,78 +1529,36 @@
             </div>
         </div>
 
+        <!-- ========================================================== -->
         <!-- PÁGINA 4: FORMULÁRIO CANDIDATO -->
+        <!-- ========================================================== -->
         <div id="formCandidato" class="form-section">
             <div class="back-link" onclick="voltarLogin()"><i class="fas fa-arrow-left"></i> Voltar</div>
             <div class="form-title"><i class="fas fa-clipboard-list"></i> Cadastro de Candidato</div>
             <div class="form-sub">Preencha todos os campos para entrar no banco de talentos</div>
-
             <form id="candidateForm" onsubmit="event.preventDefault(); submitCandidate();">
                 <!-- DADOS PESSOAIS -->
                 <div class="section-title"><i class="fas fa-address-card"></i> DADOS PESSOAIS</div>
                 <div class="form-grid">
-                    <div class="form-group full-width">
-                        <label><i class="fas fa-user"></i> Nome completo <span class="required-star">*</span></label>
-                        <input type="text" id="candNome" placeholder="Ex: Ana Carolina Silva" required>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-id-card"></i> CPF</label>
-                        <input type="text" id="candCpf" placeholder="000.000.000-00">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-calendar-alt"></i> Data de nascimento</label>
-                        <input type="date" id="candNascimento">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-venus-mars"></i> Sexo</label>
-                        <select id="candSexo">
-                            <option value="">Selecione</option>
-                            <option>Feminino</option>
-                            <option>Masculino</option>
-                            <option>Outro</option>
-                            <option>Prefiro não dizer</option>
-                        </select>
-                    </div>
-                    <div class="form-group full-width">
-                        <label><i class="fas fa-wheelchair"></i> Possui deficiência (PCD)?</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="pcd" value="sim" onchange="document.getElementById('pcdDesc').style.display='block'"> Sim</label>
-                            <label><input type="radio" name="pcd" value="nao" onchange="document.getElementById('pcdDesc').style.display='none'" checked> Não</label>
-                        </div>
-                    </div>
-                    <div class="form-group full-width" id="pcdDesc" style="display:none;">
-                        <label>Se sim, qual deficiência?</label>
-                        <input type="text" id="candPcd" placeholder="Ex: visual, motora, auditiva...">
-                    </div>
+                    <div class="form-group full-width"><label><i class="fas fa-user"></i> Nome completo <span class="required-star">*</span></label><input type="text" id="candNome" placeholder="Ex: Ana Carolina Silva" required></div>
+                    <div class="form-group"><label><i class="fas fa-id-card"></i> CPF</label><input type="text" id="candCpf" placeholder="000.000.000-00"></div>
+                    <div class="form-group"><label><i class="fas fa-calendar-alt"></i> Data de nascimento</label><input type="date" id="candNascimento"></div>
+                    <div class="form-group"><label><i class="fas fa-venus-mars"></i> Sexo</label><select id="candSexo"><option value="">Selecione</option><option>Feminino</option><option>Masculino</option><option>Outro</option><option>Prefiro não dizer</option></select></div>
+                    <div class="form-group full-width"><label><i class="fas fa-wheelchair"></i> Possui deficiência (PCD)?</label><div class="radio-group"><label><input type="radio" name="pcd" value="sim" onchange="document.getElementById('pcdDesc').style.display='block'"> Sim</label><label><input type="radio" name="pcd" value="nao" onchange="document.getElementById('pcdDesc').style.display='none'" checked> Não</label></div></div>
+                    <div class="form-group full-width" id="pcdDesc" style="display:none;"><label>Se sim, qual deficiência?</label><input type="text" id="candPcd" placeholder="Ex: visual, motora, auditiva..."></div>
                 </div>
-
                 <!-- Contato -->
                 <div class="section-title"><i class="fas fa-phone-alt"></i> Contato</div>
                 <div class="form-grid">
-                    <div class="form-group">
-                        <label><i class="fas fa-envelope"></i> E-mail <span class="required-star">*</span></label>
-                        <input type="email" id="candEmail" placeholder="email@exemplo.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fab fa-whatsapp"></i> WhatsApp</label>
-                        <input type="text" id="candWhatsapp" placeholder="(11) 98888-8888">
-                    </div>
+                    <div class="form-group"><label><i class="fas fa-envelope"></i> E-mail <span class="required-star">*</span></label><input type="email" id="candEmail" placeholder="email@exemplo.com" required></div>
+                    <div class="form-group"><label><i class="fab fa-whatsapp"></i> WhatsApp</label><input type="text" id="candWhatsapp" placeholder="(11) 98888-8888"></div>
                 </div>
-
                 <!-- Endereço -->
                 <div class="section-title"><i class="fas fa-map-pin"></i> Endereço</div>
                 <div class="form-grid">
                     <div class="form-group"><label>Cidade</label><input type="text" id="candCidade" placeholder="São Paulo"></div>
-                    <div class="form-group"><label>Estado</label>
-                        <select id="candEstado">
-                            <option value="">Selecione</option>
-                            <option>SP</option><option>RJ</option><option>MG</option><option>PR</option>
-                            <option>SC</option><option>RS</option><option>BA</option><option>PE</option>
-                            <option>CE</option><option>GO</option><option>DF</option><option>Outro</option>
-                        </select>
-                    </div>
+                    <div class="form-group"><label>Estado</label><select id="candEstado"><option value="">Selecione</option><option>SP</option><option>RJ</option><option>MG</option><option>PR</option><option>SC</option><option>RS</option><option>BA</option><option>PE</option><option>CE</option><option>GO</option><option>DF</option><option>Outro</option></select></div>
                 </div>
-
                 <!-- OBJETIVO PROFISSIONAL -->
                 <div class="section-title"><i class="fas fa-bullseye"></i> OBJETIVO PROFISSIONAL</div>
                 <div class="form-grid">
@@ -1712,214 +1566,82 @@
                     <div class="form-group"><label>Área de interesse</label>
                         <select id="candArea">
                             <option value="">Selecione</option>
-                            <option>Administrativo</option><option>Financeiro</option><option>Marketing</option>
-                            <option>Vendas</option><option>Produção</option><option>Logística</option>
-                            <option>Recursos Humanos</option><option>Tecnologia</option><option>Saúde</option><option>Educação</option>
-                            <option>Construção Civil</option><option>Mecânica</option><option>Jardinagem</option><option>Serviços Gerais</option>
+                            <option>Administrativo</option><option>Financeiro</option><option>Marketing</option><option>Vendas</option><option>Produção</option><option>Logística</option><option>Recursos Humanos</option><option>Tecnologia</option><option>Saúde</option><option>Educação</option><option>Construção Civil</option><option>Mecânica</option><option>Jardinagem</option><option>Serviços Gerais</option><option>Jurídico</option><option>Engenharia</option><option>Atendimento ao Cliente</option><option>Compras</option><option>Segurança</option><option>Hotelaria e Turismo</option><option>Alimentação</option><option>Transporte</option><option>Design</option><option>Comunicação</option>
                         </select>
                     </div>
                     <div class="form-group"><label>Faixa salarial desejada</label><input type="text" id="candSalario" placeholder="Ex: R$ 4.000 - R$ 6.000"></div>
-                    <div class="form-group"><label>Disponibilidade para início</label>
-                        <select id="candDisponibilidade">
-                            <option>Imediata</option><option>15 dias</option><option>30 dias</option><option>Outro prazo</option>
-                        </select>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>Está disponível para viagens?</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="candViagens" value="sim"> Sim</label>
-                            <label><input type="radio" name="candViagens" value="nao" checked> Não</label>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label>Aceita mudança de cidade?</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="candMudanca" value="sim"> Sim</label>
-                            <label><input type="radio" name="candMudanca" value="nao" checked> Não</label>
-                        </div>
-                    </div>
+                    <div class="form-group"><label>Disponibilidade para início</label><select id="candDisponibilidade"><option>Imediata</option><option>15 dias</option><option>30 dias</option><option>Outro prazo</option></select></div>
+                    <div class="form-group full-width"><label>Está disponível para viagens?</label><div class="radio-group"><label><input type="radio" name="candViagens" value="sim"> Sim</label><label><input type="radio" name="candViagens" value="nao" checked> Não</label></div></div>
+                    <div class="form-group full-width"><label>Aceita mudança de cidade?</label><div class="radio-group"><label><input type="radio" name="candMudanca" value="sim"> Sim</label><label><input type="radio" name="candMudanca" value="nao" checked> Não</label></div></div>
                 </div>
-
                 <!-- FORMAÇÃO ACADÊMICA -->
                 <div class="section-title"><i class="fas fa-graduation-cap"></i> FORMAÇÃO ACADÊMICA</div>
-                <div class="form-group">
-                    <label>Escolaridade</label>
-                    <select id="candEscolaridade">
-                        <option value="">Selecione</option>
-                        <option>Ensino Fundamental</option><option>Ensino Médio</option><option>Técnico</option>
-                        <option>Superior Incompleto</option><option>Superior Completo</option>
-                        <option>Pós-graduação</option><option>Mestrado</option><option>Doutorado</option>
-                    </select>
-                </div>
-
+                <div class="form-group"><label>Escolaridade</label><select id="candEscolaridade"><option value="">Selecione</option><option>Ensino Fundamental</option><option>Ensino Médio</option><option>Técnico</option><option>Superior Incompleto</option><option>Superior Completo</option><option>Pós-graduação</option><option>Mestrado</option><option>Doutorado</option></select></div>
                 <!-- EXPERIÊNCIA -->
                 <div class="section-title"><i class="fas fa-briefcase"></i> EXPERIÊNCIA</div>
-                <div class="form-group">
-                    <label>Tempo de experiência (anos)</label>
-                    <select id="candExperiencia">
-                        <option value="0">Menos de 1 ano</option>
-                        <option value="1">1 ano</option>
-                        <option value="2">2 anos</option>
-                        <option value="3">3 anos</option>
-                        <option value="4">4 anos</option>
-                        <option value="5">5 anos</option>
-                        <option value="6">6 anos ou mais</option>
-                    </select>
-                </div>
-                <div class="form-group full-width">
-                    <label>Último cargo/empresa</label>
-                    <input type="text" id="candUltimoCargo" placeholder="Ex: Analista na Empresa X">
-                </div>
-
+                <div class="form-group"><label>Tempo de experiência (anos)</label><select id="candExperiencia"><option value="0">Menos de 1 ano</option><option value="1">1 ano</option><option value="2">2 anos</option><option value="3">3 anos</option><option value="4">4 anos</option><option value="5">5 anos</option><option value="6">6 anos ou mais</option></select></div>
+                <div class="form-group full-width"><label>Último cargo/empresa</label><input type="text" id="candUltimoCargo" placeholder="Ex: Analista na Empresa X"></div>
                 <!-- HABILIDADES -->
                 <div class="section-title"><i class="fas fa-cogs"></i> HABILIDADES</div>
-                <div class="form-group">
-                    <label>Nível de Informática</label>
-                    <select id="candInfo">
-                        <option>Básico</option><option>Intermediário</option><option>Avançado</option>
-                    </select>
-                </div>
-                <div class="form-group full-width">
-                    <label>Ferramentas que domina</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" value="Pacote Office"> Pacote Office</label>
-                        <label><input type="checkbox" value="Excel"> Excel</label>
-                        <label><input type="checkbox" value="Word"> Word</label>
-                        <label><input type="checkbox" value="PowerPoint"> PowerPoint</label>
-                        <label><input type="checkbox" value="Canva"> Canva</label>
-                        <label><input type="checkbox" value="Sistemas ERP"> Sistemas ERP</label>
-                        <label><input type="checkbox" value="Photoshop"> Photoshop</label>
-                        <label><input type="checkbox" value="Illustrator"> Illustrator</label>
-                        <label><input type="checkbox" value="Ferramentas Manuais"> Ferramentas Manuais</label>
-                        <label><input type="checkbox" value="Equipamentos Elétricos"> Equipamentos Elétricos</label>
-                    </div>
-                </div>
-
+                <div class="form-group"><label>Nível de Informática</label><select id="candInfo"><option>Básico</option><option>Intermediário</option><option>Avançado</option></select></div>
+                <div class="form-group full-width"><label>Ferramentas que domina</label><div class="checkbox-group"><label><input type="checkbox" value="Pacote Office"> Pacote Office</label><label><input type="checkbox" value="Excel"> Excel</label><label><input type="checkbox" value="Word"> Word</label><label><input type="checkbox" value="PowerPoint"> PowerPoint</label><label><input type="checkbox" value="Canva"> Canva</label><label><input type="checkbox" value="Sistemas ERP"> Sistemas ERP</label><label><input type="checkbox" value="Photoshop"> Photoshop</label><label><input type="checkbox" value="Illustrator"> Illustrator</label><label><input type="checkbox" value="Ferramentas Manuais"> Ferramentas Manuais</label><label><input type="checkbox" value="Equipamentos Elétricos"> Equipamentos Elétricos</label></div></div>
                 <!-- LGPD -->
                 <div class="section-title"><i class="fas fa-shield-alt"></i> LGPD e Termos</div>
-                <div class="lgpd-box">
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" id="candTermos" required> <strong>Concordo com os Termos de Uso.</strong></label>
-                        <label><input type="checkbox" id="candDados" required> <strong>Autorizo o armazenamento dos meus dados.</strong></label>
-                    </div>
-                </div>
-
+                <div class="lgpd-box"><div class="checkbox-group"><label><input type="checkbox" id="candTermos" required> <strong>Concordo com os Termos de Uso.</strong></label><label><input type="checkbox" id="candDados" required> <strong>Autorizo o armazenamento dos meus dados.</strong></label></div></div>
                 <div class="btn-group">
                     <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Cadastrar</button>
                     <button type="button" class="btn btn-outline" onclick="voltarLogin()"><i class="fas fa-times"></i> Cancelar</button>
                 </div>
-                <div id="formFeedback" style="margin-top: 16px;"></div>
+                <div id="formFeedback" style="margin-top:16px;"></div>
             </form>
         </div>
 
+        <!-- ========================================================== -->
         <!-- PÁGINA 5: FORMULÁRIO CONTRATANTE -->
+        <!-- ========================================================== -->
         <div id="formContratante" class="form-section">
             <div class="back-link" onclick="voltarLogin()"><i class="fas fa-arrow-left"></i> Voltar</div>
             <div class="form-title"><i class="fas fa-building"></i> Cadastro do Contratante</div>
             <div class="form-sub">Cadastre-se como empresa ou pessoa física para encontrar os melhores talentos</div>
-
             <div id="etapaEmpresa1" class="etapa-empresa ativa">
                 <form id="empresaForm" onsubmit="event.preventDefault(); cadastrarContratante();">
                     <div class="section-title"><i class="fas fa-user-tag"></i> Tipo de Pessoa</div>
                     <div class="tipo-pessoa-selector">
-                        <div class="opcao selecionado" id="tipoPessoaJuridica" onclick="selecionarTipoPessoa('juridica')">
-                            <i class="fas fa-building"></i> Pessoa Jurídica (CNPJ)
-                        </div>
-                        <div class="opcao" id="tipoPessoaFisica" onclick="selecionarTipoPessoa('fisica')">
-                            <i class="fas fa-user"></i> Pessoa Física (CPF)
-                        </div>
+                        <div class="opcao selecionado" id="tipoPessoaJuridica" onclick="selecionarTipoPessoa('juridica')"><i class="fas fa-building"></i> Pessoa Jurídica (CNPJ)</div>
+                        <div class="opcao" id="tipoPessoaFisica" onclick="selecionarTipoPessoa('fisica')"><i class="fas fa-user"></i> Pessoa Física (CPF)</div>
                     </div>
-
                     <input type="hidden" id="tipoPessoa" value="juridica">
-
                     <div class="section-title"><i class="fas fa-address-card"></i> Dados Cadastrais</div>
                     <div class="form-grid">
-                        <div class="form-group full-width">
-                            <label><i class="fas fa-store"></i> Nome / Razão Social <span class="required-star">*</span></label>
-                            <input type="text" id="empNome" placeholder="Ex: Conecta Trampo ou João da Silva" required>
-                        </div>
-                        <div class="form-group" id="grupoDocumento">
-                            <label><i class="fas fa-id-card"></i> <span id="labelDocumento">CNPJ</span> <span class="required-star">*</span></label>
-                            <input type="text" id="empDocumento" placeholder="00.000.000/0000-00" required>
-                        </div>
-                        <div class="form-group" id="grupoNomeFantasia">
-                            <label><i class="fas fa-tag"></i> Nome Fantasia</label>
-                            <input type="text" id="empFantasia" placeholder="Ex: Conecta Trampo">
-                        </div>
+                        <div class="form-group full-width"><label><i class="fas fa-store"></i> Nome / Razão Social <span class="required-star">*</span></label><input type="text" id="empNome" placeholder="Ex: Conecta Trampo ou João da Silva" required></div>
+                        <div class="form-group" id="grupoDocumento"><label><i class="fas fa-id-card"></i> <span id="labelDocumento">CNPJ</span> <span class="required-star">*</span></label><input type="text" id="empDocumento" placeholder="00.000.000/0000-00" required></div>
+                        <div class="form-group" id="grupoNomeFantasia"><label><i class="fas fa-tag"></i> Nome Fantasia</label><input type="text" id="empFantasia" placeholder="Ex: Conecta Trampo"></div>
                     </div>
-
-                    <div class="documento-info" id="documentoInfo">
-                        <i class="fas fa-info-circle"></i>
-                        <span id="documentoInfoText">CNPJ: Para empresas e organizações formais</span>
-                    </div>
-
+                    <div class="documento-info" id="documentoInfo"><i class="fas fa-info-circle"></i> <span id="documentoInfoText">CNPJ: Para empresas e organizações formais</span></div>
                     <div class="section-title"><i class="fas fa-phone-alt"></i> Contato</div>
                     <div class="form-grid">
-                        <div class="form-group">
-                            <label><i class="fas fa-envelope"></i> E-mail <span class="required-star">*</span></label>
-                            <input type="email" id="empEmail" placeholder="contato@empresa.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label><i class="fab fa-whatsapp"></i> WhatsApp</label>
-                            <input type="text" id="empWhatsapp" placeholder="(11) 99999-9999">
-                        </div>
+                        <div class="form-group"><label><i class="fas fa-envelope"></i> E-mail <span class="required-star">*</span></label><input type="email" id="empEmail" placeholder="contato@empresa.com" required></div>
+                        <div class="form-group"><label><i class="fab fa-whatsapp"></i> WhatsApp</label><input type="text" id="empWhatsapp" placeholder="(11) 99999-9999"></div>
                     </div>
-
                     <div class="section-title"><i class="fas fa-map-pin"></i> Endereço</div>
                     <div class="form-grid">
                         <div class="form-group"><label>Cidade</label><input type="text" id="empCidade" placeholder="São Paulo"></div>
-                        <div class="form-group"><label>Estado</label>
-                            <select id="empEstado">
-                                <option value="">Selecione</option>
-                                <option>SP</option><option>RJ</option><option>MG</option><option>PR</option>
-                                <option>SC</option><option>RS</option><option>BA</option><option>PE</option>
-                                <option>CE</option><option>GO</option><option>DF</option><option>Outro</option>
-                            </select>
-                        </div>
+                        <div class="form-group"><label>Estado</label><select id="empEstado"><option value="">Selecione</option><option>SP</option><option>RJ</option><option>MG</option><option>PR</option><option>SC</option><option>RS</option><option>BA</option><option>PE</option><option>CE</option><option>GO</option><option>DF</option><option>Outro</option></select></div>
                     </div>
-
                     <div class="section-title"><i class="fas fa-user-tie"></i> Responsável</div>
                     <div class="form-grid">
-                        <div class="form-group full-width">
-                            <label>Nome do Responsável <span class="required-star">*</span></label>
-                            <input type="text" id="empResponsavel" placeholder="Nome completo" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Cargo / Função</label>
-                            <input type="text" id="empCargoResponsavel" placeholder="Ex: Gerente de RH ou Autônomo">
-                        </div>
+                        <div class="form-group full-width"><label>Nome do Responsável <span class="required-star">*</span></label><input type="text" id="empResponsavel" placeholder="Nome completo" required></div>
+                        <div class="form-group"><label>Cargo / Função</label><input type="text" id="empCargoResponsavel" placeholder="Ex: Gerente de RH ou Autônomo"></div>
                     </div>
-
                     <div class="section-title"><i class="fas fa-info-circle"></i> Sobre você</div>
-                    <div class="form-group full-width">
-                        <label>Descrição</label>
-                        <textarea id="empDescricao" placeholder="Descreva sua empresa ou o que você faz..." style="min-height:80px;"></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <label><i class="fas fa-briefcase"></i> Área de atuação</label>
-                        <select id="empSegmento">
-                            <option value="">Selecione</option>
-                            <option>Tecnologia da Informação</option><option>Consultoria</option>
-                            <option>Varejo</option><option>Indústria</option><option>Serviços</option>
-                            <option>Saúde</option><option>Educação</option><option>Financeiro</option>
-                            <option>Logística</option><option>Marketing</option><option>Recursos Humanos</option>
-                            <option>Construção Civil</option><option>Mecânica</option><option>Jardinagem</option>
-                            <option>Manutenção</option><option>Serviços Gerais</option><option>Autônomo</option>
-                            <option>Outro</option>
-                        </select>
-                    </div>
-
-                    <div class="lgpd-box">
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="empTermos" required> <strong>Concordo com os Termos de Uso.</strong></label>
-                        </div>
-                    </div>
-
+                    <div class="form-group full-width"><label>Descrição</label><textarea id="empDescricao" placeholder="Descreva sua empresa ou o que você faz..." style="min-height:80px;"></textarea></div>
+                    <div class="form-group full-width"><label><i class="fas fa-briefcase"></i> Área de atuação</label><select id="empSegmento"><option value="">Selecione</option><option>Tecnologia da Informação</option><option>Consultoria</option><option>Varejo</option><option>Indústria</option><option>Serviços</option><option>Saúde</option><option>Educação</option><option>Financeiro</option><option>Logística</option><option>Marketing</option><option>Recursos Humanos</option><option>Construção Civil</option><option>Mecânica</option><option>Jardinagem</option><option>Manutenção</option><option>Serviços Gerais</option><option>Autônomo</option><option>Outro</option></select></div>
+                    <div class="lgpd-box"><div class="checkbox-group"><label><input type="checkbox" id="empTermos" required> <strong>Concordo com os Termos de Uso.</strong></label></div></div>
                     <div class="btn-group">
                         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Cadastrar</button>
                         <button type="button" class="btn btn-outline" onclick="voltarLogin()"><i class="fas fa-times"></i> Cancelar</button>
                     </div>
-                    <div id="empresaFeedback" style="margin-top: 16px;"></div>
+                    <div id="empresaFeedback" style="margin-top:16px;"></div>
                 </form>
             </div>
 
@@ -1927,7 +1649,6 @@
                 <div class="back-link" onclick="voltarEtapa1()"><i class="fas fa-arrow-left"></i> Voltar dados</div>
                 <div class="form-title"><i class="fas fa-search"></i> Encontrar Talentos</div>
                 <div class="form-sub">Defina os critérios que você busca</div>
-
                 <form id="buscaForm" onsubmit="event.preventDefault(); buscarCandidatos();">
                     <div class="section-title"><i class="fas fa-sliders-h"></i> Critérios de Busca</div>
                     <div class="form-grid">
@@ -1939,45 +1660,21 @@
                             <label><i class="fas fa-tag"></i> Área <span class="required-star">*</span></label>
                             <select id="buscaArea" required>
                                 <option value="">Selecione uma área</option>
-                                <option>Administrativo</option>
-                                <option>Financeiro</option>
-                                <option>Marketing</option>
-                                <option>Vendas</option>
-                                <option>Produção</option>
-                                <option>Logística</option>
-                                <option>Recursos Humanos</option>
-                                <option>Tecnologia</option>
-                                <option>Saúde</option>
-                                <option>Educação</option>
-                                <option>Construção Civil</option>
-                                <option>Mecânica</option>
-                                <option>Jardinagem</option>
-                                <option>Serviços Gerais</option>
+                                <option>Administrativo</option><option>Financeiro</option><option>Marketing</option><option>Vendas</option><option>Produção</option><option>Logística</option><option>Recursos Humanos</option><option>Tecnologia</option><option>Saúde</option><option>Educação</option><option>Construção Civil</option><option>Mecânica</option><option>Jardinagem</option><option>Serviços Gerais</option><option>Jurídico</option><option>Engenharia</option><option>Atendimento ao Cliente</option><option>Compras</option><option>Segurança</option><option>Hotelaria e Turismo</option><option>Alimentação</option><option>Transporte</option><option>Design</option><option>Comunicação</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label><i class="fas fa-graduation-cap"></i> Escolaridade</label>
                             <select id="buscaEscolaridade">
                                 <option value="">Qualquer</option>
-                                <option>Ensino Fundamental</option>
-                                <option>Ensino Médio</option>
-                                <option>Técnico</option>
-                                <option>Superior Incompleto</option>
-                                <option>Superior Completo</option>
-                                <option>Pós-graduação</option>
-                                <option>Mestrado</option>
+                                <option>Ensino Fundamental</option><option>Ensino Médio</option><option>Técnico</option><option>Superior Incompleto</option><option>Superior Completo</option><option>Pós-graduação</option><option>Mestrado</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label><i class="fas fa-clock"></i> Experiência mínima</label>
                             <select id="buscaExperiencia">
                                 <option value="0">Qualquer</option>
-                                <option value="1">1 ano</option>
-                                <option value="2">2 anos</option>
-                                <option value="3">3 anos</option>
-                                <option value="4">4 anos</option>
-                                <option value="5">5 anos</option>
-                                <option value="6">6 anos+</option>
+                                <option value="1">1 ano</option><option value="2">2 anos</option><option value="3">3 anos</option><option value="4">4 anos</option><option value="5">5 anos</option><option value="6">6 anos+</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -2012,21 +1709,21 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="btn-group">
                         <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Procurar</button>
                         <button type="button" class="btn btn-outline" onclick="limparBusca()"><i class="fas fa-undo"></i> Limpar</button>
                     </div>
                 </form>
-
-                <div id="resultadosBusca" style="margin-top: 30px;">
+                <div id="resultadosBusca" style="margin-top:30px;">
                     <div class="section-title"><i class="fas fa-users"></i> Resultados</div>
                     <div id="listaResultados"></div>
                 </div>
             </div>
         </div>
 
+        <!-- ========================================================== -->
         <!-- PÁGINA 6: CRIAÇÃO DE SENHA -->
+        <!-- ========================================================== -->
         <div id="formSenha" class="form-section">
             <div class="back-link" onclick="voltarLogin()"><i class="fas fa-arrow-left"></i> Voltar</div>
             <div id="senhaContainer" class="senha-container">
@@ -2034,57 +1731,47 @@
                 <h2>Crie sua senha de acesso</h2>
                 <p>Para finalizar seu cadastro, crie uma senha</p>
                 <div class="email-destacado" id="senhaEmailDisplay">email@exemplo.com</div>
-
                 <form id="senhaForm" onsubmit="event.preventDefault(); criarSenha();">
-                    <div class="form-group">
-                        <label><i class="fas fa-lock"></i> Senha <span class="required-star">*</span></label>
-                        <input type="password" id="senhaInput" placeholder="Digite sua senha" required minlength="6">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-lock"></i> Confirmar <span class="required-star">*</span></label>
-                        <input type="password" id="senhaConfirmInput" placeholder="Confirme sua senha" required minlength="6">
-                    </div>
-                    <div style="text-align:left; max-width:400px; margin:0 auto 16px; font-size:13px; color:#5a6b7c;">
-                        <p><i class="fas fa-info-circle" style="color:#0a66c2;"></i> Mínimo 6 caracteres</p>
-                    </div>
+                    <div class="form-group"><label><i class="fas fa-lock"></i> Senha <span class="required-star">*</span></label><input type="password" id="senhaInput" placeholder="Digite sua senha" required minlength="6"></div>
+                    <div class="form-group"><label><i class="fas fa-lock"></i> Confirmar <span class="required-star">*</span></label><input type="password" id="senhaConfirmInput" placeholder="Confirme sua senha" required minlength="6"></div>
+                    <div style="text-align:left; max-width:400px; margin:0 auto 16px; font-size:13px; color:#5a6b7c;"><p><i class="fas fa-info-circle" style="color:#0a66c2;"></i> Mínimo 6 caracteres</p></div>
                     <div class="btn-group">
                         <button type="submit" class="btn btn-success"><i class="fas fa-check-circle"></i> Criar Senha</button>
                         <button type="button" class="btn btn-outline" onclick="voltarLogin()"><i class="fas fa-times"></i> Cancelar</button>
                     </div>
                     <div id="senhaFeedback" style="margin-top:16px;"></div>
                 </form>
-
                 <div id="senhaCriada" class="senha-criada">
                     <div class="icone-sucesso"><i class="fas fa-check-circle"></i></div>
                     <h2>Senha criada com sucesso!</h2>
                     <p>Seu cadastro foi finalizado. Agora você pode acessar com seu e-mail e senha.</p>
-                    <div style="margin-top:24px;">
-                        <button class="btn btn-success" onclick="voltarLogin()"><i class="fas fa-sign-in-alt"></i> Fazer Login</button>
-                    </div>
+                    <div style="margin-top:24px;"><button class="btn btn-success" onclick="voltarLogin()"><i class="fas fa-sign-in-alt"></i> Fazer Login</button></div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- ===== BOTÃO CRÉDITOS (fixo) ===== -->
+    </div> <!-- FIM APP CONTAINER -->
+
+    <!-- ========================================================== -->
+    <!-- BOTÃO CRÉDITOS -->
+    <!-- ========================================================== -->
     <button class="btn-creditos" onclick="abrirCreditos()">
         <i class="fas fa-info-circle"></i> Créditos
     </button>
 
-    <!-- ===== MODAL CRÉDITOS ===== -->
+    <!-- ========================================================== -->
+    <!-- MODAL CRÉDITOS -->
+    <!-- ========================================================== -->
     <div id="modalCreditos" class="modal-creditos" onclick="fecharCreditos(event)">
         <div class="conteudo" onclick="event.stopPropagation();">
             <button class="fechar" onclick="fecharCreditos()">&times;</button>
             <div class="icone-creditos"><i class="fas fa-star"></i></div>
             <h2>CONECTA TRAMPO</h2>
             <p style="font-size:14px; color:#5a6b7c; margin-bottom:12px;">Projeto de conexão entre talentos e oportunidades</p>
-
             <div class="cargo">Coordenador do Projeto</div>
             <div class="nome">Éder Ezequiel</div>
-
             <div class="cargo">Desenvolvedor do Site</div>
             <div class="nome">Luiz Antônio</div>
-
             <div class="cargo">Equipe Conecta</div>
             <div class="equipe">
                 <span>Deborah Letícia</span>
@@ -2092,15 +1779,19 @@
                 <span>Renan</span>
                 <span>Maria Eduarda Andrade</span>
             </div>
-
             <div class="footer-modal">
                 <i class="fas fa-code"></i> Conecta Trampo &bull; 2026
             </div>
         </div>
     </div>
 
+    <!-- ========================================================== -->
+    <!-- JAVASCRIPT COMPLETO -->
+    <!-- ========================================================== -->
     <script>
-        // ===== MODAL CRÉDITOS =====
+        // ==========================================================
+        // CRÉDITOS
+        // ==========================================================
         function abrirCreditos() {
             document.getElementById('modalCreditos').classList.add('ativo');
         }
@@ -2111,12 +1802,12 @@
         }
 
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.getElementById('modalCreditos').classList.remove('ativo');
-            }
+            if (e.key === 'Escape') document.getElementById('modalCreditos').classList.remove('ativo');
         });
 
-        // ===== VARIÁVEIS GLOBAIS =====
+        // ==========================================================
+        // VARIÁVEIS GLOBAIS
+        // ==========================================================
         var candidatos = [];
         var contadorId = 1;
         var tipoUsuarioSelecionado = 'candidato';
@@ -2124,7 +1815,9 @@
         var usuarioLogado = null;
         var notificacoes = [];
 
-        // ===== LANDING PAGE =====
+        // ==========================================================
+        // LANDING PAGE
+        // ==========================================================
         function iniciarApp() {
             document.getElementById('landingPage').style.display = 'none';
             document.getElementById('appContainer').className = 'app-container active';
@@ -2139,78 +1832,106 @@
             }
         }
 
-        // ===== BANCO DE DADOS FAKE =====
+        // ==========================================================
+        // BANCO DE DADOS FAKE (3 candidatos por área)
+        // ==========================================================
         function gerarDadosFake() {
-            var lista = [
-                { nome: 'Ana Carolina Silva', cargo: 'Analista de Marketing', area: 'Marketing', cidade: 'São Paulo',
-                    exp: 3, salario: 'R$ 5.000', hab: ['Pacote Office', 'Excel', 'Canva'] },
-                { nome: 'Carlos Eduardo Santos', cargo: 'Desenvolvedor Full Stack', area: 'Tecnologia',
-                    cidade: 'Rio de Janeiro', exp: 4, salario: 'R$ 8.000', hab: ['Excel', 'Sistemas ERP',
-                        'Photoshop'
-                    ] },
-                { nome: 'Mariana Oliveira', cargo: 'Analista de RH', area: 'Recursos Humanos',
-                    cidade: 'Belo Horizonte', exp: 5, salario: 'R$ 4.500', hab: ['Pacote Office', 'Word',
-                        'PowerPoint'
-                    ] },
-                { nome: 'João Pedro Ferreira', cargo: 'Jardineiro', area: 'Jardinagem', cidade: 'Londrina', exp: 2,
-                    salario: 'R$ 2.500', hab: ['Ferramentas Manuais', 'Equipamentos Elétricos'] },
-                { nome: 'Fernanda Lima', cargo: 'Designer Gráfico', area: 'Marketing', cidade: 'Curitiba', exp: 2,
-                    salario: 'R$ 3.800', hab: ['Canva', 'Photoshop', 'Illustrator'] },
-                { nome: 'Rafael Almeida', cargo: 'Mecânico', area: 'Mecânica', cidade: 'Porto Alegre', exp: 6,
-                    salario: 'R$ 4.200', hab: ['Ferramentas Manuais', 'Equipamentos Elétricos'] },
-                { nome: 'Patrícia Costa', cargo: 'Analista Financeiro', area: 'Financeiro', cidade: 'Brasília', exp: 4,
-                    salario: 'R$ 6.000', hab: ['Excel', 'Sistemas ERP'] },
-                { nome: 'Lucas Mendes', cargo: 'Pedreiro', area: 'Construção Civil', cidade: 'São Paulo', exp: 3,
-                    salario: 'R$ 3.000', hab: ['Ferramentas Manuais'] },
-                { nome: 'Juliana Rocha', cargo: 'Coordenadora de Marketing', area: 'Marketing', cidade: 'Rio de Janeiro',
-                    exp: 6, salario: 'R$ 7.500', hab: ['Pacote Office', 'Canva', 'Photoshop'] },
-                { nome: 'Bruno Souza', cargo: 'Analista de Sistemas', area: 'Tecnologia', cidade: 'Belo Horizonte',
-                    exp: 5, salario: 'R$ 6.800', hab: ['Excel', 'Sistemas ERP'] },
-                { nome: 'Camila Fernandes', cargo: 'Jardineira', area: 'Jardinagem', cidade: 'Curitiba', exp: 1,
-                    salario: 'R$ 2.200', hab: ['Ferramentas Manuais'] },
-                { nome: 'Diego Nascimento', cargo: 'Professor de Matemática', area: 'Educação', cidade: 'Londrina',
-                    exp: 4, salario: 'R$ 4.000', hab: ['Pacote Office', 'Word'] },
-                { nome: 'Letícia Barros', cargo: 'Assistente Administrativo', area: 'Administrativo', cidade: 'São Paulo',
-                    exp: 2, salario: 'R$ 3.200', hab: ['Pacote Office', 'Excel'] },
-                { nome: 'André Ribeiro', cargo: 'Vendedor', area: 'Vendas', cidade: 'Rio de Janeiro', exp: 3,
-                    salario: 'R$ 3.500', hab: ['Word', 'PowerPoint'] }
+            var areas = [
+                'Administrativo', 'Financeiro', 'Marketing', 'Vendas', 'Produção',
+                'Logística', 'Recursos Humanos', 'Tecnologia', 'Saúde', 'Educação',
+                'Construção Civil', 'Mecânica', 'Jardinagem', 'Serviços Gerais',
+                'Jurídico', 'Engenharia', 'Atendimento ao Cliente', 'Compras',
+                'Segurança', 'Hotelaria e Turismo', 'Alimentação', 'Transporte',
+                'Design', 'Comunicação'
             ];
 
-            var disponibilidades = ['Imediata', '15 dias', '30 dias'];
+            var cargosPorArea = {
+                'Administrativo': ['Assistente Administrativo', 'Auxiliar Administrativo', 'Analista Administrativo'],
+                'Financeiro': ['Analista Financeiro', 'Auxiliar Financeiro', 'Contador'],
+                'Marketing': ['Analista de Marketing', 'Coordenador de Marketing', 'Especialista em Marketing'],
+                'Vendas': ['Vendedor', 'Consultor de Vendas', 'Gerente de Vendas'],
+                'Produção': ['Operador de Produção', 'Supervisor de Produção', 'Técnico de Produção'],
+                'Logística': ['Analista de Logística', 'Auxiliar de Logística', 'Coordenador de Logística'],
+                'Recursos Humanos': ['Analista de RH', 'Coordenador de RH', 'Auxiliar de RH'],
+                'Tecnologia': ['Desenvolvedor', 'Analista de Sistemas', 'Suporte Técnico'],
+                'Saúde': ['Enfermeiro', 'Técnico de Enfermagem', 'Médico'],
+                'Educação': ['Professor', 'Coordenador Pedagógico', 'Auxiliar de Educação'],
+                'Construção Civil': ['Pedreiro', 'Engenheiro Civil', 'Mestre de Obras'],
+                'Mecânica': ['Mecânico', 'Técnico em Mecânica', 'Auxiliar de Mecânica'],
+                'Jardinagem': ['Jardineiro', 'Paisagista', 'Auxiliar de Jardinagem'],
+                'Serviços Gerais': ['Faxineiro', 'Manutenção', 'Serviços Gerais'],
+                'Jurídico': ['Advogado', 'Auxiliar Jurídico', 'Analista Jurídico'],
+                'Engenharia': ['Engenheiro', 'Técnico em Engenharia', 'Auxiliar de Engenharia'],
+                'Atendimento ao Cliente': ['Atendente', 'Analista de Atendimento', 'Supervisor de Atendimento'],
+                'Compras': ['Analista de Compras', 'Auxiliar de Compras', 'Comprador'],
+                'Segurança': ['Agente de Segurança', 'Vigilante', 'Coordenador de Segurança'],
+                'Hotelaria e Turismo': ['Recepcionista', 'Concierge', 'Gerente de Hotel'],
+                'Alimentação': ['Cozinheiro', 'Auxiliar de Cozinha', 'Nutricionista'],
+                'Transporte': ['Motorista', 'Analista de Transporte', 'Coordenador de Transporte'],
+                'Design': ['Designer Gráfico', 'Designer de Interiores', 'Designer de Produto'],
+                'Comunicação': ['Social Media', 'Analista de Comunicação', 'Jornalista']
+            };
+
+            var cidades = ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Curitiba', 'Porto Alegre', 'Brasília', 'Salvador', 'Recife', 'Fortaleza', 'Manaus'];
             var escolaridades = ['Ensino Médio', 'Técnico', 'Superior Completo', 'Pós-graduação'];
+            var disponibilidades = ['Imediata', '15 dias', '30 dias'];
+            var nomesArray = ['Ana', 'Carlos', 'Mariana', 'João', 'Fernanda', 'Rafael', 'Patrícia', 'Lucas', 'Juliana', 'Bruno',
+                'Camila', 'Diego', 'Letícia', 'André', 'Tatiana', 'Felipe', 'Carolina', 'Gustavo', 'Isabela', 'Renato'
+            ];
+            var sobrenomes = ['Silva', 'Santos', 'Oliveira', 'Pereira', 'Costa', 'Rodrigues', 'Almeida', 'Nascimento', 'Lima', 'Araujo'];
 
-            for (var i = 0; i < lista.length; i++) {
-                var item = lista[i];
-                candidatos.push({
-                    id: contadorId++,
-                    nome: item.nome,
-                    email: item.nome.toLowerCase().replace(/ /g, '.') + '@email.com',
-                    whatsapp: '11' + (Math.floor(Math.random() * 90000000) + 10000000).toString(),
-                    cidade: item.cidade,
-                    estado: 'SP',
-                    cargo: item.cargo,
-                    area: item.area,
-                    salario: item.salario,
-                    disponibilidade: disponibilidades[Math.floor(Math.random() * disponibilidades.length)],
-                    escolaridade: escolaridades[Math.floor(Math.random() * escolaridades.length)],
-                    experiencia: item.exp,
-                    pcd: Math.random() > 0.9 ? 'sim' : 'nao',
-                    viagens: Math.random() > 0.5 ? 'sim' : 'nao',
-                    mudanca: Math.random() > 0.5 ? 'sim' : 'nao',
-                    habilidades: item.hab || []
-                });
-            }
+            areas.forEach(function(area) {
+                var cargos = cargosPorArea[area] || ['Profissional de ' + area];
+                for (var i = 0; i < 3; i++) {
+                    var nome = nomesArray[Math.floor(Math.random() * nomesArray.length)] + ' ' +
+                        sobrenomes[Math.floor(Math.random() * sobrenomes.length)];
+                    var cargo = cargos[i % cargos.length];
+                    var cidade = cidades[Math.floor(Math.random() * cidades.length)];
+                    var escolaridade = escolaridades[Math.floor(Math.random() * escolaridades.length)];
+                    var disponibilidade = disponibilidades[Math.floor(Math.random() * disponibilidades.length)];
+                    var exp = Math.floor(Math.random() * 6) + 1;
+                    var salario = 'R$ ' + (Math.floor(Math.random() * 7000) + 2000) + ',00';
+                    var habilidades = [];
+                    var todasHabilidades = ['Pacote Office', 'Excel', 'Word', 'PowerPoint', 'Canva', 'Sistemas ERP', 'Photoshop',
+                        'Illustrator', 'Ferramentas Manuais', 'Equipamentos Elétricos'
+                    ];
+                    for (var h = 0; h < 3; h++) {
+                        var skill = todasHabilidades[Math.floor(Math.random() * todasHabilidades.length)];
+                        if (habilidades.indexOf(skill) === -1) habilidades.push(skill);
+                    }
 
+                    candidatos.push({
+                        id: contadorId++,
+                        nome: nome,
+                        email: nome.toLowerCase().replace(/ /g, '.') + '@email.com',
+                        whatsapp: '11' + (Math.floor(Math.random() * 90000000) + 10000000).toString(),
+                        cidade: cidade,
+                        estado: 'SP',
+                        cargo: cargo,
+                        area: area,
+                        salario: salario,
+                        disponibilidade: disponibilidade,
+                        escolaridade: escolaridade,
+                        experiencia: exp,
+                        pcd: Math.random() > 0.9 ? 'sim' : 'nao',
+                        viagens: Math.random() > 0.5 ? 'sim' : 'nao',
+                        mudanca: Math.random() > 0.5 ? 'sim' : 'nao',
+                        habilidades: habilidades
+                    });
+                }
+            });
+
+            // Notificações
             var empresas = ['Tech Solutions', 'RH Consultoria', 'Conecta Jobs', 'Talents RH', 'Empresa X'];
             var msgs = ['Gostou do seu perfil!', 'Tem uma vaga que combina com você.', 'Seu currículo foi selecionado.'];
-            var cargos = ['Analista de Marketing', 'Desenvolvedor', 'Assistente Administrativo', 'Jardineiro', 'Mecânico'];
+            var cargosNotif = ['Analista', 'Desenvolvedor', 'Assistente', 'Coordenador', 'Especialista'];
             for (var j = 0; j < 5; j++) {
                 var data = new Date();
                 data.setDate(data.getDate() - j);
                 notificacoes.push({
                     id: j + 1,
                     empresa: empresas[j % empresas.length],
-                    cargo: cargos[j % cargos.length],
+                    cargo: cargosNotif[j % cargosNotif.length],
                     mensagem: msgs[j % msgs.length],
                     data: data,
                     lida: j < 2 ? false : true,
@@ -2218,10 +1939,9 @@
                 });
             }
 
-            usuariosCadastrados.push({ email: 'teste@email.com', senha: '123456', nome: 'Usuário Teste',
-                tipo: 'candidato' });
-            usuariosCadastrados.push({ email: 'empresa@email.com', senha: '123456', nome: 'Empresa Teste',
-                tipo: 'contratante' });
+            // Usuários de teste
+            usuariosCadastrados.push({ email: 'teste@email.com', senha: '123456', nome: 'Usuário Teste', tipo: 'candidato' });
+            usuariosCadastrados.push({ email: 'empresa@email.com', senha: '123456', nome: 'Empresa Teste', tipo: 'contratante' });
             usuariosCadastrados.push({
                 email: 'tonnyluiz706@gmail.com',
                 senha: '33430081',
@@ -2230,7 +1950,9 @@
             });
         }
 
-        // ===== NAVEGAÇÃO =====
+        // ==========================================================
+        // NAVEGAÇÃO
+        // ==========================================================
         function goHomeApp() {
             document.getElementById('pageChoice').style.display = 'block';
             document.getElementById('loginSection').style.display = 'none';
@@ -2254,12 +1976,10 @@
             document.getElementById('pageChoice').style.display = 'none';
             document.getElementById('loginSection').style.display = 'block';
             document.getElementById('loginSection').classList.add('active');
-
             var titulo = document.getElementById('loginTituloApp');
             var subtitulo = document.getElementById('loginSubtituloApp');
             var tipoDisplay = document.getElementById('tipoDisplay');
             var infoTipo = document.getElementById('loginInfoTipo');
-
             if (tipo === 'candidato') {
                 titulo.textContent = 'Bem-vindo de volta!';
                 subtitulo.textContent = 'Acesse sua conta como Candidato';
@@ -2321,32 +2041,27 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== LOGIN =====
+        // ==========================================================
+        // LOGIN
+        // ==========================================================
         function fazerLogin() {
             var email = document.getElementById('loginEmail').value;
             var senha = document.getElementById('loginSenha').value;
             var erro = document.getElementById('erroLoginApp');
-
             if (!email || !senha) {
                 erro.className = 'erro-login visivel';
                 erro.innerHTML = '<i class="fas fa-exclamation-circle"></i> Preencha todos os campos.';
                 return;
             }
-
-            var usuario = usuariosCadastrados.find(function(u) {
-                return u.email === email && u.senha === senha;
-            });
-
+            var usuario = usuariosCadastrados.find(function(u) { return u.email === email && u.senha === senha; });
             if (!usuario) {
                 erro.className = 'erro-login visivel';
                 erro.innerHTML = '<i class="fas fa-exclamation-circle"></i> E-mail ou senha inválidos.';
                 return;
             }
-
             erro.className = 'erro-login';
             usuarioLogado = usuario;
             document.getElementById('headerMenu').style.display = 'flex';
-
             if (usuario.tipo === 'candidato') {
                 mostrarDashboard(usuario);
             } else {
@@ -2366,13 +2081,14 @@
             }
         }
 
-        // ===== DASHBOARD =====
+        // ==========================================================
+        // DASHBOARD
+        // ==========================================================
         function mostrarDashboard(usuario) {
             document.getElementById('loginSection').style.display = 'none';
             document.getElementById('loginSection').classList.remove('active');
             document.getElementById('dashboardCandidato').style.display = 'block';
             document.getElementById('dashboardCandidato').classList.add('active');
-
             var nome = usuario.nome || 'Usuário';
             document.getElementById('dashNomeSpan').textContent = nome.split(' ')[0];
             document.getElementById('dashEmail').textContent = usuario.email;
@@ -2386,43 +2102,29 @@
             var badge = document.getElementById('notifBadge');
             var naoLidas = notificacoes.filter(function(n) { return !n.lida; });
             badge.textContent = naoLidas.length;
-
             if (notificacoes.length === 0) {
-                container.innerHTML = `
-                    <div class="notificacao-vazia">
-                        <i class="fas fa-bell-slash"></i>
-                        <h3>Nenhuma notificação</h3>
-                        <p>Quando alguma empresa entrar em contato, você verá aqui.</p>
-                    </div>
-                `;
+                container.innerHTML = '<div class="notificacao-vazia"><i class="fas fa-bell-slash"></i><h3>Nenhuma notificação</h3><p>Quando alguma empresa entrar em contato, você verá aqui.</p></div>';
                 return;
             }
-
             var html = '';
             notificacoes.forEach(function(notif) {
-                var dataFormatada = notif.data.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short',
-                        year: 'numeric' });
-                var hora = String(notif.data.getHours()).padStart(2, '0') + ':' + String(notif.data.getMinutes())
-                    .padStart(2, '0');
+                var dataFormatada = notif.data.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+                var hora = String(notif.data.getHours()).padStart(2, '0') + ':' + String(notif.data.getMinutes()).padStart(2, '0');
                 var estiloNaoLida = notif.lida ? '' : ' style="border-left-color: #d32f2f; background: #fff5f5;"';
                 var whatsappNum = notif.whatsapp ? notif.whatsapp.replace(/[^0-9]/g, '') : '';
-                var whatsappLink = whatsappNum ? `https://wa.me/55${whatsappNum}?text=Olá! Vi seu interesse.` :
-                '#';
-
-                html += `
-                    <div class="notificacao-item"${estiloNaoLida}>
-                        <div class="icone-notif"><i class="fas fa-building"></i></div>
-                        <div class="conteudo">
-                            <div class="titulo">${notif.empresa} - ${notif.cargo}</div>
-                            <div class="descricao">${notif.mensagem}</div>
-                            <div class="tempo"><i class="fas fa-clock"></i> ${dataFormatada} às ${hora}</div>
-                        </div>
-                        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                            ${whatsappNum ? `<button class="btn-responder-wpp" onclick="window.open('${whatsappLink}', '_blank')"><i class="fab fa-whatsapp"></i> Responder</button>` : ''}
-                            <button class="btn-responder" onclick="responderNotificacao(${notif.id})"><i class="fas fa-reply"></i> Responder</button>
-                        </div>
+                var whatsappLink = whatsappNum ? `https://wa.me/55${whatsappNum}?text=Olá! Vi seu interesse.` : '#';
+                html += `<div class="notificacao-item"${estiloNaoLida}>
+                    <div class="icone-notif"><i class="fas fa-building"></i></div>
+                    <div class="conteudo">
+                        <div class="titulo">${notif.empresa} - ${notif.cargo}</div>
+                        <div class="descricao">${notif.mensagem}</div>
+                        <div class="tempo"><i class="fas fa-clock"></i> ${dataFormatada} às ${hora}</div>
                     </div>
-                `;
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        ${whatsappNum ? `<button class="btn-responder-wpp" onclick="window.open('${whatsappLink}', '_blank')"><i class="fab fa-whatsapp"></i> Responder</button>` : ''}
+                        <button class="btn-responder" onclick="responderNotificacao(${notif.id})"><i class="fas fa-reply"></i> Responder</button>
+                    </div>
+                </div>`;
             });
             container.innerHTML = html;
         }
@@ -2442,7 +2144,9 @@
             }
         }
 
-        // ===== TIPO DE PESSOA =====
+        // ==========================================================
+        // TIPO DE PESSOA
+        // ==========================================================
         function selecionarTipoPessoa(tipo) {
             document.getElementById('tipoPessoa').value = tipo;
             var btnJuridica = document.getElementById('tipoPessoaJuridica');
@@ -2451,7 +2155,6 @@
             var inputDocumento = document.getElementById('empDocumento');
             var grupoFantasia = document.getElementById('grupoNomeFantasia');
             var infoText = document.getElementById('documentoInfoText');
-
             if (tipo === 'juridica') {
                 btnJuridica.className = 'opcao selecionado';
                 btnFisica.className = 'opcao';
@@ -2471,7 +2174,9 @@
             }
         }
 
-        // ===== CADASTRO DO CANDIDATO =====
+        // ==========================================================
+        // CADASTRO DO CANDIDATO
+        // ==========================================================
         function submitCandidate() {
             var nome = document.getElementById('candNome').value;
             var email = document.getElementById('candEmail').value;
@@ -2485,35 +2190,19 @@
             var experiencia = parseInt(document.getElementById('candExperiencia').value);
             var termo1 = document.getElementById('candTermos').checked;
             var termo2 = document.getElementById('candDados').checked;
-
             if (!nome || !email || !termo1 || !termo2) {
-                document.getElementById('formFeedback').innerHTML = `
-                    <div class="toast-message toast-error">
-                        <i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios.
-                    </div>
-                `;
+                document.getElementById('formFeedback').innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios.</div>`;
                 return;
             }
-
             if (usuariosCadastrados.some(function(u) { return u.email === email; })) {
-                document.getElementById('formFeedback').innerHTML = `
-                    <div class="toast-message toast-error">
-                        <i class="fas fa-exclamation-circle"></i> Este e-mail já está cadastrado.
-                    </div>
-                `;
+                document.getElementById('formFeedback').innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> Este e-mail já está cadastrado.</div>`;
                 return;
             }
-
             var habilidades = [];
-            document.querySelectorAll('#candidateForm .checkbox-group input[type="checkbox"]:checked').forEach(function(
-            el) {
-                habilidades.push(el.value);
-            });
-
+            document.querySelectorAll('#candidateForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) { habilidades.push(el.value); });
             var pcd = document.querySelector('input[name="pcd"]:checked');
             var viagens = document.querySelector('input[name="candViagens"]:checked');
             var mudanca = document.querySelector('input[name="candMudanca"]:checked');
-
             candidatos.push({
                 id: contadorId++,
                 nome: nome,
@@ -2531,28 +2220,16 @@
                 mudanca: mudanca ? mudanca.value : 'nao',
                 habilidades: habilidades
             });
-
-            usuariosCadastrados.push({
-                email: email,
-                senha: 'senha123',
-                nome: nome,
-                tipo: 'candidato'
-            });
-
-            document.getElementById('formFeedback').innerHTML = `
-                <div class="toast-message">
-                    <i class="fas fa-check-circle"></i> Cadastro realizado! Agora crie sua senha.
-                </div>
-            `;
+            usuariosCadastrados.push({ email: email, senha: 'senha123', nome: nome, tipo: 'candidato' });
+            document.getElementById('formFeedback').innerHTML = `<div class="toast-message"><i class="fas fa-check-circle"></i> Cadastro realizado! Agora crie sua senha.</div>`;
             document.getElementById('candidateForm').reset();
             document.getElementById('totalCandidatosApp').textContent = candidatos.length;
-
-            setTimeout(function() {
-                mostrarTelaSenha(email, 'candidato');
-            }, 1500);
+            setTimeout(function() { mostrarTelaSenha(email, 'candidato'); }, 1500);
         }
 
-        // ===== CADASTRO DO CONTRATANTE =====
+        // ==========================================================
+        // CADASTRO DO CONTRATANTE
+        // ==========================================================
         function cadastrarContratante() {
             var nome = document.getElementById('empNome').value;
             var documento = document.getElementById('empDocumento').value;
@@ -2560,40 +2237,16 @@
             var responsavel = document.getElementById('empResponsavel').value;
             var termo = document.getElementById('empTermos').checked;
             var tipo = document.getElementById('tipoPessoa').value;
-
             if (!nome || !documento || !email || !responsavel || !termo) {
-                document.getElementById('empresaFeedback').innerHTML = `
-                    <div class="toast-message toast-error">
-                        <i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios.
-                    </div>
-                `;
+                document.getElementById('empresaFeedback').innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios.</div>`;
                 return;
             }
-
             if (usuariosCadastrados.some(function(u) { return u.email === email; })) {
-                document.getElementById('empresaFeedback').innerHTML = `
-                    <div class="toast-message toast-error">
-                        <i class="fas fa-exclamation-circle"></i> Este e-mail já está cadastrado.
-                    </div>
-                `;
+                document.getElementById('empresaFeedback').innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> Este e-mail já está cadastrado.</div>`;
                 return;
             }
-
-            usuariosCadastrados.push({
-                email: email,
-                senha: 'senha123',
-                nome: responsavel,
-                tipo: 'contratante',
-                empresa: nome,
-                documento: documento
-            });
-
-            document.getElementById('empresaFeedback').innerHTML = `
-                <div class="toast-message">
-                    <i class="fas fa-check-circle"></i> Cadastro realizado! Agora defina os critérios.
-                </div>
-            `;
-
+            usuariosCadastrados.push({ email: email, senha: 'senha123', nome: responsavel, tipo: 'contratante', empresa: nome, documento: documento });
+            document.getElementById('empresaFeedback').innerHTML = `<div class="toast-message"><i class="fas fa-check-circle"></i> Cadastro realizado! Agora defina os critérios.</div>`;
             setTimeout(function() {
                 document.getElementById('etapaEmpresa1').className = 'etapa-empresa';
                 document.getElementById('etapaEmpresa2').className = 'etapa-empresa ativa';
@@ -2603,7 +2256,9 @@
             }, 1000);
         }
 
-        // ===== TELA DE SENHA =====
+        // ==========================================================
+        // TELA DE SENHA
+        // ==========================================================
         function mostrarTelaSenha(email, tipo) {
             document.getElementById('formCandidato').style.display = 'none';
             document.getElementById('formCandidato').classList.remove('active');
@@ -2611,7 +2266,6 @@
             document.getElementById('formContratante').classList.remove('active');
             document.getElementById('formSenha').style.display = 'block';
             document.getElementById('formSenha').classList.add('active');
-
             document.getElementById('senhaEmailDisplay').textContent = email;
             document.getElementById('senhaForm').style.display = 'block';
             document.getElementById('senhaCriada').className = 'senha-criada';
@@ -2628,44 +2282,29 @@
             var feedback = document.getElementById('senhaFeedback');
             var email = document.getElementById('senhaEmailDisplay').textContent;
             var tipo = document.getElementById('senhaForm').dataset.tipo || 'candidato';
-
             if (senha.length < 6) {
-                feedback.innerHTML = `
-                    <div class="toast-message toast-error">
-                        <i class="fas fa-exclamation-circle"></i> Mínimo 6 caracteres.
-                    </div>
-                `;
+                feedback.innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> Mínimo 6 caracteres.</div>`;
                 return;
             }
             if (senha !== confirmar) {
-                feedback.innerHTML = `
-                    <div class="toast-message toast-error">
-                        <i class="fas fa-exclamation-circle"></i> As senhas não coincidem.
-                    </div>
-                `;
+                feedback.innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> As senhas não coincidem.</div>`;
                 return;
             }
-
             var usuario = usuariosCadastrados.find(function(u) { return u.email === email; });
             if (usuario) usuario.senha = senha;
-
-            feedback.innerHTML = `
-                <div class="toast-message">
-                    <i class="fas fa-spinner fa-spin"></i> Criando conta...
-                </div>
-            `;
-
+            feedback.innerHTML = `<div class="toast-message"><i class="fas fa-spinner fa-spin"></i> Criando conta...</div>`;
             setTimeout(function() {
                 document.getElementById('senhaForm').style.display = 'none';
                 document.getElementById('senhaCriada').className = 'senha-criada ativa';
                 feedback.innerHTML = '';
                 var msg = tipo === 'candidato' ? 'candidato' : 'contratante';
-                document.querySelector('#senhaCriada p').textContent =
-                    'Seu cadastro como ' + msg + ' foi finalizado. Faça login.';
+                document.querySelector('#senhaCriada p').textContent = 'Seu cadastro como ' + msg + ' foi finalizado. Faça login.';
             }, 1500);
         }
 
-        // ===== BUSCAR CANDIDATOS =====
+        // ==========================================================
+        // BUSCAR CANDIDATOS (CORRIGIDO)
+        // ==========================================================
         function buscarCandidatos() {
             var cargo = document.getElementById('buscaCargo').value.toLowerCase();
             var area = document.getElementById('buscaArea').value;
@@ -2675,8 +2314,7 @@
             var pcd = document.querySelector('input[name="buscaPcd"]:checked');
             var pcdValor = pcd ? pcd.value : '';
             var habilidadesDesejadas = [];
-            document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]:checked').forEach(function(
-            el) {
+            document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) {
                 habilidadesDesejadas.push(el.value);
             });
 
@@ -2754,11 +2392,9 @@
                     </div>
                 `;
             } else {
-                var html =
-                    `<p style="color:#5a6b7c; margin-bottom:16px;">Encontramos <strong>${resultados.length}</strong> profissionais compatíveis</p>`;
+                var html = `<p style="color:#5a6b7c; margin-bottom:16px;">Encontramos <strong>${resultados.length}</strong> profissionais compatíveis</p>`;
                 resultados.forEach(function(cand) {
-                    var matchClass = cand._match >= 75 ? 'match-alta' : (cand._match >= 50 ? 'match-media' :
-                        'match-baixa');
+                    var matchClass = cand._match >= 75 ? 'match-alta' : (cand._match >= 50 ? 'match-media' : 'match-baixa');
                     var progressClass = cand._match >= 75 ? 'alta' : (cand._match >= 50 ? 'media' : 'baixa');
                     var whatsappNum = cand.whatsapp ? cand.whatsapp.replace(/[^0-9]/g, '') : '';
                     var whatsappLink = whatsappNum ? `https://wa.me/55${whatsappNum}?text=Olá!` : '#';
@@ -2803,13 +2439,14 @@
             document.getElementById('buscaCidade').value = '';
             document.getElementById('buscaSalario').value = '';
             document.querySelectorAll('input[name="buscaPcd"]').forEach(function(el) { el.checked = false; });
-            document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]').forEach(function(el) { el
-                    .checked = false; });
+            document.querySelectorAll('#buscaForm .checkbox-group input[type="checkbox"]').forEach(function(el) { el.checked = false; });
             document.querySelector('input[name="buscaPcd"][value=""]').checked = true;
             document.getElementById('listaResultados').innerHTML = '';
         }
 
-        // ===== INICIALIZAR =====
+        // ==========================================================
+        // INICIALIZAR
+        // ==========================================================
         document.addEventListener('DOMContentLoaded', function() {
             gerarDadosFake();
             goHomeApp();
@@ -2817,5 +2454,6 @@
             selecionarTipoPessoa('juridica');
         });
     </script>
+
 </body>
 </html>
