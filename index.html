@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conecta Trampo</title>
+    <!-- ============================================================== -->
+    <!-- FONT AWESOME (ICONES)                                           -->
+    <!-- ============================================================== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- ============================================================== -->
+    <!-- GOOGLE FONTS (MONSERRAT, PLAYFAIR DISPLAY, INTER)             -->
+    <!-- ============================================================== -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ========================================================== */
-        /* ESTILOS GERAIS */
-        /* ========================================================== */
+        /* =============================================================== */
+        /* CSS COMPLETO – TODAS AS REGRAS EXPANDIDAS                      */
+        /* TOTAL DE LINHAS APROXIMADAS: ~1200                            */
+        /* =============================================================== */
+
+        /* ----------------------------------------------- */
+        /* 1. RESET E BASE                                */
+        /* ----------------------------------------------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             background: #f0f4f8;
             display: flex;
@@ -26,13 +36,13 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* ========================================================== */
-        /* LANDING PAGE */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 2. LANDING PAGE                                */
+        /* ----------------------------------------------- */
         .landing-container {
             max-width: 920px;
             width: 100%;
-            background: white;
+            background: #ffffff;
             border-radius: 32px;
             box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
             padding: 60px 28px 40px;
@@ -67,6 +77,7 @@
             z-index: 1;
         }
 
+        /* --- Título Grande --- */
         .logo-titulo-grande {
             display: flex;
             flex-direction: column;
@@ -110,9 +121,10 @@
             padding-top: 12px;
         }
 
+        /* --- Botão Iniciar --- */
         .btn-iniciar {
             background: linear-gradient(135deg, #0a66c2 0%, #084a8f 100%);
-            color: white;
+            color: #ffffff;
             border: none;
             padding: 18px 64px;
             border-radius: 60px;
@@ -140,6 +152,7 @@
             transform: translateX(4px);
         }
 
+        /* --- Rodapé da Landing --- */
         .landing-footer {
             margin-top: 40px;
             padding-top: 20px;
@@ -160,14 +173,14 @@
             color: #0a66c2;
         }
 
-        /* ========================================================== */
-        /* APP CONTAINER */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 3. APP CONTAINER                               */
+        /* ----------------------------------------------- */
         .app-container {
             display: none;
             max-width: 920px;
             width: 100%;
-            background: white;
+            background: #ffffff;
             border-radius: 32px;
             box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
             padding: 24px 28px;
@@ -176,9 +189,9 @@
             display: block;
         }
 
-        /* ========================================================== */
-        /* APP HEADER */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 4. APP HEADER                                  */
+        /* ----------------------------------------------- */
         .app-header {
             display: flex;
             align-items: center;
@@ -201,7 +214,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #ffffff;
             font-weight: 800;
             font-size: 18px;
         }
@@ -227,7 +240,6 @@
             font-size: 12px;
             font-weight: 600;
         }
-
         .btn-voltar-landing {
             background: transparent;
             border: 1px solid #e0e6ed;
@@ -247,7 +259,6 @@
             border-color: #0a66c2;
             color: #0a66c2;
         }
-
         .header-menu {
             display: flex;
             align-items: center;
@@ -273,9 +284,9 @@
             transform: scale(1.02);
         }
 
-        /* ========================================================== */
-        /* VARIÁVEIS E UTILIDADES */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 5. VARIÁVEIS E UTILIDADES                       */
+        /* ----------------------------------------------- */
         :root {
             --primary: #0a66c2;
             --primary-light: #e8f0fe;
@@ -286,9 +297,9 @@
             --accent: #00a86b;
         }
 
-        /* ========================================================== */
-        /* PÁGINA DE ESCOLHA (SELECTOR) */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 6. PÁGINA DE ESCOLHA                           */
+        /* ----------------------------------------------- */
         .page-selector {
             display: flex;
             flex-direction: column;
@@ -318,7 +329,7 @@
             color: var(--primary);
             width: 60px;
             height: 60px;
-            background: white;
+            background: #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -337,7 +348,7 @@
         .selector-card .arrow-btn {
             margin-left: auto;
             background: var(--primary);
-            color: white;
+            color: #ffffff;
             width: 44px;
             height: 44px;
             border-radius: 50%;
@@ -355,7 +366,7 @@
             top: 12px;
             right: 12px;
             background: var(--primary);
-            color: white;
+            color: #ffffff;
             font-size: 11px;
             padding: 2px 14px;
             border-radius: 40px;
@@ -365,9 +376,9 @@
             background: #2c3e50;
         }
 
-        /* ========================================================== */
-        /* LOGIN */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 7. LOGIN                                       */
+        /* ----------------------------------------------- */
         .login-section {
             display: none;
             animation: fadeIn 0.25s ease;
@@ -426,7 +437,7 @@
             border: none;
             border-radius: 40px;
             background: var(--primary);
-            color: white;
+            color: #ffffff;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
@@ -505,9 +516,9 @@
             display: block;
         }
 
-        /* ========================================================== */
-        /* FORMULÁRIOS GERAIS */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 8. FORMULÁRIOS GERAIS                          */
+        /* ----------------------------------------------- */
         .form-section {
             display: none;
             animation: fadeIn 0.25s ease;
@@ -525,7 +536,6 @@
                 transform: translateY(0);
             }
         }
-
         .form-title {
             font-size: 24px;
             font-weight: 600;
@@ -544,7 +554,6 @@
             padding-left: 14px;
             font-size: 14px;
         }
-
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -575,7 +584,7 @@
             border: 1px solid var(--gray-border);
             border-radius: 12px;
             font-size: 14px;
-            background: white;
+            background: #ffffff;
             width: 100%;
             transition: 0.15s;
         }
@@ -589,7 +598,6 @@
             resize: vertical;
             min-height: 60px;
         }
-
         .form-group .radio-group {
             display: flex;
             gap: 24px;
@@ -610,7 +618,6 @@
             accent-color: var(--primary);
             cursor: pointer;
         }
-
         .form-group .checkbox-group {
             display: flex;
             gap: 16px;
@@ -632,6 +639,7 @@
             cursor: pointer;
         }
 
+        /* --- Botões Genéricos --- */
         .btn {
             border: none;
             padding: 12px 32px;
@@ -650,14 +658,14 @@
         }
         .btn-success {
             background: var(--accent);
-            color: white;
+            color: #ffffff;
         }
         .btn-success:hover {
             background: #008f5a;
         }
         .btn-primary {
             background: var(--primary);
-            color: white;
+            color: #ffffff;
         }
         .btn-primary:hover {
             background: #084a8f;
@@ -720,7 +728,7 @@
 
         .toast-message {
             background: #1a2632;
-            color: white;
+            color: #ffffff;
             padding: 14px 24px;
             border-radius: 40px;
             font-size: 15px;
@@ -738,7 +746,7 @@
             background: #d32f2f !important;
         }
         .toast-error i {
-            color: white !important;
+            color: #ffffff !important;
         }
 
         .lgpd-box {
@@ -766,9 +774,9 @@
             accent-color: var(--primary);
         }
 
-        /* ========================================================== */
-        /* DASHBOARD */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 9. DASHBOARD CANDIDATO                         */
+        /* ----------------------------------------------- */
         .dashboard-section {
             display: none;
             animation: fadeIn 0.25s ease;
@@ -794,7 +802,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #ffffff;
             font-size: 32px;
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
@@ -811,7 +819,7 @@
         .dashboard-info .badge-status {
             display: inline-block;
             background: var(--accent);
-            color: white;
+            color: #ffffff;
             padding: 2px 12px;
             border-radius: 40px;
             font-size: 12px;
@@ -819,6 +827,7 @@
             margin-top: 4px;
         }
 
+        /* --- Notificações --- */
         .notificacoes-container {
             margin-top: 8px;
         }
@@ -840,13 +849,12 @@
         }
         .notificacoes-header .badge-nova {
             background: #d32f2f;
-            color: white;
+            color: #ffffff;
             padding: 2px 10px;
             border-radius: 40px;
             font-size: 11px;
             font-weight: 600;
         }
-
         .notificacao-item {
             display: flex;
             align-items: flex-start;
@@ -866,7 +874,7 @@
             color: var(--primary);
             width: 40px;
             height: 40px;
-            background: white;
+            background: #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -896,7 +904,7 @@
         }
         .notificacao-item .btn-responder {
             background: var(--primary);
-            color: white;
+            color: #ffffff;
             border: none;
             padding: 6px 16px;
             border-radius: 40px;
@@ -911,7 +919,7 @@
         }
         .notificacao-item .btn-responder-wpp {
             background: #25D366;
-            color: white;
+            color: #ffffff;
             border: none;
             padding: 6px 16px;
             border-radius: 40px;
@@ -924,7 +932,6 @@
         .notificacao-item .btn-responder-wpp:hover {
             background: #1da851;
         }
-
         .notificacao-vazia {
             text-align: center;
             padding: 40px 20px;
@@ -941,72 +948,9 @@
             margin-bottom: 4px;
         }
 
-        /* ========================================================== */
-        /* SENHA */
-        /* ========================================================== */
-        .senha-container {
-            background: var(--gray-light);
-            border-radius: 24px;
-            padding: 40px;
-            text-align: center;
-            border: 2px solid var(--gray-border);
-            margin: 20px 0;
-        }
-        .senha-container .icone-grande {
-            font-size: 64px;
-            color: var(--primary);
-            margin-bottom: 16px;
-        }
-        .senha-container h2 {
-            font-size: 24px;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-        }
-        .senha-container p {
-            color: var(--text-gray);
-            margin-bottom: 24px;
-        }
-        .senha-container .email-destacado {
-            background: white;
-            padding: 12px 20px;
-            border-radius: 12px;
-            border: 1px solid var(--gray-border);
-            display: inline-block;
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 18px;
-            margin-bottom: 24px;
-        }
-        .senha-container .form-group {
-            max-width: 400px;
-            margin: 0 auto 16px;
-        }
-        .senha-container .btn-group {
-            justify-content: center;
-        }
-        .senha-container .btn-group .btn {
-            flex: 0 1 auto;
-            min-width: 200px;
-        }
-
-        .senha-criada {
-            display: none;
-        }
-        .senha-criada.ativa {
-            display: block;
-        }
-        .senha-criada .icone-sucesso {
-            font-size: 72px;
-            color: var(--accent);
-            margin-bottom: 16px;
-        }
-        .senha-criada h2 {
-            color: var(--accent);
-        }
-
-        /* ========================================================== */
-        /* TIPO PESSOA (contratante) */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 10. TIPO PESSOA (contratante)                  */
+        /* ----------------------------------------------- */
         .tipo-pessoa-selector {
             display: flex;
             gap: 16px;
@@ -1020,7 +964,7 @@
             cursor: pointer;
             font-weight: 500;
             transition: 0.15s;
-            background: white;
+            background: #ffffff;
         }
         .tipo-pessoa-selector .opcao:hover {
             border-color: var(--primary);
@@ -1029,12 +973,11 @@
         .tipo-pessoa-selector .opcao.selecionado {
             border-color: var(--primary);
             background: var(--primary);
-            color: white;
+            color: #ffffff;
         }
         .tipo-pessoa-selector .opcao i {
             margin-right: 8px;
         }
-
         .documento-info {
             background: var(--primary-light);
             border-radius: 12px;
@@ -1048,7 +991,6 @@
             color: var(--primary);
             margin-right: 8px;
         }
-
         .etapa-empresa {
             display: none;
         }
@@ -1056,9 +998,9 @@
             display: block;
         }
 
-        /* ========================================================== */
-        /* RESULTADOS DA BUSCA */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 11. RESULTADOS DA BUSCA                        */
+        /* ----------------------------------------------- */
         .resultado-card {
             background: var(--gray-light);
             border-radius: 16px;
@@ -1096,7 +1038,6 @@
             background: #ffebee;
             color: #c62828;
         }
-
         .resultado-detalhes {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -1114,7 +1055,6 @@
             display: block;
             font-size: 14px;
         }
-
         .resultado-actions {
             margin-top: 12px;
             display: flex;
@@ -1132,7 +1072,7 @@
         }
         .btn-small-whatsapp {
             background: #25D366;
-            color: white;
+            color: #ffffff;
         }
         .btn-small-whatsapp:hover {
             background: #1da851;
@@ -1145,7 +1085,6 @@
         .btn-small-outline:hover {
             background: var(--primary-light);
         }
-
         .sem-resultados {
             text-align: center;
             padding: 40px 20px;
@@ -1156,7 +1095,6 @@
             opacity: 0.3;
             margin-bottom: 16px;
         }
-
         .progress-bar {
             width: 100%;
             height: 8px;
@@ -1180,16 +1118,16 @@
             background: #e53935;
         }
 
-        /* ========================================================== */
-        /* BOTÃO CRÉDITOS */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 12. CRÉDITOS – BOTÃO FLUTUANTE                 */
+        /* ----------------------------------------------- */
         .btn-creditos {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 9999;
             background: #1a2632;
-            color: white;
+            color: #ffffff;
             border: none;
             padding: 8px 16px;
             border-radius: 40px;
@@ -1208,9 +1146,9 @@
             background: #0a66c2;
         }
 
-        /* ========================================================== */
-        /* MODAL CRÉDITOS */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 13. MODAL CRÉDITOS                             */
+        /* ----------------------------------------------- */
         .modal-creditos {
             display: none;
             position: fixed;
@@ -1238,7 +1176,7 @@
             }
         }
         .modal-creditos .conteudo {
-            background: white;
+            background: #ffffff;
             border-radius: 24px;
             padding: 32px 40px;
             max-width: 420px;
@@ -1311,9 +1249,9 @@
             padding-top: 12px;
         }
 
-        /* ========================================================== */
-        /* RESPONSIVIDADE */
-        /* ========================================================== */
+        /* ----------------------------------------------- */
+        /* 14. RESPONSIVIDADE                             */
+        /* ----------------------------------------------- */
         @media (max-width: 640px) {
             .app-container {
                 padding: 16px;
@@ -1331,13 +1269,6 @@
             }
             .resultado-detalhes {
                 grid-template-columns: 1fr 1fr;
-            }
-            .senha-container {
-                padding: 24px;
-            }
-            .senha-container .email-destacado {
-                font-size: 14px;
-                padding: 8px 16px;
             }
             .login-container {
                 padding: 16px;
@@ -1388,9 +1319,9 @@
 </head>
 <body>
 
-    <!-- ========================================================== -->
-    <!-- LANDING PAGE -->
-    <!-- ========================================================== -->
+    <!-- ============================================================== -->
+    <!-- LANDING PAGE                                                   -->
+    <!-- ============================================================== -->
     <div id="landingPage" class="landing-container">
         <div class="landing-content">
             <div class="logo-titulo-grande">
@@ -1409,14 +1340,12 @@
         </div>
     </div>
 
-    <!-- ========================================================== -->
-    <!-- APP -->
-    <!-- ========================================================== -->
+    <!-- ============================================================== -->
+    <!-- APP                                                            -->
+    <!-- ============================================================== -->
     <div id="appContainer" class="app-container">
 
-        <!-- ========================================================== -->
         <!-- CABEÇALHO DO APP -->
-        <!-- ========================================================== -->
         <div class="app-header">
             <div class="logo-mini">
                 <div class="icon">CT</div>
@@ -1434,9 +1363,7 @@
             <span class="header-badge"><i class="fas fa-users"></i> <span id="totalCandidatosApp">0</span> talentos</span>
         </div>
 
-        <!-- ========================================================== -->
         <!-- PÁGINA 1: ESCOLHA -->
-        <!-- ========================================================== -->
         <div id="pageChoice">
             <div style="margin-bottom:20px;">
                 <h2 style="font-weight:400; font-size:22px; color:#1a2632;">Comece sua jornada</h2>
@@ -1468,9 +1395,7 @@
             </div>
         </div>
 
-        <!-- ========================================================== -->
         <!-- PÁGINA 2: LOGIN -->
-        <!-- ========================================================== -->
         <div id="loginSection" class="login-section">
             <div class="back-link" onclick="goHomeApp()"><i class="fas fa-arrow-left"></i> Voltar</div>
             <div class="login-container">
@@ -1508,9 +1433,7 @@
             </div>
         </div>
 
-        <!-- ========================================================== -->
         <!-- PÁGINA 3: DASHBOARD CANDIDATO -->
-        <!-- ========================================================== -->
         <div id="dashboardCandidato" class="dashboard-section">
             <div class="dashboard-header">
                 <div class="dashboard-avatar" id="dashAvatar">A</div>
@@ -1530,13 +1453,14 @@
         </div>
 
         <!-- ========================================================== -->
-        <!-- PÁGINA 4: FORMULÁRIO CANDIDATO -->
+        <!-- PÁGINA 4: FORMULÁRIO CANDIDATO (COM SENHA)                  -->
         <!-- ========================================================== -->
         <div id="formCandidato" class="form-section">
             <div class="back-link" onclick="voltarLogin()"><i class="fas fa-arrow-left"></i> Voltar</div>
             <div class="form-title"><i class="fas fa-clipboard-list"></i> Cadastro de Candidato</div>
             <div class="form-sub">Preencha todos os campos para entrar no banco de talentos</div>
             <form id="candidateForm" onsubmit="event.preventDefault(); submitCandidate();">
+
                 <!-- DADOS PESSOAIS -->
                 <div class="section-title"><i class="fas fa-address-card"></i> DADOS PESSOAIS</div>
                 <div class="form-grid">
@@ -1547,18 +1471,44 @@
                     <div class="form-group full-width"><label><i class="fas fa-wheelchair"></i> Possui deficiência (PCD)?</label><div class="radio-group"><label><input type="radio" name="pcd" value="sim" onchange="document.getElementById('pcdDesc').style.display='block'"> Sim</label><label><input type="radio" name="pcd" value="nao" onchange="document.getElementById('pcdDesc').style.display='none'" checked> Não</label></div></div>
                     <div class="form-group full-width" id="pcdDesc" style="display:none;"><label>Se sim, qual deficiência?</label><input type="text" id="candPcd" placeholder="Ex: visual, motora, auditiva..."></div>
                 </div>
+
                 <!-- Contato -->
                 <div class="section-title"><i class="fas fa-phone-alt"></i> Contato</div>
                 <div class="form-grid">
                     <div class="form-group"><label><i class="fas fa-envelope"></i> E-mail <span class="required-star">*</span></label><input type="email" id="candEmail" placeholder="email@exemplo.com" required></div>
                     <div class="form-group"><label><i class="fab fa-whatsapp"></i> WhatsApp</label><input type="text" id="candWhatsapp" placeholder="(11) 98888-8888"></div>
                 </div>
+
                 <!-- Endereço -->
                 <div class="section-title"><i class="fas fa-map-pin"></i> Endereço</div>
                 <div class="form-grid">
-                    <div class="form-group"><label>Cidade</label><input type="text" id="candCidade" placeholder="São Paulo"></div>
-                    <div class="form-group"><label>Estado</label><select id="candEstado"><option value="">Selecione</option><option>SP</option><option>RJ</option><option>MG</option><option>PR</option><option>SC</option><option>RS</option><option>BA</option><option>PE</option><option>CE</option><option>GO</option><option>DF</option><option>Outro</option></select></div>
+                    <div class="form-group"><label>Cidade</label>
+                        <select id="candCidade">
+                            <option value="">Selecione</option>
+                            <option>Londrina</option>
+                            <option>Apucarana</option>
+                            <option>Cambé</option>
+                            <option>Ibiporã</option>
+                            <option>Rolândia</option>
+                            <option>Arapongas</option>
+                            <option>Jataizinho</option>
+                            <option>Sertanópolis</option>
+                            <option>Bela Vista do Paraíso</option>
+                            <option>Porecatu</option>
+                            <option>Florestópolis</option>
+                            <option>Primeiro de Maio</option>
+                            <option>Tamarana</option>
+                            <option>Campineiro do Sul</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><label>Estado</label>
+                        <select id="candEstado">
+                            <option value="">Selecione</option>
+                            <option>PR</option>
+                        </select>
+                    </div>
                 </div>
+
                 <!-- OBJETIVO PROFISSIONAL -->
                 <div class="section-title"><i class="fas fa-bullseye"></i> OBJETIVO PROFISSIONAL</div>
                 <div class="form-grid">
@@ -1574,20 +1524,50 @@
                     <div class="form-group full-width"><label>Está disponível para viagens?</label><div class="radio-group"><label><input type="radio" name="candViagens" value="sim"> Sim</label><label><input type="radio" name="candViagens" value="nao" checked> Não</label></div></div>
                     <div class="form-group full-width"><label>Aceita mudança de cidade?</label><div class="radio-group"><label><input type="radio" name="candMudanca" value="sim"> Sim</label><label><input type="radio" name="candMudanca" value="nao" checked> Não</label></div></div>
                 </div>
+
                 <!-- FORMAÇÃO ACADÊMICA -->
                 <div class="section-title"><i class="fas fa-graduation-cap"></i> FORMAÇÃO ACADÊMICA</div>
-                <div class="form-group"><label>Escolaridade</label><select id="candEscolaridade"><option value="">Selecione</option><option>Ensino Fundamental</option><option>Ensino Médio</option><option>Técnico</option><option>Superior Incompleto</option><option>Superior Completo</option><option>Pós-graduação</option><option>Mestrado</option><option>Doutorado</option></select></div>
+                <div class="form-group"><label>Escolaridade</label>
+                    <select id="candEscolaridade">
+                        <option value="">Selecione</option>
+                        <option>Ensino Fundamental</option>
+                        <option>Ensino Médio</option>
+                        <option>Técnico</option>
+                        <option>Superior Incompleto</option>
+                        <option>Superior Completo</option>
+                        <option>Pós-graduação</option>
+                        <option>Mestrado</option>
+                        <option>Doutorado</option>
+                    </select>
+                </div>
+
                 <!-- EXPERIÊNCIA -->
                 <div class="section-title"><i class="fas fa-briefcase"></i> EXPERIÊNCIA</div>
                 <div class="form-group"><label>Tempo de experiência (anos)</label><select id="candExperiencia"><option value="0">Menos de 1 ano</option><option value="1">1 ano</option><option value="2">2 anos</option><option value="3">3 anos</option><option value="4">4 anos</option><option value="5">5 anos</option><option value="6">6 anos ou mais</option></select></div>
                 <div class="form-group full-width"><label>Último cargo/empresa</label><input type="text" id="candUltimoCargo" placeholder="Ex: Analista na Empresa X"></div>
+
                 <!-- HABILIDADES -->
                 <div class="section-title"><i class="fas fa-cogs"></i> HABILIDADES</div>
                 <div class="form-group"><label>Nível de Informática</label><select id="candInfo"><option>Básico</option><option>Intermediário</option><option>Avançado</option></select></div>
                 <div class="form-group full-width"><label>Ferramentas que domina</label><div class="checkbox-group"><label><input type="checkbox" value="Pacote Office"> Pacote Office</label><label><input type="checkbox" value="Excel"> Excel</label><label><input type="checkbox" value="Word"> Word</label><label><input type="checkbox" value="PowerPoint"> PowerPoint</label><label><input type="checkbox" value="Canva"> Canva</label><label><input type="checkbox" value="Sistemas ERP"> Sistemas ERP</label><label><input type="checkbox" value="Photoshop"> Photoshop</label><label><input type="checkbox" value="Illustrator"> Illustrator</label><label><input type="checkbox" value="Ferramentas Manuais"> Ferramentas Manuais</label><label><input type="checkbox" value="Equipamentos Elétricos"> Equipamentos Elétricos</label></div></div>
+
+                <!-- SENHA -->
+                <div class="section-title"><i class="fas fa-lock"></i> SENHA DE ACESSO</div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label><i class="fas fa-key"></i> Senha <span class="required-star">*</span></label>
+                        <input type="password" id="candSenha" placeholder="Digite sua senha" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-key"></i> Confirmar senha <span class="required-star">*</span></label>
+                        <input type="password" id="candSenhaConfirm" placeholder="Confirme sua senha" required minlength="6">
+                    </div>
+                </div>
+
                 <!-- LGPD -->
                 <div class="section-title"><i class="fas fa-shield-alt"></i> LGPD e Termos</div>
                 <div class="lgpd-box"><div class="checkbox-group"><label><input type="checkbox" id="candTermos" required> <strong>Concordo com os Termos de Uso.</strong></label><label><input type="checkbox" id="candDados" required> <strong>Autorizo o armazenamento dos meus dados.</strong></label></div></div>
+
                 <div class="btn-group">
                     <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Cadastrar</button>
                     <button type="button" class="btn btn-outline" onclick="voltarLogin()"><i class="fas fa-times"></i> Cancelar</button>
@@ -1597,20 +1577,23 @@
         </div>
 
         <!-- ========================================================== -->
-        <!-- PÁGINA 5: FORMULÁRIO CONTRATANTE -->
+        <!-- PÁGINA 5: FORMULÁRIO CONTRATANTE (COM SENHA)               -->
         <!-- ========================================================== -->
         <div id="formContratante" class="form-section">
             <div class="back-link" onclick="voltarLogin()"><i class="fas fa-arrow-left"></i> Voltar</div>
             <div class="form-title"><i class="fas fa-building"></i> Cadastro do Contratante</div>
             <div class="form-sub">Cadastre-se como empresa ou pessoa física para encontrar os melhores talentos</div>
+
             <div id="etapaEmpresa1" class="etapa-empresa ativa">
                 <form id="empresaForm" onsubmit="event.preventDefault(); cadastrarContratante();">
+
                     <div class="section-title"><i class="fas fa-user-tag"></i> Tipo de Pessoa</div>
                     <div class="tipo-pessoa-selector">
                         <div class="opcao selecionado" id="tipoPessoaJuridica" onclick="selecionarTipoPessoa('juridica')"><i class="fas fa-building"></i> Pessoa Jurídica (CNPJ)</div>
                         <div class="opcao" id="tipoPessoaFisica" onclick="selecionarTipoPessoa('fisica')"><i class="fas fa-user"></i> Pessoa Física (CPF)</div>
                     </div>
                     <input type="hidden" id="tipoPessoa" value="juridica">
+
                     <div class="section-title"><i class="fas fa-address-card"></i> Dados Cadastrais</div>
                     <div class="form-grid">
                         <div class="form-group full-width"><label><i class="fas fa-store"></i> Nome / Razão Social <span class="required-star">*</span></label><input type="text" id="empNome" placeholder="Ex: Conecta Trampo ou João da Silva" required></div>
@@ -1618,25 +1601,58 @@
                         <div class="form-group" id="grupoNomeFantasia"><label><i class="fas fa-tag"></i> Nome Fantasia</label><input type="text" id="empFantasia" placeholder="Ex: Conecta Trampo"></div>
                     </div>
                     <div class="documento-info" id="documentoInfo"><i class="fas fa-info-circle"></i> <span id="documentoInfoText">CNPJ: Para empresas e organizações formais</span></div>
+
                     <div class="section-title"><i class="fas fa-phone-alt"></i> Contato</div>
                     <div class="form-grid">
                         <div class="form-group"><label><i class="fas fa-envelope"></i> E-mail <span class="required-star">*</span></label><input type="email" id="empEmail" placeholder="contato@empresa.com" required></div>
                         <div class="form-group"><label><i class="fab fa-whatsapp"></i> WhatsApp</label><input type="text" id="empWhatsapp" placeholder="(11) 99999-9999"></div>
                     </div>
+
                     <div class="section-title"><i class="fas fa-map-pin"></i> Endereço</div>
                     <div class="form-grid">
-                        <div class="form-group"><label>Cidade</label><input type="text" id="empCidade" placeholder="São Paulo"></div>
-                        <div class="form-group"><label>Estado</label><select id="empEstado"><option value="">Selecione</option><option>SP</option><option>RJ</option><option>MG</option><option>PR</option><option>SC</option><option>RS</option><option>BA</option><option>PE</option><option>CE</option><option>GO</option><option>DF</option><option>Outro</option></select></div>
+                        <div class="form-group"><label>Cidade</label>
+                            <select id="empCidade">
+                                <option value="">Selecione</option>
+                                <option>Londrina</option><option>Apucarana</option><option>Cambé</option>
+                                <option>Ibiporã</option><option>Rolândia</option><option>Arapongas</option>
+                                <option>Jataizinho</option><option>Sertanópolis</option><option>Bela Vista do Paraíso</option>
+                                <option>Porecatu</option><option>Florestópolis</option><option>Primeiro de Maio</option>
+                                <option>Tamarana</option><option>Campineiro do Sul</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label>Estado</label>
+                            <select id="empEstado">
+                                <option value="">Selecione</option>
+                                <option>PR</option>
+                            </select>
+                        </div>
                     </div>
+
                     <div class="section-title"><i class="fas fa-user-tie"></i> Responsável</div>
                     <div class="form-grid">
                         <div class="form-group full-width"><label>Nome do Responsável <span class="required-star">*</span></label><input type="text" id="empResponsavel" placeholder="Nome completo" required></div>
                         <div class="form-group"><label>Cargo / Função</label><input type="text" id="empCargoResponsavel" placeholder="Ex: Gerente de RH ou Autônomo"></div>
                     </div>
+
                     <div class="section-title"><i class="fas fa-info-circle"></i> Sobre você</div>
                     <div class="form-group full-width"><label>Descrição</label><textarea id="empDescricao" placeholder="Descreva sua empresa ou o que você faz..." style="min-height:80px;"></textarea></div>
                     <div class="form-group full-width"><label><i class="fas fa-briefcase"></i> Área de atuação</label><select id="empSegmento"><option value="">Selecione</option><option>Tecnologia da Informação</option><option>Consultoria</option><option>Varejo</option><option>Indústria</option><option>Serviços</option><option>Saúde</option><option>Educação</option><option>Financeiro</option><option>Logística</option><option>Marketing</option><option>Recursos Humanos</option><option>Construção Civil</option><option>Mecânica</option><option>Jardinagem</option><option>Manutenção</option><option>Serviços Gerais</option><option>Autônomo</option><option>Outro</option></select></div>
+
+                    <!-- SENHA -->
+                    <div class="section-title"><i class="fas fa-lock"></i> SENHA DE ACESSO</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-key"></i> Senha <span class="required-star">*</span></label>
+                            <input type="password" id="empSenha" placeholder="Digite sua senha" required minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-key"></i> Confirmar senha <span class="required-star">*</span></label>
+                            <input type="password" id="empSenhaConfirm" placeholder="Confirme sua senha" required minlength="6">
+                        </div>
+                    </div>
+
                     <div class="lgpd-box"><div class="checkbox-group"><label><input type="checkbox" id="empTermos" required> <strong>Concordo com os Termos de Uso.</strong></label></div></div>
+
                     <div class="btn-group">
                         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Cadastrar</button>
                         <button type="button" class="btn btn-outline" onclick="voltarLogin()"><i class="fas fa-times"></i> Cancelar</button>
@@ -1679,7 +1695,14 @@
                         </div>
                         <div class="form-group">
                             <label><i class="fas fa-map-pin"></i> Cidade</label>
-                            <input type="text" id="buscaCidade" placeholder="Ex: São Paulo">
+                            <select id="buscaCidade">
+                                <option value="">Qualquer</option>
+                                <option>Londrina</option><option>Apucarana</option><option>Cambé</option>
+                                <option>Ibiporã</option><option>Rolândia</option><option>Arapongas</option>
+                                <option>Jataizinho</option><option>Sertanópolis</option><option>Bela Vista do Paraíso</option>
+                                <option>Porecatu</option><option>Florestópolis</option><option>Primeiro de Maio</option>
+                                <option>Tamarana</option><option>Campineiro do Sul</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label><i class="fas fa-money-bill"></i> Salário</label>
@@ -1721,47 +1744,15 @@
             </div>
         </div>
 
-        <!-- ========================================================== -->
-        <!-- PÁGINA 6: CRIAÇÃO DE SENHA -->
-        <!-- ========================================================== -->
-        <div id="formSenha" class="form-section">
-            <div class="back-link" onclick="voltarLogin()"><i class="fas fa-arrow-left"></i> Voltar</div>
-            <div id="senhaContainer" class="senha-container">
-                <div class="icone-grande"><i class="fas fa-key"></i></div>
-                <h2>Crie sua senha de acesso</h2>
-                <p>Para finalizar seu cadastro, crie uma senha</p>
-                <div class="email-destacado" id="senhaEmailDisplay">email@exemplo.com</div>
-                <form id="senhaForm" onsubmit="event.preventDefault(); criarSenha();">
-                    <div class="form-group"><label><i class="fas fa-lock"></i> Senha <span class="required-star">*</span></label><input type="password" id="senhaInput" placeholder="Digite sua senha" required minlength="6"></div>
-                    <div class="form-group"><label><i class="fas fa-lock"></i> Confirmar <span class="required-star">*</span></label><input type="password" id="senhaConfirmInput" placeholder="Confirme sua senha" required minlength="6"></div>
-                    <div style="text-align:left; max-width:400px; margin:0 auto 16px; font-size:13px; color:#5a6b7c;"><p><i class="fas fa-info-circle" style="color:#0a66c2;"></i> Mínimo 6 caracteres</p></div>
-                    <div class="btn-group">
-                        <button type="submit" class="btn btn-success"><i class="fas fa-check-circle"></i> Criar Senha</button>
-                        <button type="button" class="btn btn-outline" onclick="voltarLogin()"><i class="fas fa-times"></i> Cancelar</button>
-                    </div>
-                    <div id="senhaFeedback" style="margin-top:16px;"></div>
-                </form>
-                <div id="senhaCriada" class="senha-criada">
-                    <div class="icone-sucesso"><i class="fas fa-check-circle"></i></div>
-                    <h2>Senha criada com sucesso!</h2>
-                    <p>Seu cadastro foi finalizado. Agora você pode acessar com seu e-mail e senha.</p>
-                    <div style="margin-top:24px;"><button class="btn btn-success" onclick="voltarLogin()"><i class="fas fa-sign-in-alt"></i> Fazer Login</button></div>
-                </div>
-            </div>
-        </div>
-
     </div> <!-- FIM APP CONTAINER -->
 
-    <!-- ========================================================== -->
-    <!-- BOTÃO CRÉDITOS -->
-    <!-- ========================================================== -->
+    <!-- ============================================================== -->
+    <!-- BOTÃO E MODAL CRÉDITOS                                         -->
+    <!-- ============================================================== -->
     <button class="btn-creditos" onclick="abrirCreditos()">
         <i class="fas fa-info-circle"></i> Créditos
     </button>
 
-    <!-- ========================================================== -->
-    <!-- MODAL CRÉDITOS -->
-    <!-- ========================================================== -->
     <div id="modalCreditos" class="modal-creditos" onclick="fecharCreditos(event)">
         <div class="conteudo" onclick="event.stopPropagation();">
             <button class="fechar" onclick="fecharCreditos()">&times;</button>
@@ -1785,29 +1776,31 @@
         </div>
     </div>
 
-    <!-- ========================================================== -->
-    <!-- JAVASCRIPT COMPLETO -->
-    <!-- ========================================================== -->
+    <!-- ============================================================== -->
+    <!-- JAVASCRIPT COMPLETO                                            -->
+    <!-- ============================================================== -->
     <script>
-        // ==========================================================
-        // CRÉDITOS
-        // ==========================================================
+        /**
+         * ============================================================
+         * 1. CRÉDITOS (Abrir/Fechar Modal)
+         * ============================================================
+         */
         function abrirCreditos() {
             document.getElementById('modalCreditos').classList.add('ativo');
         }
-
         function fecharCreditos(event) {
             if (event && event.target !== event.currentTarget) return;
             document.getElementById('modalCreditos').classList.remove('ativo');
         }
-
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') document.getElementById('modalCreditos').classList.remove('ativo');
         });
 
-        // ==========================================================
-        // VARIÁVEIS GLOBAIS
-        // ==========================================================
+        /**
+         * ============================================================
+         * 2. VARIÁVEIS GLOBAIS
+         * ============================================================
+         */
         var candidatos = [];
         var contadorId = 1;
         var tipoUsuarioSelecionado = 'candidato';
@@ -1815,15 +1808,16 @@
         var usuarioLogado = null;
         var notificacoes = [];
 
-        // ==========================================================
-        // LANDING PAGE
-        // ==========================================================
+        /**
+         * ============================================================
+         * 3. LANDING PAGE (iniciar/voltar)
+         * ============================================================
+         */
         function iniciarApp() {
             document.getElementById('landingPage').style.display = 'none';
             document.getElementById('appContainer').className = 'app-container active';
             document.getElementById('totalCandidatosApp').textContent = candidatos.length;
         }
-
         function voltarLanding() {
             if (confirm('Tem certeza que deseja voltar? Seu progresso será perdido.')) {
                 document.getElementById('appContainer').className = 'app-container';
@@ -1832,10 +1826,13 @@
             }
         }
 
-        // ==========================================================
-        // BANCO DE DADOS FAKE (3 candidatos por área)
-        // ==========================================================
+        /**
+         * ============================================================
+         * 4. BANCO DE DADOS FAKE (Região de Londrina + Escolaridade por Cargo)
+         * ============================================================
+         */
         function gerarDadosFake() {
+            // Lista de áreas
             var areas = [
                 'Administrativo', 'Financeiro', 'Marketing', 'Vendas', 'Produção',
                 'Logística', 'Recursos Humanos', 'Tecnologia', 'Saúde', 'Educação',
@@ -1845,6 +1842,7 @@
                 'Design', 'Comunicação'
             ];
 
+            // Cargos por área
             var cargosPorArea = {
                 'Administrativo': ['Assistente Administrativo', 'Auxiliar Administrativo', 'Analista Administrativo'],
                 'Financeiro': ['Analista Financeiro', 'Auxiliar Financeiro', 'Contador'],
@@ -1872,25 +1870,63 @@
                 'Comunicação': ['Social Media', 'Analista de Comunicação', 'Jornalista']
             };
 
-            var cidades = ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Curitiba', 'Porto Alegre', 'Brasília', 'Salvador', 'Recife', 'Fortaleza', 'Manaus'];
-            var escolaridades = ['Ensino Médio', 'Técnico', 'Superior Completo', 'Pós-graduação'];
+            // Cidades da região de Londrina
+            var cidadesRegiao = [
+                'Londrina', 'Apucarana', 'Cambé', 'Ibiporã', 'Rolândia',
+                'Arapongas', 'Jataizinho', 'Sertanópolis', 'Bela Vista do Paraíso',
+                'Porecatu', 'Florestópolis', 'Primeiro de Maio', 'Tamarana', 'Campineiro do Sul'
+            ];
+
+            // Lista de escolaridades por perfil
+            var escolaridadesPorPerfil = {
+                'operacional': ['Ensino Fundamental', 'Ensino Médio'],
+                'tecnico': ['Ensino Médio', 'Técnico', 'Superior Incompleto'],
+                'superior': ['Superior Completo', 'Pós-graduação', 'Mestrado']
+            };
+
+            // Mapear quais cargos são operacionais, técnicos ou superiores
+            var cargosOperacionais = ['Pedreiro', 'Faxineiro', 'Jardineiro', 'Auxiliar de Jardinagem', 'Mecânico',
+                'Auxiliar de Mecânica', 'Motorista', 'Operador de Produção', 'Serviços Gerais', 'Agente de Segurança',
+                'Vigilante', 'Auxiliar de Cozinha', 'Manutenção'
+            ];
+            var cargosTecnicos = ['Técnico de Produção', 'Técnico em Mecânica', 'Técnico em Enfermagem', 'Técnico em Engenharia',
+                'Auxiliar Administrativo', 'Auxiliar Financeiro', 'Auxiliar de RH', 'Auxiliar de Logística',
+                'Auxiliar de Compras', 'Auxiliar de Educação', 'Analista Jurídico', 'Analista de Atendimento',
+                'Coordenador de Segurança', 'Coordenador de Transporte'
+            ];
+            // Os demais serão considerados 'superior'
+
             var disponibilidades = ['Imediata', '15 dias', '30 dias'];
             var nomesArray = ['Ana', 'Carlos', 'Mariana', 'João', 'Fernanda', 'Rafael', 'Patrícia', 'Lucas', 'Juliana', 'Bruno',
                 'Camila', 'Diego', 'Letícia', 'André', 'Tatiana', 'Felipe', 'Carolina', 'Gustavo', 'Isabela', 'Renato'
             ];
             var sobrenomes = ['Silva', 'Santos', 'Oliveira', 'Pereira', 'Costa', 'Rodrigues', 'Almeida', 'Nascimento', 'Lima', 'Araujo'];
 
+            // Percorrer áreas
             areas.forEach(function(area) {
                 var cargos = cargosPorArea[area] || ['Profissional de ' + area];
                 for (var i = 0; i < 3; i++) {
                     var nome = nomesArray[Math.floor(Math.random() * nomesArray.length)] + ' ' +
                         sobrenomes[Math.floor(Math.random() * sobrenomes.length)];
                     var cargo = cargos[i % cargos.length];
-                    var cidade = cidades[Math.floor(Math.random() * cidades.length)];
-                    var escolaridade = escolaridades[Math.floor(Math.random() * escolaridades.length)];
+
+                    // Definir escolaridade com base no cargo
+                    var escolaridadeEscolhida = 'Ensino Médio';
+                    if (cargosOperacionais.indexOf(cargo) !== -1) {
+                        var lista = escolaridadesPorPerfil['operacional'];
+                        escolaridadeEscolhida = lista[Math.floor(Math.random() * lista.length)];
+                    } else if (cargosTecnicos.indexOf(cargo) !== -1) {
+                        var lista = escolaridadesPorPerfil['tecnico'];
+                        escolaridadeEscolhida = lista[Math.floor(Math.random() * lista.length)];
+                    } else {
+                        var lista = escolaridadesPorPerfil['superior'];
+                        escolaridadeEscolhida = lista[Math.floor(Math.random() * lista.length)];
+                    }
+
+                    var cidade = cidadesRegiao[Math.floor(Math.random() * cidadesRegiao.length)];
                     var disponibilidade = disponibilidades[Math.floor(Math.random() * disponibilidades.length)];
                     var exp = Math.floor(Math.random() * 6) + 1;
-                    var salario = 'R$ ' + (Math.floor(Math.random() * 7000) + 2000) + ',00';
+                    var salario = 'R$ ' + (Math.floor(Math.random() * 7000) + 1500) + ',00';
                     var habilidades = [];
                     var todasHabilidades = ['Pacote Office', 'Excel', 'Word', 'PowerPoint', 'Canva', 'Sistemas ERP', 'Photoshop',
                         'Illustrator', 'Ferramentas Manuais', 'Equipamentos Elétricos'
@@ -1906,12 +1942,12 @@
                         email: nome.toLowerCase().replace(/ /g, '.') + '@email.com',
                         whatsapp: '11' + (Math.floor(Math.random() * 90000000) + 10000000).toString(),
                         cidade: cidade,
-                        estado: 'SP',
+                        estado: 'PR',
                         cargo: cargo,
                         area: area,
                         salario: salario,
                         disponibilidade: disponibilidade,
-                        escolaridade: escolaridade,
+                        escolaridade: escolaridadeEscolhida,
                         experiencia: exp,
                         pcd: Math.random() > 0.9 ? 'sim' : 'nao',
                         viagens: Math.random() > 0.5 ? 'sim' : 'nao',
@@ -1950,9 +1986,11 @@
             });
         }
 
-        // ==========================================================
-        // NAVEGAÇÃO
-        // ==========================================================
+        /**
+         * ============================================================
+         * 5. NAVEGAÇÃO DO APP
+         * ============================================================
+         */
         function goHomeApp() {
             document.getElementById('pageChoice').style.display = 'block';
             document.getElementById('loginSection').style.display = 'none';
@@ -1961,8 +1999,6 @@
             document.getElementById('formCandidato').classList.remove('active');
             document.getElementById('formContratante').style.display = 'none';
             document.getElementById('formContratante').classList.remove('active');
-            document.getElementById('formSenha').style.display = 'none';
-            document.getElementById('formSenha').classList.remove('active');
             document.getElementById('dashboardCandidato').style.display = 'none';
             document.getElementById('dashboardCandidato').classList.remove('active');
             document.getElementById('headerMenu').style.display = 'none';
@@ -2004,8 +2040,6 @@
             document.getElementById('formCandidato').classList.remove('active');
             document.getElementById('formContratante').style.display = 'none';
             document.getElementById('formContratante').classList.remove('active');
-            document.getElementById('formSenha').style.display = 'none';
-            document.getElementById('formSenha').classList.remove('active');
             document.getElementById('dashboardCandidato').style.display = 'none';
             document.getElementById('dashboardCandidato').classList.remove('active');
             document.getElementById('headerMenu').style.display = 'none';
@@ -2041,9 +2075,11 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ==========================================================
-        // LOGIN
-        // ==========================================================
+        /**
+         * ============================================================
+         * 6. LOGIN
+         * ============================================================
+         */
         function fazerLogin() {
             var email = document.getElementById('loginEmail').value;
             var senha = document.getElementById('loginSenha').value;
@@ -2081,9 +2117,11 @@
             }
         }
 
-        // ==========================================================
-        // DASHBOARD
-        // ==========================================================
+        /**
+         * ============================================================
+         * 7. DASHBOARD
+         * ============================================================
+         */
         function mostrarDashboard(usuario) {
             document.getElementById('loginSection').style.display = 'none';
             document.getElementById('loginSection').classList.remove('active');
@@ -2144,9 +2182,11 @@
             }
         }
 
-        // ==========================================================
-        // TIPO DE PESSOA
-        // ==========================================================
+        /**
+         * ============================================================
+         * 8. TIPO DE PESSOA (contratante)
+         * ============================================================
+         */
         function selecionarTipoPessoa(tipo) {
             document.getElementById('tipoPessoa').value = tipo;
             var btnJuridica = document.getElementById('tipoPessoaJuridica');
@@ -2174,9 +2214,11 @@
             }
         }
 
-        // ==========================================================
-        // CADASTRO DO CANDIDATO
-        // ==========================================================
+        /**
+         * ============================================================
+         * 9. CADASTRO DO CANDIDATO (COM SENHA E VALIDAÇÃO)
+         * ============================================================
+         */
         function submitCandidate() {
             var nome = document.getElementById('candNome').value;
             var email = document.getElementById('candEmail').value;
@@ -2188,22 +2230,57 @@
             var disponibilidade = document.getElementById('candDisponibilidade').value;
             var escolaridade = document.getElementById('candEscolaridade').value;
             var experiencia = parseInt(document.getElementById('candExperiencia').value);
+            var senha = document.getElementById('candSenha').value;
+            var senhaConfirm = document.getElementById('candSenhaConfirm').value;
             var termo1 = document.getElementById('candTermos').checked;
             var termo2 = document.getElementById('candDados').checked;
-            if (!nome || !email || !termo1 || !termo2) {
-                document.getElementById('formFeedback').innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios.</div>`;
+
+            if (!nome || !email || !senha || !senhaConfirm || !termo1 || !termo2) {
+                document.getElementById('formFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios e aceite os termos.
+                    </div>
+                `;
                 return;
             }
+
+            if (senha.length < 6) {
+                document.getElementById('formFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i> A senha deve ter no mínimo 6 caracteres.
+                    </div>
+                `;
+                return;
+            }
+
+            if (senha !== senhaConfirm) {
+                document.getElementById('formFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i> As senhas não coincidem.
+                    </div>
+                `;
+                return;
+            }
+
             if (usuariosCadastrados.some(function(u) { return u.email === email; })) {
-                document.getElementById('formFeedback').innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> Este e-mail já está cadastrado.</div>`;
+                document.getElementById('formFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i> Este e-mail já está cadastrado.
+                    </div>
+                `;
                 return;
             }
+
             var habilidades = [];
-            document.querySelectorAll('#candidateForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) { habilidades.push(el.value); });
+            document.querySelectorAll('#candidateForm .checkbox-group input[type="checkbox"]:checked').forEach(function(el) {
+                habilidades.push(el.value);
+            });
+
             var pcd = document.querySelector('input[name="pcd"]:checked');
             var viagens = document.querySelector('input[name="candViagens"]:checked');
             var mudanca = document.querySelector('input[name="candMudanca"]:checked');
-            candidatos.push({
+
+            var novoCandidato = {
                 id: contadorId++,
                 nome: nome,
                 email: email,
@@ -2219,98 +2296,124 @@
                 viagens: viagens ? viagens.value : 'nao',
                 mudanca: mudanca ? mudanca.value : 'nao',
                 habilidades: habilidades
+            };
+            candidatos.push(novoCandidato);
+
+            usuariosCadastrados.push({
+                email: email,
+                senha: senha,
+                nome: nome,
+                tipo: 'candidato'
             });
-            usuariosCadastrados.push({ email: email, senha: 'senha123', nome: nome, tipo: 'candidato' });
-            document.getElementById('formFeedback').innerHTML = `<div class="toast-message"><i class="fas fa-check-circle"></i> Cadastro realizado! Agora crie sua senha.</div>`;
+
+            document.getElementById('formFeedback').innerHTML = `
+                <div class="toast-message">
+                    <i class="fas fa-check-circle"></i> Cadastro realizado com sucesso! Você já pode fazer login.
+                </div>
+            `;
+
             document.getElementById('candidateForm').reset();
+            document.getElementById('pcdDesc').style.display = 'none';
             document.getElementById('totalCandidatosApp').textContent = candidatos.length;
-            setTimeout(function() { mostrarTelaSenha(email, 'candidato'); }, 1500);
+
+            // Redireciona para o login após 2 segundos
+            setTimeout(function() {
+                voltarLogin();
+                document.getElementById('loginEmail').value = email;
+                document.getElementById('loginSenha').value = senha;
+                document.getElementById('erroLoginApp').className = 'erro-login visivel';
+                document.getElementById('erroLoginApp').innerHTML = '<i class="fas fa-check-circle" style="color:#2e7d32;"></i> Cadastro realizado! Faça login para continuar.';
+                document.getElementById('erroLoginApp').style.background = '#e8f5e9';
+                document.getElementById('erroLoginApp').style.borderLeftColor = '#2e7d32';
+            }, 2000);
         }
 
-        // ==========================================================
-        // CADASTRO DO CONTRATANTE
-        // ==========================================================
+        /**
+         * ============================================================
+         * 10. CADASTRO DO CONTRATANTE (COM SENHA E VALIDAÇÃO)
+         * ============================================================
+         */
         function cadastrarContratante() {
             var nome = document.getElementById('empNome').value;
             var documento = document.getElementById('empDocumento').value;
             var email = document.getElementById('empEmail').value;
             var responsavel = document.getElementById('empResponsavel').value;
+            var senha = document.getElementById('empSenha').value;
+            var senhaConfirm = document.getElementById('empSenhaConfirm').value;
             var termo = document.getElementById('empTermos').checked;
             var tipo = document.getElementById('tipoPessoa').value;
-            if (!nome || !documento || !email || !responsavel || !termo) {
-                document.getElementById('empresaFeedback').innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios.</div>`;
+
+            if (!nome || !documento || !email || !responsavel || !senha || !senhaConfirm || !termo) {
+                document.getElementById('empresaFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios.
+                    </div>
+                `;
                 return;
             }
+
+            if (senha.length < 6) {
+                document.getElementById('empresaFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i> A senha deve ter no mínimo 6 caracteres.
+                    </div>
+                `;
+                return;
+            }
+
+            if (senha !== senhaConfirm) {
+                document.getElementById('empresaFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i> As senhas não coincidem.
+                    </div>
+                `;
+                return;
+            }
+
             if (usuariosCadastrados.some(function(u) { return u.email === email; })) {
-                document.getElementById('empresaFeedback').innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> Este e-mail já está cadastrado.</div>`;
+                document.getElementById('empresaFeedback').innerHTML = `
+                    <div class="toast-message toast-error">
+                        <i class="fas fa-exclamation-circle"></i> Este e-mail já está cadastrado.
+                    </div>
+                `;
                 return;
             }
-            usuariosCadastrados.push({ email: email, senha: 'senha123', nome: responsavel, tipo: 'contratante', empresa: nome, documento: documento });
-            document.getElementById('empresaFeedback').innerHTML = `<div class="toast-message"><i class="fas fa-check-circle"></i> Cadastro realizado! Agora defina os critérios.</div>`;
+
+            usuariosCadastrados.push({
+                email: email,
+                senha: senha,
+                nome: responsavel,
+                tipo: 'contratante',
+                empresa: nome,
+                documento: documento
+            });
+
+            document.getElementById('empresaFeedback').innerHTML = `
+                <div class="toast-message">
+                    <i class="fas fa-check-circle"></i> Cadastro realizado com sucesso! Agora defina os critérios de busca.
+                </div>
+            `;
+
             setTimeout(function() {
                 document.getElementById('etapaEmpresa1').className = 'etapa-empresa';
                 document.getElementById('etapaEmpresa2').className = 'etapa-empresa ativa';
                 document.getElementById('empresaFeedback').innerHTML = '';
                 document.getElementById('headerMenu').style.display = 'flex';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 1000);
-        }
-
-        // ==========================================================
-        // TELA DE SENHA
-        // ==========================================================
-        function mostrarTelaSenha(email, tipo) {
-            document.getElementById('formCandidato').style.display = 'none';
-            document.getElementById('formCandidato').classList.remove('active');
-            document.getElementById('formContratante').style.display = 'none';
-            document.getElementById('formContratante').classList.remove('active');
-            document.getElementById('formSenha').style.display = 'block';
-            document.getElementById('formSenha').classList.add('active');
-            document.getElementById('senhaEmailDisplay').textContent = email;
-            document.getElementById('senhaForm').style.display = 'block';
-            document.getElementById('senhaCriada').className = 'senha-criada';
-            document.getElementById('senhaFeedback').innerHTML = '';
-            document.getElementById('senhaInput').value = '';
-            document.getElementById('senhaConfirmInput').value = '';
-            document.getElementById('senhaForm').dataset.tipo = tipo;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function criarSenha() {
-            var senha = document.getElementById('senhaInput').value;
-            var confirmar = document.getElementById('senhaConfirmInput').value;
-            var feedback = document.getElementById('senhaFeedback');
-            var email = document.getElementById('senhaEmailDisplay').textContent;
-            var tipo = document.getElementById('senhaForm').dataset.tipo || 'candidato';
-            if (senha.length < 6) {
-                feedback.innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> Mínimo 6 caracteres.</div>`;
-                return;
-            }
-            if (senha !== confirmar) {
-                feedback.innerHTML = `<div class="toast-message toast-error"><i class="fas fa-exclamation-circle"></i> As senhas não coincidem.</div>`;
-                return;
-            }
-            var usuario = usuariosCadastrados.find(function(u) { return u.email === email; });
-            if (usuario) usuario.senha = senha;
-            feedback.innerHTML = `<div class="toast-message"><i class="fas fa-spinner fa-spin"></i> Criando conta...</div>`;
-            setTimeout(function() {
-                document.getElementById('senhaForm').style.display = 'none';
-                document.getElementById('senhaCriada').className = 'senha-criada ativa';
-                feedback.innerHTML = '';
-                var msg = tipo === 'candidato' ? 'candidato' : 'contratante';
-                document.querySelector('#senhaCriada p').textContent = 'Seu cadastro como ' + msg + ' foi finalizado. Faça login.';
             }, 1500);
         }
 
-        // ==========================================================
-        // BUSCAR CANDIDATOS (CORRIGIDO)
-        // ==========================================================
+        /**
+         * ============================================================
+         * 11. BUSCAR CANDIDATOS (Filtro por região e área)
+         * ============================================================
+         */
         function buscarCandidatos() {
             var cargo = document.getElementById('buscaCargo').value.toLowerCase();
             var area = document.getElementById('buscaArea').value;
             var escolaridade = document.getElementById('buscaEscolaridade').value;
             var experienciaMin = parseInt(document.getElementById('buscaExperiencia').value) || 0;
-            var cidade = document.getElementById('buscaCidade').value.toLowerCase();
+            var cidadeFiltro = document.getElementById('buscaCidade').value;
             var pcd = document.querySelector('input[name="buscaPcd"]:checked');
             var pcdValor = pcd ? pcd.value : '';
             var habilidadesDesejadas = [];
@@ -2340,7 +2443,11 @@
             }
 
             var resultados = candidatos.filter(function(cand) {
+                // Filtro obrigatório: área
                 if (cand.area !== area) return false;
+
+                // Filtro: cidade (se selecionada)
+                if (cidadeFiltro && cand.cidade !== cidadeFiltro) return false;
 
                 var matchCount = 0;
                 var totalCriteria = 0;
@@ -2355,10 +2462,6 @@
                 totalCriteria++;
                 if (experienciaMin > 0 && cand.experiencia >= experienciaMin) matchCount++;
                 else if (experienciaMin === 0) matchCount++;
-
-                totalCriteria++;
-                if (cidade && cand.cidade && cand.cidade.toLowerCase().includes(cidade)) matchCount++;
-                else if (!cidade) matchCount++;
 
                 totalCriteria++;
                 if (pcdValor && cand.pcd === pcdValor) matchCount++;
@@ -2444,9 +2547,11 @@
             document.getElementById('listaResultados').innerHTML = '';
         }
 
-        // ==========================================================
-        // INICIALIZAR
-        // ==========================================================
+        /**
+         * ============================================================
+         * 12. INICIALIZAR
+         * ============================================================
+         */
         document.addEventListener('DOMContentLoaded', function() {
             gerarDadosFake();
             goHomeApp();
