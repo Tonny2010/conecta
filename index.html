@@ -1584,16 +1584,23 @@
             <div class="form-title"><i class="fas fa-building"></i> Cadastro do Contratante</div>
             <div class="form-sub">Cadastre-se como empresa ou pessoa física para encontrar os melhores talentos</div>
 
+            <!-- ===== ETAPA 1: CADASTRO ===== -->
             <div id="etapaEmpresa1" class="etapa-empresa ativa">
                 <form id="empresaForm" onsubmit="event.preventDefault(); cadastrarContratante();">
 
+                    <!-- TIPO DE PESSOA -->
                     <div class="section-title"><i class="fas fa-user-tag"></i> Tipo de Pessoa</div>
                     <div class="tipo-pessoa-selector">
-                        <div class="opcao selecionado" id="tipoPessoaJuridica" onclick="selecionarTipoPessoa('juridica')"><i class="fas fa-building"></i> Pessoa Jurídica (CNPJ)</div>
-                        <div class="opcao" id="tipoPessoaFisica" onclick="selecionarTipoPessoa('fisica')"><i class="fas fa-user"></i> Pessoa Física (CPF)</div>
+                        <div class="opcao selecionado" id="tipoPessoaJuridica" onclick="selecionarTipoPessoa('juridica')">
+                            <i class="fas fa-building"></i> Pessoa Jurídica (CNPJ)
+                        </div>
+                        <div class="opcao" id="tipoPessoaFisica" onclick="selecionarTipoPessoa('fisica')">
+                            <i class="fas fa-user"></i> Pessoa Física (CPF)
+                        </div>
                     </div>
                     <input type="hidden" id="tipoPessoa" value="juridica">
 
+                    <!-- DADOS CADASTRAIS -->
                     <div class="section-title"><i class="fas fa-address-card"></i> Dados Cadastrais</div>
                     <div class="form-grid">
                         <div class="form-group full-width"><label><i class="fas fa-store"></i> Nome / Razão Social <span class="required-star">*</span></label><input type="text" id="empNome" placeholder="Ex: Conecta Trampo ou João da Silva" required></div>
@@ -1602,12 +1609,14 @@
                     </div>
                     <div class="documento-info" id="documentoInfo"><i class="fas fa-info-circle"></i> <span id="documentoInfoText">CNPJ: Para empresas e organizações formais</span></div>
 
+                    <!-- CONTATO -->
                     <div class="section-title"><i class="fas fa-phone-alt"></i> Contato</div>
                     <div class="form-grid">
                         <div class="form-group"><label><i class="fas fa-envelope"></i> E-mail <span class="required-star">*</span></label><input type="email" id="empEmail" placeholder="contato@empresa.com" required></div>
                         <div class="form-group"><label><i class="fab fa-whatsapp"></i> WhatsApp</label><input type="text" id="empWhatsapp" placeholder="(11) 99999-9999"></div>
                     </div>
 
+                    <!-- ENDEREÇO -->
                     <div class="section-title"><i class="fas fa-map-pin"></i> Endereço</div>
                     <div class="form-grid">
                         <div class="form-group"><label>Cidade</label>
@@ -1628,12 +1637,14 @@
                         </div>
                     </div>
 
+                    <!-- RESPONSÁVEL -->
                     <div class="section-title"><i class="fas fa-user-tie"></i> Responsável</div>
                     <div class="form-grid">
                         <div class="form-group full-width"><label>Nome do Responsável <span class="required-star">*</span></label><input type="text" id="empResponsavel" placeholder="Nome completo" required></div>
                         <div class="form-group"><label>Cargo / Função</label><input type="text" id="empCargoResponsavel" placeholder="Ex: Gerente de RH ou Autônomo"></div>
                     </div>
 
+                    <!-- SOBRE VOCÊ -->
                     <div class="section-title"><i class="fas fa-info-circle"></i> Sobre você</div>
                     <div class="form-group full-width"><label>Descrição</label><textarea id="empDescricao" placeholder="Descreva sua empresa ou o que você faz..." style="min-height:80px;"></textarea></div>
                     <div class="form-group full-width"><label><i class="fas fa-briefcase"></i> Área de atuação</label><select id="empSegmento"><option value="">Selecione</option><option>Tecnologia da Informação</option><option>Consultoria</option><option>Varejo</option><option>Indústria</option><option>Serviços</option><option>Saúde</option><option>Educação</option><option>Financeiro</option><option>Logística</option><option>Marketing</option><option>Recursos Humanos</option><option>Construção Civil</option><option>Mecânica</option><option>Jardinagem</option><option>Manutenção</option><option>Serviços Gerais</option><option>Autônomo</option><option>Outro</option></select></div>
@@ -1651,8 +1662,10 @@
                         </div>
                     </div>
 
+                    <!-- LGPD -->
                     <div class="lgpd-box"><div class="checkbox-group"><label><input type="checkbox" id="empTermos" required> <strong>Concordo com os Termos de Uso.</strong></label></div></div>
 
+                    <!-- BOTÕES -->
                     <div class="btn-group">
                         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Cadastrar</button>
                         <button type="button" class="btn btn-outline" onclick="voltarLogin()"><i class="fas fa-times"></i> Cancelar</button>
@@ -1661,6 +1674,7 @@
                 </form>
             </div>
 
+            <!-- ===== ETAPA 2: BUSCA ===== -->
             <div id="etapaEmpresa2" class="etapa-empresa">
                 <div class="back-link" onclick="voltarEtapa1()"><i class="fas fa-arrow-left"></i> Voltar dados</div>
                 <div class="form-title"><i class="fas fa-search"></i> Encontrar Talentos</div>
@@ -1777,7 +1791,7 @@
     </div>
 
     <!-- ============================================================== -->
-    <!-- JAVASCRIPT COMPLETO                                            -->
+    <!-- JAVASCRIPT COMPLETO (CORRIGIDO)                               -->
     <!-- ============================================================== -->
     <script>
         /**
